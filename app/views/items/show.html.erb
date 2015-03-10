@@ -4,5 +4,7 @@
 <p> <%= @item.description %> $<%= @item.price %></p>
 
 
-<img src=<%=@item.image%> width=100px>
+<p><img src=<%=@item.image%> width=100px></p>
 
+<p><%= link_to "Edit Item", edit_item_path(@item) %></p>
+<%= link_to "Delete", item_path(@item), method: :delete %>
