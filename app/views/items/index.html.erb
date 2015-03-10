@@ -1,10 +1,9 @@
 <h1>Welcome to the Road Kill Cafe</h1>
 
- 
- <ul>
+<ul>
   <% @items.each do |item| %>
-  <li> <%= link_to item.title, item_path(item) %> </li>
+    <li> <%= link_to item.title, item_path(item) %> </li>
   <% end %>
- </ul>
+</ul>
 
- <%= link_to "Create Item", new_item_path %>
+<%= link_to "Create Item", new_item_path %>

@@ -1,25 +1,23 @@
-	<h2>  Details for Order ID: <%=@order.id %>  </h2>
+<h2>  Details for Order ID: <%=@order.id %>  </h2>
 
-	 	<ul>
-	 		<li> Date ordered: </li>
-	 		<li> Time ordered </li>
-	 		<li> Purchaser name </li>
-	 		<li> Email </li>
-	 	</ul>
+<ul>
+  <li> Date ordered: </li>
+  <li> Time ordered </li>
+  <li> Purchaser name </li>
+  <li> Email </li>
+</ul>
 
-	 <table border ="1">
-	 	<p> Items Purchased </p>
-	  <tr>
-	    <th>Item name &nbsp; &nbsp; &nbsp;</th>
-	    <th>Quantity &nbsp; &nbsp; &nbsp;</th>
-	    <th> Price </th>
-	    <th> Subtotal &nbsp; &nbsp; &nbsp;</th>
-	  </tr>
-	</table>
+<table border ="1">
+  <p> Items Purchased </p>
+  <tr>
+    <th>Item name &nbsp; &nbsp; &nbsp;</th>
+    <th>Quantity &nbsp; &nbsp; &nbsp;</th>
+    <th> Price </th>
+    <th> Subtotal &nbsp; &nbsp; &nbsp;</th>
+  </tr>
+</table>
 
 <p> Total cost for the order: </p>
 <p> Status of the order: </p>
 
-
 <%= link_to "orders", orders_path %>
-

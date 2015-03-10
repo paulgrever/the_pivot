@@ -1,25 +1,26 @@
 require 'rails_helper'
 
 describe "the item view", type: :feature do
-  let(:item) do 
+  let(:item) do
     Item.create(title: "Possum Stew",
-               description: "Savory stew made with fresh possum", 
-               image: "www.possum.com", 
-               item_status_id: 1, 
-               price: 2.35)
+                description: "Savory stew made with fresh possum",
+                image: "www.possum.com",
+                item_status_id: 1,
+                price: 2.35)
   end
-  let(:item2) do 
+
+  let(:item2) do
     Item.create(title: "Possum2 Stew",
-               description: "Savory stew made with fresh possum", 
-               image: "www.possum.com", 
-               item_status_id: 1, 
-               price: 2.35)
+                description: "Savory stew made with fresh possum",
+                image: "www.possum.com",
+                item_status_id: 1,
+                price: 2.35)
   end
 
   it "displays all the items on the index page" do
     item
     visit items_path
-    expect(page).to have_content("Possum Stew")    
+    expect(page).to have_content("Possum Stew")
   end
 
   it "displays the description of the individual item on the show page" do
@@ -35,7 +36,7 @@ describe "the item view", type: :feature do
     click_link_or_button("Create Item")
     fill_in('item[title]', with: "Racoon Ragu" )
     fill_in('item[description]', with: "A bandit of a meal" )
-    fill_in('item[price]', with: 5.34)    
+    fill_in('item[price]', with: 5.34)
     click_link_or_button("Create Item")
     expect(page).to have_content("Racoon Ragu")
     expect(current_path).to eq(items_path)
@@ -46,7 +47,7 @@ describe "the item view", type: :feature do
     click_link_or_button("Edit Item")
     fill_in('item[title]', with: "Racoon Ragu" )
     fill_in('item[description]', with: "A bandit of a meal" )
-    fill_in('item[price]', with: 5.34)    
+    fill_in('item[price]', with: 5.34)
     click_link_or_button("Update Item")
     expect(page).to have_content('Racoon Ragu')
     expect(current_path). to eq(item_path(item))

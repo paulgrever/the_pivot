@@ -1,13 +1,11 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = Order.all
+    authorize! :manage, Order
+  end
 
-
-	def index
-		@orders = Order.all
-	end
-
-	def show
-		@order = Order.find(params[:id])
-	end
-
-	
+  def show
+    @order = Order.find(params[:id])
+    authorize! :view, @order
+  end
 end
