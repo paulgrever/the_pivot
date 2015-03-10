@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DinnerDash</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= flash[:notice] %>
-<%= yield %>
-
-</body>
+  <head>
+    <title>DinnerDash</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= flash[:notice] %>
+    <% if current_user %>
+      <%= link_to "Sign out", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in", login_path %>
+    <% end %>
+    <%= yield %>
+  </body>
 </html>
