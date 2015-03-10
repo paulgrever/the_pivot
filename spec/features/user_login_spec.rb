@@ -1,19 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe "the user authentication feature", type: :feature do
-  let(:valid_user) { User.create(email: "paul@mail.com", full_name: 'Paul', password: "paul") }
-
   context 'a valid user logs in' do
     before :each do
-      valid_user
+      @user = FactoryGirl.create(:user)
       visit login_path
-      fill_in("session_email", with: 'paul@mail.com')
-      fill_in("session_password", with: 'paul')
-      click_link_or_button 'Sign in'
+      fill_in("session_email", with: @user.email)
+      fill_in("session_password", with: @user.password)
+      click_button 'Sign in'
     end
 
     it 'allows the user to log in' do
-      expect(page).to have_content('Welcome, Paul.')
+      expect(page).to have_content("Welcome, #{@user.full_name}.")
     end
 
     it 'allows the user to logout in' do
@@ -24,12 +22,10 @@ RSpec.describe "the user authentication feature", type: :feature do
   end
 
   it 'prevents an invalid user from logging in' do
-    valid_user
     visit login_path
     fill_in("session_email", with: 'paul@mail.com')
     fill_in("session_password", with: 'not paul')
-    click_link_or_button "Sign in"
+    click_button "Sign in"
     expect(page).to have_content('Invalid login.')
   end
-
 end

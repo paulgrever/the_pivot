@@ -1,28 +1,39 @@
 require 'rails_helper'
 
 describe "the order view", type: :feature do
-  let(:order) do
-    Order.create(user_id: 3, status_id: 2)
+
+  before :each do
+    @admin = FactoryGirl.create(:admin)
+    @order = FactoryGirl.create(:order)
+    visit login_path
+    fill_in("session_email", with: @admin.email)
+    fill_in("session_password", with: @admin.password)
+    click_button 'Sign in'
+    visit orders_path
   end
 
   it "displays all the orders on the index page" do
-    order
-    visit orders_path
     expect(page).to have_content("Orders")
   end
 
-  it "displays links for each indivdual order" do
-    order
-    visit orders_path
+  it "displays links for each individual order" do
     expect(page).to have_content("click here")
   end
 
   it "shows each orders indivdual information" do
-    order
+    click_link_or_button( 'click here')
+    expect(page).to have_content("Details for Order ID:")
+  end
+
+  it "displays the order status" do
+    visit orders_path
+    expect(page).to have_content(@order.status_id)
+  end
+
+  it "displays order date and time" do
     visit orders_path
     click_link_or_button( 'click here')
-
-    expect(page).to have_content("Details for Order ID:")
+    expect(page).to have_content("Date")
   end
 
   xit "displays a total number of orders by status type" do
@@ -35,22 +46,7 @@ describe "the order view", type: :feature do
   end
 
   xit "displays total for the order" do
-    order
     visit orders_path
     expect(page).to have_content("Cost")
   end
-
-  it "displays the order status" do
-    order
-    visit orders_path
-    expect(page).to have_content(order.status_id)
-  end
-
-  it "displays order date and time" do
-    order
-    visit orders_path
-    click_link_or_button( 'click here')
-    expect(page).to have_content("Date")
-  end
-
 end
