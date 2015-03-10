@@ -11,7 +11,7 @@ describe "the category view", type: :feature do
       fill_in("session_email", with: @admin.email)
       fill_in("session_password", with: @admin.password)
       click_button 'Sign in'
-      visit categories_path
+      visit admin_categories_path
     end
 
     it "can view a list of all available categories " do
