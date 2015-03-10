@@ -34,6 +34,7 @@ RSpec.describe Item, type: :model do
     item.description = ""
     expect(item).to_not be_valid 
   end
+  
   it "is invalid with duplicate titles" do
     item
     item2 = Item.new(title: "Possum Stew", description: "Savory stew made with fresh possum", image: "www.possum.com", item_status_id: 1, price: 2.35)
