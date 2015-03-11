@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
-    authorize! :manage, Order
+    @orders = current_user.orders 
+    authorize! :view, Order
   end
 
   def show

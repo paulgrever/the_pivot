@@ -5,6 +5,8 @@ describe "the order view", type: :feature do
   before :each do
     @admin = FactoryGirl.create(:admin)
     @order = FactoryGirl.create(:order)
+    @order2 = FactoryGirl.create(:order)
+    @user = FactoryGirl.create(:user)
     visit login_path
     fill_in("session_email", with: @admin.email)
     fill_in("session_password", with: @admin.password)
@@ -16,12 +18,14 @@ describe "the order view", type: :feature do
     expect(page).to have_content("Orders")
   end
 
-  it "displays links for each individual order" do
+  it "displays links for each individual order if there are orders" do
+
     expect(page).to have_content("click here")
   end
 
   it "shows each orders indivdual information" do
-    click_link_or_button( 'click here')
+    binding.pry
+    click_link_or_button("click here")
     expect(page).to have_content("Details for Order ID:")
   end
 
