@@ -39,6 +39,19 @@ User.create(email: 'test1@gmail.com', full_name: "test_user1", display_name: "te
 User.create(email: 'admin@gmail.com', full_name: "admin_user", display_name: "admin_user", password: "test", role: 1)
 
 #Create Orders
+
+30.times do
+  selected_item = Item.all.sample
+  selected_user= User.all.sample
+  random_status = [1, 2, 3, 4].sample
+  Order.create(user_id: selected_user.id,
+              status_id: random_status,
+              created_at: Faker::Time.between(2.days.ago, Time.now),
+              updated_at: Faker::Time.between(2.days.ago, Time.now) 
+              )
+end
+
+
 Order.create(user_id: 1, status_id: 1)
 Order.create(user_id: 1, status_id: 2)
 Order.create(user_id: 2, status_id: 3)
