@@ -64,6 +64,11 @@ RSpec.describe Item, type: :model do
     expect(item.categories.count).to eq(2)
   end
 
+  it "has an item status from item_status table" do
+    item_status = FactoryGirl.create(:item_status)
+    expect(item.item_status.state).to eq("Completed")
+  end
+
 
 
 end

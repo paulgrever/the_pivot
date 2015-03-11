@@ -25,6 +25,9 @@
     <%= f.label :Image_Url %><br>
     <%= f.text_field :image %>
   </div>
+  <div>
+    <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
