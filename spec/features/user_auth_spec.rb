@@ -31,7 +31,7 @@ RSpec.describe "the user authorization feature", type: :feature do
       fill_in("session_email", with: 'paul@mail.com')
       fill_in("session_password", with: 'paul')
       click_button 'Sign in'
-      visit orders_path
+      visit admin_orders_path
       expect(page).to have_content('You are not authorized to access this page.')
     end
   end

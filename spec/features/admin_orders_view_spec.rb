@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the order view", type: :feature do
+describe "the admins order view", type: :feature do
 
   before :each do
     @admin = FactoryGirl.create(:admin)
@@ -11,7 +11,7 @@ describe "the order view", type: :feature do
     fill_in("session_email", with: @admin.email)
     fill_in("session_password", with: @admin.password)
     click_button 'Sign in'
-    visit orders_path
+    visit admin_orders_path
   end
 
   it "displays all the orders on the index page" do
@@ -24,18 +24,21 @@ describe "the order view", type: :feature do
   end
 
   it "shows each orders indivdual information" do
-    binding.pry
-    click_link_or_button("click here")
-    expect(page).to have_content("Details for Order ID:")
+
+    within('table tr:nth-child(2)') do
+      click_link_or_button("click here")
+      save_and_open_page
+    end
+      expect(page).to have_content("Details for Order ID:")
   end
 
-  it "displays the order status" do
-    visit orders_path
+  xit "displays the order status" do
+
     expect(page).to have_content(@order.status_id)
   end
 
-  it "displays order date and time" do
-    visit orders_path
+  xit "displays order date and time" do
+
     click_link_or_button( 'click here')
     expect(page).to have_content("Date")
   end
@@ -50,7 +53,6 @@ describe "the order view", type: :feature do
   end
 
   xit "displays total for the order" do
-    visit orders_path
     expect(page).to have_content("Cost")
   end
 end
