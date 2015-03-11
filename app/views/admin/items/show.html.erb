@@ -6,6 +6,11 @@
 
 <p><img src=<%=@item.image%> width=100px></p>
 
+<p> Item Categories:
+<% @item.categories.each do |item| %>
+  <%= item.name %> 
+  <% end %>
+</p>
 
 <%= link_to("Back", admin_items_path) %>
 <%= link_to "Edit Item", edit_admin_item_path(@item) %>
