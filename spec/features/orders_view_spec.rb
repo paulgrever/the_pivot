@@ -24,7 +24,6 @@ describe "the order view", type: :feature do
   end
 
   it "shows each orders indivdual information" do
-    binding.pry
     click_link_or_button("click here")
     expect(page).to have_content("Details for Order ID:")
   end
