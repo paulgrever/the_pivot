@@ -26,10 +26,15 @@
     <%= f.number_field :price, in: 1.00..100.00, step: 0.01 %>
   </div>
 
-    <div class="field">
+  <div class="field">
     <%= f.label :Image_Url %><br>
     <%= f.text_field :image %>
   </div>
+
+  <div>
+  <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
+  </div>
+
 
 
   
