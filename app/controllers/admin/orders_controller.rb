@@ -1,15 +1,12 @@
 class Admin::OrdersController < ApplicationController
 
 	def index
-		if current_user.admin?
-			@orders = Order.all
-		else
-			flash[:notice] = 'You are not authorized to access this page.'
-			redirect_to login_path
-		end
+		@orders = Order.all
+		authorize! :manage, Order
 	end
 
-		def show
-			@order = Order.find(params[:id])
-		end
+	def show
+		@order = Order.find(params[:id])
+		authorize! :manage, Order
+	end
 end
