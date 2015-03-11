@@ -19,12 +19,10 @@ describe "the admins order view", type: :feature do
   end
 
   it "displays links for each individual order if there are orders" do
-
     expect(page).to have_content("click here")
   end
 
   it "shows each orders indivdual information" do
-
     within('table tr:nth-child(2)') do
       click_link_or_button("click here")
       save_and_open_page
@@ -33,12 +31,10 @@ describe "the admins order view", type: :feature do
   end
 
   xit "displays the order status" do
-
     expect(page).to have_content(@order.status_id)
   end
 
   xit "displays order date and time" do
-
     click_link_or_button( 'click here')
     expect(page).to have_content("Date")
   end
