@@ -4,7 +4,7 @@ FactoryGirl.define do
     status_id 2
   end
 
-  factory :order2, class: Order do 
+  factory :order2, class: Order do
     user_id 2
     status_id 1
   end  

@@ -1,49 +1,81 @@
 require 'rails_helper'
 
 RSpec.describe "the user authorization feature", type: :feature do
-  let(:valid_user) { User.create(email: "paul@mail.com", full_name: 'Paul', password: "paul") }
-  let(:other_user) { User.create(email: "lori@mail.com", full_name: 'Lori', password: "lori") }
-  let(:admin) { User.create(email: "admin_man@mail.com", full_name: 'AdminMan', password: "admin", role: 'admin') }
-
-  context 'a default user signs in' do
-    it 'allows a user to view his page' do
-      valid_user
+  context 'when a default user signs in' do
+    before :each do
+      user = FactoryGirl.create(:user)
       visit login_path
-      fill_in("session_email", with: 'paul@mail.com')
-      fill_in("session_password", with: 'paul')
-      click_button 'Sign in'
-      expect(page).to have_content('Paul\'s profile')
+      fill_in("session_email", with: user.email)
+      fill_in("session_password", with: user.password)
+      click_button "Sign in"
+    end
+
+    it 'allows a user to view his page' do
+      expect(page).to have_content("Laul Guberson's profile")
     end
 
     it 'prevents a user from viewing anothers profile' do
-      other_user
-      visit login_path
-      fill_in("session_email", with: 'lori@mail.com')
-      fill_in("session_password", with: 'lori')
-      click_button "Sign in"
-      visit user_path(valid_user)
+      other_user = FactoryGirl.create(:user, email: "jgu@jgu.com", password: "jgu")
+      visit user_path(other_user)
       expect(page).to have_content('You are not authorized to access this page.')
     end
 
-    it 'prevents a user from viewing the orders dashboard' do
-      valid_user
-      visit login_path
-      fill_in("session_email", with: 'paul@mail.com')
-      fill_in("session_password", with: 'paul')
-      click_button 'Sign in'
+    it 'prevents a user from viewing the admin item index' do
+      visit admin_items_path
+      expect(page).to have_content('You are not authorized to access this page.')
+    end
+
+    it 'prevents a user from viewing the admin new item index' do
+      visit new_admin_item_path
+      expect(page).to have_content('You are not authorized to access this page.')
+    end
+
+    it 'prevents a user from viewing the admin edit item index' do
+      item = FactoryGirl.create(:item)
+      visit edit_admin_item_path(item)
+      expect(page).to have_content('You are not authorized to access this page.')
+    end
+
+    it 'prevents a user from viewing the category index' do
+      visit admin_categories_path
+      expect(page).to have_content('You are not authorized to access this page.')
+    end
+
+    xit 'prevents a user from viewing the new category page' do
+      visit new_admin_category_path
+      expect(page).to have_content('You are not authorized to access this page.')
+    end
+
+    xit 'prevents a user from viewing a category page' do
+      category = FactoryGirl.create(:category)
+      visit new_admin_category_path(category)
+      expect(page).to have_content('You are not authorized to access this page.')
+    end
+
+    xit 'prevents a user from viewing the orders dashboard' do
       visit admin_orders_path
+      expect(page).to have_content('You are not authorized to access this page.')
+    end
+
+    xit 'prevents a user from editing an order' do
+      order = FactoryGirl.create(:order)
+      visit edit_admin_order_path(order)
       expect(page).to have_content('You are not authorized to access this page.')
     end
   end
 
-  context 'an admin signs in' do
-    it 'allows admins to view the orders dashboard' do
-      admin
+  context 'when an admin signs in' do
+    before :each do
+      skip
+      admin = FactoryGirl.create(:admin)
       visit login_path
-      fill_in("session_email", with: 'admin_man@mail.com')
-      fill_in("session_password", with: 'admin')
+      fill_in("session_email", with: admin.email)
+      fill_in("session_password", with: admin.password)
       click_button 'Sign in'
-      visit orders_path
+    end
+
+    it 'allows admins to view the orders dashboard' do
+      visit admin_orders_path
       expect(page).to have_content('Orders')
     end
   end

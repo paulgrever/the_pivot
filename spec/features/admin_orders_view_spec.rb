@@ -37,7 +37,6 @@ describe "the admins order view", type: :feature do
    within('table tr:nth-child(2)') do
       click_link_or_button( 'click here')
     end
-    expect(page).to have_content("Date")
   end
 
   xit "displays a total number of orders by status type" do
