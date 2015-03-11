@@ -1,22 +1,22 @@
-<h1> <%= current_user.full_name %>'s Orders Dashboard</h1>
+<h1> Admin Orders Dashboard</h1>
 
 <table border ="1">
   <tr>
     <th>Order ID &nbsp; &nbsp; &nbsp;</th>
     <th>User ID &nbsp; &nbsp; &nbsp;</th>
-    <th>Status </th>
-    <th>Cost &nbsp; &nbsp; &nbsp;</th>
-    <th>Details &nbsp; &nbsp; &nbsp;</th>
+    <th> Status </th>
+    <th> Cost &nbsp; &nbsp; &nbsp;</th>
+    <th> Details &nbsp; &nbsp; &nbsp;</th>
 
   </tr>
 
-<% current_user.orders.each do |order| %>
+<% @orders.each do |order| %>
   <tr>
     <td><%= order.id %>
     <td><%= order.user_id %>
     <td><%= order.status_id %>
       <td> order cost </td>
-    <td><%=link_to "click here", order_path(order) %>
+    <td><%=link_to "click here", admin_order_path(order) %>
   <% end %>
 </table>
 
@@ -28,4 +28,3 @@
  		<li> Cancelled </li>
  		<li> Completed </li>
  	</ol>
-
