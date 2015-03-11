@@ -4,7 +4,8 @@ RSpec.describe Item, type: :model do
   let(:item) do 
     Item.create(title: "Possum Stew", description: "Savory stew made with fresh possum", image: "www.possum.com", item_status_id: 1, price: 2.35)
   end
-
+  let(:category_of_item1) { item.categories.create(name: "Pasta") }
+  let(:category_of_item2) { item.categories.create(name: "Appetizer") }
   it "is valid when all parameters are given" do
     expect(item).to be_valid
     expect(Item.count).to eq(1)
@@ -50,6 +51,17 @@ RSpec.describe Item, type: :model do
   it "is invalid with a price less than 0" do
     item.price = -1
     expect(item).to_not  be_valid
+  end
+
+  it "has a category" do
+    category_of_item1
+    expect(item.categories.first.name).to eq("Pasta")
+  end
+
+  it "can have more than one category" do
+    category_of_item1
+    category_of_item2
+    expect(item.categories.count).to eq(2)
   end
 
 
