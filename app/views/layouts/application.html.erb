@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DinnerDash</title>
+    <title>Clamorous</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>🐚 Clamorous 🐚</h1>
+        </div>
+        <div id="sign-bar" class="col-xs-6">
+          <% if current_user %>
+            <%= link_to "Sign out", logout_path, method: :delete %>
+          <% else %>
+            <%= render partial: 'partials/sign_in' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <%= flash[:notice] %>
-    <% if current_user %>
-      <%= link_to "Sign out", logout_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign in", login_path %>
-    <% end %>
     <%= yield %>
-  </body>
+  </div>
+</body>
 </html>

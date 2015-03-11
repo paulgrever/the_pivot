@@ -1,17 +1,14 @@
 <%= form_for([:admin, @item]) do |f| %>
-
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this phone_number from being saved:</h2>
-
       <ul>
-      <% @item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :Item %><br>
     <%= f.text_field :title %>
@@ -20,26 +17,18 @@
     <%= f.label :Details %><br>
     <%= f.text_field :description %>
   </div>
-
   <div class="field">
     <%= f.label :Cost %><br>
     <%= f.number_field :price, in: 1.00..100.00, step: 0.01 %>
   </div>
-
   <div class="field">
     <%= f.label :Image_Url %><br>
     <%= f.text_field :image %>
   </div>
-
   <div>
-  <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
+    <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
   </div>
-
-
-
-  
   <div class="actions">
     <%= f.submit %>
   </div>
-
 <% end %>

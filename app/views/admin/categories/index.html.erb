@@ -1,11 +1,9 @@
 <h1>Admin Categories</h1>
-
-  <ul>
-    <% @categories.each do |category| %>
-      <div class = "category_list">
+<ul>
+  <% @categories.each do |category| %>
+    <div class = "category_list">
       <li id = "category_<%=category.name%>"> <%=category.name %> <%= link_to "Edit", edit_admin_category_path(category) %> <%= link_to "Delete", admin_category_path(category), method: :delete%> </li>
-      <% end %>
-      </div>
-  </ul>
-
-  <%= link_to "New Category", new_admin_category_path  %>
+    <% end %>
+  </div>
+</ul>
+<%= link_to "New Category", new_admin_category_path  %>
