@@ -1,38 +1,22 @@
 require 'rails_helper'
 
 describe "the item view", type: :feature do
-  let(:item) do
-    Item.create(title: "Possum Stew",
-                description: "Savory stew made with fresh possum",
-                image: "www.possum.com",
-                item_status_id: 1,
-                price: 2.35)
-  end
-
-  let(:item2) do
-    Item.create(title: "Possum2 Stew",
-                description: "Savory stew made with fresh possum",
-                image: "www.possum.com",
-                item_status_id: 1,
-                price: 2.35)
+  before :each do
+    item = FactoryGirl.create(:item)
+    visit admin_items_path
   end
 
   it "displays all the items on the index page" do
-    item
-    visit admin_items_path
-    expect(page).to have_content("Possum Stew")
+    expect(page).to have_content(item.title)
   end
 
   it "displays the description of the individual item on the show page" do
-    item
-    visit admin_items_path
-    click_link_or_button("Possum Stew")
+    click_link_or_button(item.title)
     expect(current_path).to eq(admin_item_path(item))
-    expect(page).to have_content("Savory stew made with fresh possum")
+    expect(page).to have_content(item.description)
   end
 
   it "can create a new item" do
-    visit admin_items_path
     click_link_or_button("Create Item")
     fill_in('item[title]', with: "Racoon Ragu" )
     fill_in('item[description]', with: "A bandit of a meal" )
@@ -54,11 +38,9 @@ describe "the item view", type: :feature do
   end
 
   it "can delete an item" do
-    item
-    item2
-    expect(Item.count).to eq(2)
+    expect(Item.count).to eq(1)
     visit admin_item_path(item)
     click_link_or_button("Delete")
-    expect(Item.count).to eq(1)
+    expect(Item.count).to eq(0)
   end
 end
