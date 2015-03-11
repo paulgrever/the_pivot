@@ -6,5 +6,8 @@
 
 <p><img src=<%=@item.image%> width=100px></p>
 
-<p><%= link_to "Edit Item", edit_admin_item_path(@item) %></p>
+
+<%= link_to("Back", admin_items_path) %>
+<%= link_to "Edit Item", edit_admin_item_path(@item) %>
 <%= link_to "Delete", admin_item_path(@item), method: :delete %>
+

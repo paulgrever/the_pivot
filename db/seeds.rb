@@ -20,4 +20,9 @@ User.create(email: 'admin@gmail.com', full_name: "admin_user", display_name: "ad
 Order.create(user_id: 1, status_id: 1)
 Order.create(user_id: 1, status_id: 2)
 Order.create(user_id: 2, status_id: 3)
+
+# Item Status 
+
+ItemStatus.create(state: "Active")
+ItemStatus.create(state: "Retired")
  
