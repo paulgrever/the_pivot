@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :authorize_order_access
+  before_action :authorize_admin_access
 
   def authorize_order_access
     authorize! :manage, Order
