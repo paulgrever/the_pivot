@@ -10,7 +10,7 @@ class Admin::ItemsController < AdminController
   end
 
   def new
-    @item = Item.new(title: params[:title], description: params[:description], price: params[:price], item_status_id: 1, image: params[:image])
+    @item = Item.new
   end
 
   def create
