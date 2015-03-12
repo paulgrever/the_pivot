@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
 	belongs_to :user
 
 	def date
-		created_at.strftime("%Y-%m-%d")
+		created_at.strftime("%m-%d-%Y")
 	end
 
 	def time

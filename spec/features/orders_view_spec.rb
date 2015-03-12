@@ -32,9 +32,9 @@ describe "the default users order view", type: :feature do
     expect(page).to have_content(@order.status_id)
   end
 
-  xit "displays order date" do
-      click_link_or_button( 'click here')
-      expect(page).to have_content("Date")
+  it "displays order date" do
+    click_link_or_button( 'click here')
+    expect(page).to have_content("Date ordered")
   end
 
 
