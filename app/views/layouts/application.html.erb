@@ -15,10 +15,11 @@
         <div id="sign-bar" class="col-xs-6">
           <% if current_user %>
             <% if current_user.admin? %>
+              <%= link_to "Edit Items", admin_items_path %>
               <%= link_to "Customer Orders", admin_orders_path %>
             <% end %>
             <%= link_to "Profile", current_user %>
-            <%= link_to "Sign out", logout_path, method: :delete %>
+            <%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger" %>
           <% else %>
             <%= render partial: 'partials/sign_in' %>
           <% end %>
