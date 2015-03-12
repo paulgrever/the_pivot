@@ -9,7 +9,7 @@
 10.times do
   Item.create(title: Faker::Commerce.product_name,
               description: Faker::Lorem.paragraph,
-              image: Faker::Avatar.image, 
+              image: Faker::Avatar.image,
               price: Faker::Commerce.price,
               item_status_id: 1)
 end
@@ -17,16 +17,16 @@ end
 5.times do
   Item.create(title: Faker::Commerce.product_name,
               description: Faker::Lorem.paragraph,
-              image: Faker::Avatar.image, 
+              image: Faker::Avatar.image,
               price: Faker::Commerce.price,
               item_status_id: 2)
 end
 
-5.times do 
+5.times do
   Category.create(name:Faker::Commerce.department)
 end
 
-30.times do 
+30.times do
   selected_item = Item.all.sample
   selected_category = Category.all.sample
   ItemCategory.create(item_id: selected_item.id,
@@ -47,17 +47,20 @@ User.create(email: 'admin@gmail.com', full_name: "admin_user", display_name: "ad
   Order.create(user_id: selected_user.id,
               status_id: random_status,
               created_at: Faker::Time.between(2.days.ago, Time.now),
-              updated_at: Faker::Time.between(2.days.ago, Time.now) 
+              updated_at: Faker::Time.between(2.days.ago, Time.now)
               )
 end
-
 
 Order.create(user_id: 1, status_id: 1)
 Order.create(user_id: 1, status_id: 2)
 Order.create(user_id: 2, status_id: 3)
 
-# Item Status 
-
+# Item Status
 ItemStatus.create(state: "Active")
 ItemStatus.create(state: "Retired")
- 
+
+# Order Statuses
+Status.create(state: "Ordered")
+Status.create(state: "Paid")
+Status.create(state: "Cancelled")
+Status.create(state: "Completed")

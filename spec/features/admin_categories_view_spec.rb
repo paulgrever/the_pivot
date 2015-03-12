@@ -34,6 +34,7 @@ describe "the category view", type: :feature do
       click_link_or_button('Update Category')
       expect(page).to have_content("New Category")
     end
+
     it "can delete a category" do
        within('#category_vegan') do
         click_link_or_button("Delete")

@@ -1,5 +1,6 @@
 class Admin::ItemsController < AdminController
-    before_action :set_item, only: [:show, :edit, :destroy, :update]
+  before_action :set_item, only: [:show, :edit, :destroy, :update]
+
   def index
     @items = Item.all
   end
