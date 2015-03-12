@@ -8,6 +8,7 @@ RSpec.describe "the user authorization feature", type: :feature do
       fill_in("session_email", with: user.email)
       fill_in("session_password", with: user.password)
       click_button "Sign in"
+      visit user_path(user)
     end
 
     it 'allows a user to view his page' do
@@ -41,18 +42,18 @@ RSpec.describe "the user authorization feature", type: :feature do
       expect(page).to have_content('You are not authorized to access this page.')
     end
 
-    xit 'prevents a user from viewing the new category page' do
+    it 'prevents a user from viewing the new category page' do
       visit new_admin_category_path
       expect(page).to have_content('You are not authorized to access this page.')
     end
 
-    xit 'prevents a user from viewing a category page' do
+    it 'prevents a user from viewing a category page' do
       category = FactoryGirl.create(:category)
       visit new_admin_category_path(category)
       expect(page).to have_content('You are not authorized to access this page.')
     end
 
-    xit 'prevents a user from viewing the orders dashboard' do
+    it 'prevents a user from viewing the orders dashboard' do
       visit admin_orders_path
       expect(page).to have_content('You are not authorized to access this page.')
     end
@@ -66,7 +67,6 @@ RSpec.describe "the user authorization feature", type: :feature do
 
   context 'when an admin signs in' do
     before :each do
-      skip
       admin = FactoryGirl.create(:admin)
       visit login_path
       fill_in("session_email", with: admin.email)

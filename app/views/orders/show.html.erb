@@ -1,10 +1,10 @@
 <h2>  Details for Order ID: <%=@order.id %>  </h2>
 
 <ul>
-  <li> Date ordered: </li>
-  <li> Time ordered </li>
-  <li> Purchaser name </li>
-  <li> Email </li>
+  <li> Date ordered: <%= @order.date %> </li>
+  <li> Time ordered: <%= @order.time %> </li>
+  <li> Purchaser name: <%= @order.user.full_name %></li>
+  <li> Email: <%= @order.user.email %> </li>
 </ul>
 
 <table border ="1">
@@ -20,4 +20,5 @@
 <p> Total cost for the order: </p>
 <p> Status of the order: </p>
 
-<%= link_to "orders", orders_path %>
+<%= link_to "My Orders", orders_path %>
+

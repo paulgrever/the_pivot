@@ -1,0 +1,7 @@
+<%= form_for :session, html: {class: "form-inline"}, url: '/login' do |f| %>
+  <%= f.label 'Email' %>
+  <%= f.text_field :email %>
+  <%= f.label 'Password' %>
+  <%= f.password_field :password %>
+  <%= f.submit 'Sign in', class: "btn btn-success"%>
+<% end %>

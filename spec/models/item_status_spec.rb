@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ItemStatus, type: :model do
-  
   before :each do
     @item_status = FactoryGirl.create(:item_status)
   end

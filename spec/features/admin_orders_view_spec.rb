@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe "the admins order view", type: :feature do
-
   before :each do
     @admin = FactoryGirl.create(:admin)
     @user = FactoryGirl.create(:user)

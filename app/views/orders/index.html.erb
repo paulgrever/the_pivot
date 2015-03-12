@@ -6,26 +6,21 @@
     <th>User ID &nbsp; &nbsp; &nbsp;</th>
     <th>Status </th>
     <th>Cost &nbsp; &nbsp; &nbsp;</th>
-    <th>Details &nbsp; &nbsp; &nbsp;</th>
-
   </tr>
-
-<% current_user.orders.each do |order| %>
-  <tr>
-    <td><%= order.id %>
-    <td><%= order.user_id %>
-    <td><%= order.status_id %>
+  <% current_user.orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.user_id %></td>
+      <td><%= order.status_id %></td>
       <td> order cost </td>
-    <td><%=link_to "click here", order_path(order) %>
-  <% end %>
-</table>
-
-
- 	<h4> Order Status legend</h4>
- 	<ol>
- 		<li> Ordered </li>
- 		<li> Paid </li>
- 		<li> Cancelled </li>
- 		<li> Completed </li>
- 	</ol>
+      <td><%=link_to "Details", order_path(order), class: "btn btn-success" %>
+    <% end %>
+  </table>
+  <h4> Order Status legend</h4>
+  <ol>
+    <li> Ordered </li>
+    <li> Paid </li>
+    <li> Cancelled </li>
+    <li> Completed </li>
+  </ol>
 

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to items_path, notice: exception.message
+    redirect_to items_path, alert: exception.message
   end
 
   def current_user

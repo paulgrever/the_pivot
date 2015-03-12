@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  let(:category) do 
+  let(:category) do
     Category.create(name: "vegan")
   end
 
@@ -19,5 +19,4 @@ RSpec.describe Category, type: :model do
     Category.create(name: "Vegan")
     expect(Category.count).to eq(1)
   end
-
 end

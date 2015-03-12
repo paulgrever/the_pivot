@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   resources :orders
   resources :categories
 
-  namespace 'admin' do 
+  namespace 'admin' do
     resources :categories
     resources :items
     resources :orders
   end
-
 end
