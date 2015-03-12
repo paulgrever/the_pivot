@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :item_status do
-    state "Completed" 
+    state "Completed"
   end
 end
