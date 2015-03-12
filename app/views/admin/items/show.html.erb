@@ -12,6 +12,22 @@
   <% end %>
 </p>
 
+<h4>Add Categories</h4>
+
+<%= form_for([:admin, @item]) do |f| %>
+<ul>
+  <% categoy_all.each do |category| %>
+      <li>
+        <%= check_box_tag 'cateogory_ids[]', category.id -%>
+        <%= category.name -%>
+      </li>
+  <% end %>
+</ul>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 <%= link_to("Back", admin_items_path) %>
 <%= link_to "Edit Item", edit_admin_item_path(@item) %>
 <%= link_to "Delete", admin_item_path(@item), method: :delete %>
