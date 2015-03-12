@@ -7,16 +7,15 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Welcome, #{user.full_name}."
-      redirect_to user
     else
       flash[:notice] = 'Invalid login.'
-      redirect_to login_path
     end
+    redirect_to(:back)
   end
 
   def destroy
     flash[:notice] = "You have successfully signed out."
     session.clear
-    redirect_to login_path
+    redirect_to(:back)
   end
 end

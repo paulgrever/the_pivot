@@ -17,7 +17,7 @@ RSpec.describe "the user authentication feature", type: :feature do
     it 'allows the user to logout in' do
       click_link_or_button 'Sign out'
       expect(page).to have_content('You have successfully signed out.')
-      expect(page).to have_content('Sign in')
+      expect(page).to have_content('Email')
     end
   end
 

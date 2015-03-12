@@ -7,24 +7,20 @@
     <th> Status </th>
     <th> Cost &nbsp; &nbsp; &nbsp;</th>
     <th> Details &nbsp; &nbsp; &nbsp;</th>
-
   </tr>
-
-<% @orders.each do |order| %>
-  <tr>
-    <td><%= order.id %>
-    <td><%= order.user_id %>
-    <td><%= order.status_id %>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.id %>
+      <td><%= order.user_id %>
+      <td><%= order.status_id %>
       <td> order cost </td>
-    <td><%=link_to "click here", admin_order_path(order) %>
-  <% end %>
-</table>
-
-
- 	<h4> Order Status legend</h4>
- 	<ol>
- 		<li> Ordered </li>
- 		<li> Paid </li>
- 		<li> Cancelled </li>
- 		<li> Completed </li>
- 	</ol>
+      <td><%=link_to "click here", admin_order_path(order) %>
+    <% end %>
+  </table>
+  <h4> Order Status legend</h4>
+  <ol>
+    <li> Ordered </li>
+    <li> Paid </li>
+    <li> Cancelled </li>
+    <li> Completed </li>
+  </ol>

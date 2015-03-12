@@ -1,10 +1,13 @@
 <h1>Menu Item Details: <%= @item.title %> </h1>
-
-
-<p> <%= @item.description %> $<%= @item.price %></p>
-
-
+<p><%= @item.description %> $<%= @item.price %></p>
 <p><img src=<%=@item.image%> width=100px></p>
 
-<p><%= link_to "Edit Item", edit_admin_item_path(@item) %></p>
+<p> Item Categories:
+<% @item.categories.each do |item| %>
+  <%= item.name %>
+  <% end %>
+</p>
+
+<%= link_to("Back", admin_items_path) %>
+<%= link_to "Edit Item", edit_admin_item_path(@item) %>
 <%= link_to "Delete", admin_item_path(@item), method: :delete %>
