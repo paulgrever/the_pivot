@@ -1,7 +1,9 @@
-<h1>Welcome to the Road Kill Cafe</h1>
-<ul>
+<div class="row">
   <% @items.each do |item| %>
-    <li> <%= link_to item.title, admin_item_path(item) %> </li>
+    <div class="box col-sm-3">
+      <%= image_tag item.image, size: "100" %><br>
+      <%= link_to item.title, admin_item_path(item) %>
+    </div>
   <% end %>
-</ul>
-<%= link_to "Create Item", new_admin_item_path %>
+</div>
+<%= link_to "Create Item", new_admin_item_path, class: "btn btn-success", id: "create-button" %>
