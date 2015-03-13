@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   before_action :load_cart
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to items_path, alert: exception.message
+    flash[:danger] = exception.message
+    redirect_to items_path
   end
 
   def current_user

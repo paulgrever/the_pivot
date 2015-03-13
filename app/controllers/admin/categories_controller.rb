@@ -5,7 +5,7 @@ class Admin::CategoriesController < AdminController
   end
 
   def new
-    @category = Category.new(name: params[:name])
+    @category = Category.new
   end
 
   def create
