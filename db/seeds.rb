@@ -8,7 +8,7 @@
 
 10.times do
   Item.create(title: Faker::Commerce.product_name,
-              description: Faker::Lorem.paragraph,
+              description: Faker::Hacker.say_something_smart,
               image: Faker::Avatar.image,
               price: Faker::Commerce.price,
               item_status_id: 1)
@@ -16,7 +16,7 @@ end
 
 5.times do
   Item.create(title: Faker::Commerce.product_name,
-              description: Faker::Lorem.paragraph,
+              description: Faker::Hacker.say_something_smart,
               image: Faker::Avatar.image,
               price: Faker::Commerce.price,
               item_status_id: 2)

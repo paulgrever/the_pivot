@@ -3,7 +3,7 @@
     <div class="box col-sm-3">
       <%= image_tag item.image, size: "100" %><br>
       <%= link_to item.title, item_path(item) %><br>
-      <%= button_to "Add to net", cart_items_path(item_id: item) %>
+      <%= button_to "Add to net", cart_items_path(item_id: item), class: "btn btn-success" %>
     </div>
   <% end %>
 </div>
