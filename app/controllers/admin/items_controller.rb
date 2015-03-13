@@ -23,10 +23,19 @@ class Admin::ItemsController < AdminController
   end
 
   def edit
+
+    
+
   end
 
   def update
     if @item.update(item_params)
+      ItemCategory.destroy_all(item_id: @item.id)
+      params[:category_ids].each do |category|
+        category_id = category.to_i
+        ItemCategory.create(item_id: @item.id, category_id: category_id)
+      end
+
       redirect_to admin_item_path(@item)
     else
       render :edit
@@ -44,6 +53,6 @@ class Admin::ItemsController < AdminController
   end
 
   def item_params
-    params.require(:item).permit(:title, :description, :image, :price, :item_status_id)
+    params.require(:item).permit(:title, :description, :image, :price, :item_status_id, :category_ids)
   end
 end
