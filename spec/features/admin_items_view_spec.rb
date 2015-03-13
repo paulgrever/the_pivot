@@ -33,7 +33,7 @@ describe "the admin item view", type: :feature do
 
   it "can update the item" do
     visit(admin_item_path(@item))
-    click_link_or_button("Edit Item")
+    click_link_or_button("Edit")
     fill_in('item[title]', with: "Racoon Ragu" )
     fill_in('item[description]', with: "A bandit of a meal" )
     fill_in('item[price]', with: 5.34)

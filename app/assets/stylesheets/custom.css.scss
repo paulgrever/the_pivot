@@ -1,0 +1,87 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$parchment: #ebe5d5;
+$dark-blue: #112230;
+$light-blue: #68b7e1;
+$ocean-green: #70a58b;
+$dark-ocean_green: #649d81;
+$grey: #3d4b50;
+$sand: #b9a167;
+$crab-red: #e24d34;
+$shrimp-pink: #e49e78;
+$dark-shrimp_pink: #e19268;
+$clam-tan: #d7cab7;
+$dark-clam_tan: #c2ae91;
+$dark-dark-clam-tan: #b49b78;
+$seafood-parchment: #e8e1d4;
+$white: #ffffff;
+
+body {
+    background-color: $parchment;
+}
+
+h1, h2 {
+    color: $ocean-green;
+}
+
+#big-title {
+    font-color: $ocean-green;
+}
+
+a:link, a:visited, a:active {
+    color: $dark-dark-clam-tan;
+    text-decoration: none;
+}
+
+.alert-success {
+    background-color: $ocean-green;
+    color: $white;
+}
+
+.alert-danger {
+    background-color: $shrimp-pink;
+    color: $white;
+}
+
+a:hover, a:active {
+    color: $dark-clam-tan;
+}
+
+#sign-in {
+    color: $white;
+}
+
+#sign-out {
+    color: $white;
+}
+
+#create-button {
+    color: $white;
+}
+
+.btn-success {
+    background-color: $dark-ocean_green;
+    padding: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-color: $dark-ocean_green;
+}
+
+.btn-success:hover {
+    background-color: $ocean-green;
+    border-color: $ocean-green;
+}
+
+.btn-danger {
+    background-color: $dark-shrimp_pink;
+    border-color: $dark-shrimp_pink;
+    padding: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.btn-danger:hover {
+    background-color: $shrimp-pink;
+    border-color: $shrimp-pink;
+}
