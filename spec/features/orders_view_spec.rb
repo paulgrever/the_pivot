@@ -5,8 +5,8 @@ describe "the default users order view", type: :feature do
   before :each do
     @user = FactoryGirl.create(:user)
     @status = FactoryGirl.create(:status)
-    @order = FactoryGirl.create(:order, user_id: @user.id, status: @status )
-    @order2 = FactoryGirl.create(:order, status:@status)
+    @order = FactoryGirl.create(:order, user_id: @user.id, status: @status)
+    @order2 = FactoryGirl.create(:order, status: @status)
     visit login_path
     fill_in("session_email", with: "paullorijgu@gmail.com")
     fill_in("session_password", with: "gu")

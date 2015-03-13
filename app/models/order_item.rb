@@ -6,7 +6,4 @@ class OrderItem < ActiveRecord::Base
   def item_subtotal
     quantity * item.price
   end
-
-
 end
-
