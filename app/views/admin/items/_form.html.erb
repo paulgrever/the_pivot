@@ -28,6 +28,20 @@
   <div>
     <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
   </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <% category_all.each do |category| %>
+            <%= check_box_tag 'category_ids[]', category.id, @item.categories.include?(category)%>
+            <%= category.name %>
+          <% end %>
+        </span>
+        <input type="text" class="form-control" aria-label="...">
+      </div>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit class: "btn btn-success" %>
   </div>

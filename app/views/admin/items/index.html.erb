@@ -1,3 +1,4 @@
+<h1>All Menu Item List:</h1>
 <div class="row">
   <% @items.each do |item| %>
     <div class="box col-sm-3">
@@ -7,3 +8,4 @@
   <% end %>
 </div>
 <%= link_to "Create Item", new_admin_item_path, class: "btn btn-success", id: "create-button" %>
+
