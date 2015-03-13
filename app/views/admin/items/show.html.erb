@@ -1,7 +1,10 @@
 <h1>Menu Item Details: <%= @item.title %> </h1>
 <p><%= @item.description %> $<%= @item.price %></p>
 
-<p><img src=<%=@item.image%> width=100px></p>
+<p>
+  <%= image_tag @item.image, size: "100" %>
+</p>
+
 
 <p> Item Categories:
 <% @item.categories.each do |item| %>
