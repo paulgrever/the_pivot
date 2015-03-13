@@ -5,6 +5,5 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    authorize! :view, @order
   end
 end

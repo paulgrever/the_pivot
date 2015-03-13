@@ -4,8 +4,9 @@ describe "the admins order view", type: :feature do
   before :each do
     @admin = FactoryGirl.create(:admin)
     @user = FactoryGirl.create(:user)
-    @order = FactoryGirl.create(:order, user_id: @user.id)
-    @order2 = FactoryGirl.create(:order)
+    @status = FactoryGirl.create(:status)
+    @order = FactoryGirl.create(:order, user_id: @user.id, status: @status)
+    @order2 = FactoryGirl.create(:order, status: @status)
     visit login_path
     fill_in("session_email", with: @admin.email)
     fill_in("session_password", with: @admin.password)
@@ -29,7 +30,7 @@ describe "the admins order view", type: :feature do
   end
 
   it "displays the order status" do
-    expect(page).to have_content(@order.status_id)
+    expect(page).to have_content("Status")
   end
 
   it "displays order date and time" do

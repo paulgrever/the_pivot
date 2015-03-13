@@ -1,26 +1,19 @@
 <h1> <%= current_user.full_name %>'s Orders Dashboard</h1>
+<h3> User ID: <%= current_user.id %> </h3>
 
 <table border ="1">
   <tr>
     <th>Order ID &nbsp; &nbsp; &nbsp;</th>
-    <th>User ID &nbsp; &nbsp; &nbsp;</th>
     <th>Status </th>
     <th>Cost &nbsp; &nbsp; &nbsp;</th>
   </tr>
   <% current_user.orders.each do |order| %>
     <tr>
       <td><%= order.id %></td>
-      <td><%= order.user_id %></td>
-      <td><%= order.status_id %></td>
-      <td> order cost </td>
+      <td><%= order.order_status %></td>
+      <td> <%= order.order_total_cost %> </td>
       <td><%=link_to "Details", order_path(order), class: "btn btn-success" %>
     <% end %>
   </table>
-  <h4> Order Status legend</h4>
-  <ol>
-    <li> Ordered </li>
-    <li> Paid </li>
-    <li> Cancelled </li>
-    <li> Completed </li>
-  </ol>
+
 

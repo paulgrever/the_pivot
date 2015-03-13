@@ -4,8 +4,9 @@ describe "the default users order view", type: :feature do
 
   before :each do
     @user = FactoryGirl.create(:user)
-    @order = FactoryGirl.create(:order, user_id: @user.id)
-    @order2 = FactoryGirl.create(:order)
+    @status = FactoryGirl.create(:status)
+    @order = FactoryGirl.create(:order, user_id: @user.id, status: @status)
+    @order2 = FactoryGirl.create(:order, status: @status)
     visit login_path
     fill_in("session_email", with: "paullorijgu@gmail.com")
     fill_in("session_password", with: "gu")
@@ -29,14 +30,11 @@ describe "the default users order view", type: :feature do
   end
 
   it "displays the order status" do
-    expect(page).to have_content(@order.status_id)
+    expect(page).to have_content(@order.order_status)
   end
 
   it "displays order date" do
     click_link_or_button( 'Details')
-    expect(page).to have_content("Date ordered")
+    expect(page).to have_content(@order.date)
   end
-
-
-
 end
