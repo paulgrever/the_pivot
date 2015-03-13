@@ -1,87 +1,87 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* universal */
 $parchment: #EBE5D5;
-$dark_blue: #112230;
-$light_blue: #68b7e1;
-$ocean_green: #70A58B;
-$dark_ocean_green: #649d81;
+$dark-blue: #112230;
+$light-blue: #68B7E1;
+$ocean-green: #70A58B;
+$dark-ocean_green: #649d81;
 $grey: #3D4B50;
 $sand: #B9A167;
-$crab_red: #E24D34;
-$shrimp_pink: #E49E78;
-$dark_shrimp_pink: #e19268;
-$clam_tan: #D7CAB7;
-$dark_clam_tan: #c2ae91;
-$dark_dark_clam_tan: #b49b78;
-$seafood_parchment: #E8E1D4;
+$crab-red: #E24D34;
+$shrimp-pink: #E49E78;
+$dark-shrimp_pink: #E19268;
+$clam-tan: #D7CAB7;
+$dark-clam_tan: #C2AE91;
+$dark-dark_clam_tan: #B49B78;
+$seafood-parchment: #E8E1D4;
+$white: #FFFFFF;
 
 body {
     background-color: $parchment;
 }
 
 h1, h2 {
-    color: $ocean_green;
+    color: $ocean-green;
 }
 
 #big-title {
-    font-color: $ocean_green;
+    font-color: $ocean-green;
 }
 
 a:link, a:visited, a:active {
-  color: $dark_dark_clam_tan;
-  text-decoration: none;
+    color: $dark-dark_clam_tan;
+    text-decoration: none;
 }
 
 .alert-success {
-    color: white;
-    background-color: $ocean_green;
+    background-color: $ocean-green;
+    color: $white;
 }
 
 .alert-danger {
-    color: white;
-    background-color: $shrimp_pink;
+    background-color: $shrimp-pink;
+    color: $white;
 }
 
 a:hover, a:active {
-    color: $dark_clam_tan;
+    color: $dark-clam_tan;
 }
 
 #sign-in {
-    color: white
+    color: $white;
 }
 
 #sign-out {
-    color: white
+    color: $white;
 }
 
 #create-button {
-    color: white
+    color: $white;
 }
 
 .btn-success {
-    background-color: $dark_ocean_green;
+    background-color: $dark-ocean_green;
     padding: 3px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-color: $dark_ocean_green;
+    border-color: $dark-ocean_green;
 }
 
 .btn-success:hover {
-    background-color: $ocean_green;
-    border-color: $ocean_green;
+    background-color: $ocean-green;
+    border-color: $ocean-green;
 }
 
 .btn-danger {
-    background-color: $dark_shrimp_pink;
-    border-color: $dark_shrimp_pink;
+    background-color: $dark-shrimp_pink;
+    border-color: $dark-shrimp_pink;
     padding: 3px;
     padding-top: 0px;
     padding-bottom: 0px;
 }
 
 .btn-danger:hover {
-    background-color: $shrimp_pink;
-    border-color: $shrimp_pink;
+    background-color: $shrimp-pink;
+    border-color: $shrimp-pink;
 }
