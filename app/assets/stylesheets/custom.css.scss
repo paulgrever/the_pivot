@@ -13,7 +13,7 @@ $shrimp-pink: #e49e78;
 $dark-shrimp_pink: #e19268;
 $clam-tan: #d7cab7;
 $dark-clam_tan: #c2ae91;
-$dark-dark_clam_tan: #b49b78;
+$dark-dark-clam-tan: #b49b78;
 $seafood-parchment: #e8e1d4;
 $white: #ffffff;
 
@@ -30,7 +30,7 @@ h1, h2 {
 }
 
 a:link, a:visited, a:active {
-    color: $dark-dark_clam_tan;
+    color: $dark-dark-clam-tan;
     text-decoration: none;
 }
 
@@ -45,7 +45,7 @@ a:link, a:visited, a:active {
 }
 
 a:hover, a:active {
-    color: $dark-clam_tan;
+    color: $dark-clam-tan;
 }
 
 #sign-in {
