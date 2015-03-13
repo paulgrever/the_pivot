@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :orders
   resources :categories
+  resources :cart_items
 
   namespace 'admin' do
     resources :categories

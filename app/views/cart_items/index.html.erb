@@ -1,0 +1,6 @@
+<h1>Currently caught in your net</h1>
+<% cart.data.each do |key, value| %>
+  <div>
+    <%= Item.find(key).title %>: <%= value %>
+  </div>
+<% end %>

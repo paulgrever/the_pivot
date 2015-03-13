@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the item view", type: :feature do
+describe "the admin item view", type: :feature do
   before :each do
     @item = FactoryGirl.create(:item)
     admin = FactoryGirl.create(:admin)

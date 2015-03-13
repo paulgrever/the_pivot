@@ -1,7 +1,9 @@
-<ul>
+<div class="row">
   <% @items.each do |item| %>
-    <li> <%= link_to item.title, item_path(item) %> </li>
+    <div class="box col-sm-3">
+      <%= image_tag item.image, size: "100" %><br>
+      <%= link_to item.title, item_path(item) %><br>
+      <%= button_to "Add to net", cart_items_path(item_id: item) %>
+    </div>
   <% end %>
-</ul>
-
-
+</div>
