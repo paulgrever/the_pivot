@@ -1,13 +1,13 @@
-<%= form_for([:admin, @item]) do |f| %>
-<ul>
-  <% categoy_all.each do |category| %>
-      <li>
-        <%= check_box_tag 'cateogory_ids[]', category.id -%>
-        <%= category.name -%>
-      </li>
-  <% end %>
-</ul>
-  <div class="actions">
-    <%= f.submit %>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <% categoy_all.each do |category| %>
+          <%= check_box_tag 'cateogory_ids[]', category.id, @item.categories.include?(category) ? true : false-%>
+          <%= category.name -%>
+        <% end %>
+      </span>
+      <input type="text" class="form-control" aria-label="...">
+    </div>
   </div>
-<% end %>
+</div>

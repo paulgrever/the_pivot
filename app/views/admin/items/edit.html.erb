@@ -4,17 +4,8 @@
 
 <h4>Add Categories to Item</h4>
 
-<%= form_for([:admin, @item]) do |f| %>
-<ul>
-  <% categoy_all.each do |category| %>
-      <li>
-        <%= check_box_tag 'cateogory_ids[]', category.id -%>
-        <%= category.name -%>
-      </li>
-  <% end %>
-</ul>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+
+<%= render 'admin/categories/update_categories' %>
+
 <%= link_to "Back", admin_item_path(@item) %>
