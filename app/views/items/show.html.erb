@@ -1,7 +1,7 @@
 <h1>Menu Item Details: <%= @item.title %> </h1>
 <p> <%= @item.description %> $<%= @item.price %></p>
 <p><img src=<%=@item.image%> width=100px></p>
-
+<%= button_to "Add to net", cart_items_path(item_id: @item) %>
 <p> Item Categories:
 <% @item.categories.each do |item| %>
   <%= item.name %>
