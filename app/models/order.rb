@@ -14,4 +14,19 @@ class Order < ActiveRecord::Base
 	def time
 		created_at.strftime("%I:%M %p")
 	end
+
+  def order_status
+    status.state
+  end
+
+  def order_total_cost
+    order_items.inject(0) {|sum, order_item| sum + order_item.item_subtotal }
+  end
 end
+
+
+
+
+
+
+

@@ -29,7 +29,7 @@ describe "the admins order view", type: :feature do
   end
 
   it "displays the order status" do
-    expect(page).to have_content(@order.status_id)
+    expect(page).to have_content("Status")
   end
 
   it "displays order date and time" do

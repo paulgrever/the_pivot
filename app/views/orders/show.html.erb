@@ -15,10 +15,16 @@
     <th> Price </th>
     <th> Subtotal &nbsp; &nbsp; &nbsp;</th>
   </tr>
+  <% @order.order_items.each do |order_item| %>
+  <tr>
+    <td><%= order_item.item.title%></td>
+    <td><%= order_item.quantity %></td>
+    <td> <%= order_item.item.price %> </td>
+    <td><%= order_item.item_subtotal %>
+    <% end %>
 </table>
 
-<p> Total cost for the order: </p>
-<p> Status of the order: </p>
-
+<p> Status of the order: <%= @order.order_status %></p>
+<p> Total cost for the order: <%= @order.order_total_cost %> </p>
 <%= link_to "My Orders", orders_path %>
 

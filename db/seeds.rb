@@ -64,3 +64,15 @@ Status.create(state: "Ordered")
 Status.create(state: "Paid")
 Status.create(state: "Cancelled")
 Status.create(state: "Completed")
+
+#Order Items
+70.times do
+  selected_item_id = Item.all.sample.id
+  random_value = Order.all.sample.id
+  OrderItem.create!(item_id: selected_item_id,
+                   order_id: random_value,
+                   quantity: (1..4).to_a.sample
+                   )
+end
+
+
