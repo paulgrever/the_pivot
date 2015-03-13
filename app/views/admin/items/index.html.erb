@@ -1,22 +1,11 @@
-<<<<<<< HEAD
 <h1>All Menu Item List:</h1>
-=======
->>>>>>> 852111c90edb5c5073902159d841afb68ca2286f
 <div class="row">
   <% @items.each do |item| %>
     <div class="box col-sm-3">
       <%= image_tag item.image, size: "100" %><br>
-<<<<<<< HEAD
-      <%= link_to item.title, admin_item_path(item) %><br>
- 
-    </div>
-  <% end %>
-</div>
-<%= link_to "Create Item", new_admin_item_path %>
-=======
       <%= link_to item.title, admin_item_path(item) %>
     </div>
   <% end %>
 </div>
 <%= link_to "Create Item", new_admin_item_path, class: "btn btn-success", id: "create-button" %>
->>>>>>> 852111c90edb5c5073902159d841afb68ca2286f
+

@@ -4,6 +4,7 @@ describe "the admin item view", type: :feature do
   before :each do
     @item = FactoryGirl.create(:item)
     admin = FactoryGirl.create(:admin)
+    @category = FactoryGirl.create(:category)
     visit login_path
     fill_in("session_email", with: admin.email)
     fill_in("session_password", with: admin.password)
@@ -32,11 +33,13 @@ describe "the admin item view", type: :feature do
   end
 
   it "can update the item" do
+
     visit(admin_item_path(@item))
     click_link_or_button("Edit")
     fill_in('item[title]', with: "Racoon Ragu" )
     fill_in('item[description]', with: "A bandit of a meal" )
     fill_in('item[price]', with: 5.34)
+    find(:css, "#category_ids_[value='#{@category.id}']").set(true)
     click_link_or_button("Update Item")
     expect(page).to have_content('Racoon Ragu')
     expect(current_path). to eq(admin_item_path(@item))
