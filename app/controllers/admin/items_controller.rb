@@ -23,9 +23,6 @@ class Admin::ItemsController < AdminController
   end
 
   def edit
-
-    
-
   end
 
   def update
@@ -53,6 +50,11 @@ class Admin::ItemsController < AdminController
   end
 
   def item_params
-    params.require(:item).permit(:title, :description, :image, :price, :item_status_id, :category_ids)
+    params.require(:item).permit(:title,
+                                 :description, 
+                                 :image, 
+                                 :price, 
+                                 :item_status_id, 
+                                 :category_ids)
   end
 end
