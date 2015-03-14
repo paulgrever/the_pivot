@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
     if price.nil?
       price
     else
-     price/100.to_f
+      price/100.to_f
     end
   end
 end
