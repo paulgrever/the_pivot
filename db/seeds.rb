@@ -6,10 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+PICTURE = "clam_default.png"
+
 10.times do
   Item.create(title: Faker::Commerce.product_name,
               description: Faker::Hacker.say_something_smart,
-              image: Faker::Avatar.image,
+              image: PICTURE,
               price: Faker::Commerce.price,
               item_status_id: 1)
 end
@@ -17,7 +19,7 @@ end
 5.times do
   Item.create(title: Faker::Commerce.product_name,
               description: Faker::Hacker.say_something_smart,
-              image: Faker::Avatar.image,
+              image: PICTURE,
               price: Faker::Commerce.price,
               item_status_id: 2)
 end
