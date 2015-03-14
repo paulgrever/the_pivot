@@ -12,7 +12,7 @@ PICTURE = "clam_default.png"
   Item.create(title: Faker::Commerce.product_name,
               description: Faker::Hacker.say_something_smart,
               image: PICTURE,
-              price: Faker::Commerce.price,
+              price: Faker::Number.number(4),
               item_status_id: 1)
 end
 
@@ -20,7 +20,7 @@ end
   Item.create(title: Faker::Commerce.product_name,
               description: Faker::Hacker.say_something_smart,
               image: PICTURE,
-              price: Faker::Commerce.price,
+              price: Faker::Number.number(4),
               item_status_id: 2)
 end
 
