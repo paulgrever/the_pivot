@@ -28,11 +28,8 @@ describe "the cart view", type: :feature do
     it "displays subtotals of item in car" do
       expect(page).to have_content(2.46)
     end
-
-
   end
 
   context "when an unauthenticated user" do
-
   end
 end
