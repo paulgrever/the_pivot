@@ -18,7 +18,6 @@ describe "the cart view", type: :feature do
       expect(page).to have_content("Items in net: 1")
     end
 
-
     it "displays subtotals of item in cart" do
       expect(page).to have_content(2.46)
     end
@@ -48,7 +47,6 @@ describe "the cart view", type: :feature do
         expect(page).to have_content(8.42)
       end
     end
-
   end
 
   context "when an unauthenticated user" do
