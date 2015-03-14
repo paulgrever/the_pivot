@@ -1,6 +1,21 @@
 <h1>Currently caught in your net</h1>
-<% cart.data.each do |key, value| %>
-  <div>
-    <%= Item.find(key).title %>: <%= value %>
-  </div>
-<% end %>
+<table>
+  <tr>
+    <td>Item</td>
+    <td>Quantity</td>
+    <td>Cost</td>
+  </tr>
+  <% cart.data.each do |item_id, cart_quantity| %>
+  <tr>
+    <td><%= Item.find(item_id).title %></td> 
+    <td> <%= cart_quantity %> </td>
+    <td><%= cart_quantity * Item.find(item_id).price_in_dollars %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td>Total:</td>
+    <td></td>
+  </tr>
+</table>
+ <%= link_to("Back", items_path) %>
