@@ -5,14 +5,14 @@ $parchment: #ebe5d5;
 $dark-blue: #112230;
 $light-blue: #68b7e1;
 $ocean-green: #70a58b;
-$dark-ocean_green: #649d81;
+$dark-ocean-green: #649d81;
 $grey: #3d4b50;
 $sand: #b9a167;
 $crab-red: #e24d34;
 $shrimp-pink: #e49e78;
-$dark-shrimp_pink: #e19268;
+$dark-shrimp-pink: #e19268;
 $clam-tan: #d7cab7;
-$dark-clam_tan: #c2ae91;
+$dark-clam-tan: #c2ae91;
 $dark-dark-clam-tan: #b49b78;
 $seafood-parchment: #e8e1d4;
 $white: #ffffff;
@@ -61,11 +61,13 @@ a:hover, a:active {
 }
 
 .btn-success {
-    background-color: $dark-ocean_green;
+    background-color: $dark-ocean-green;
     padding: 3px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-color: $dark-ocean_green;
+    border-color: $dark-ocean-green;
+    margin-top: 10px;
+    margin: 5px;
 }
 
 .btn-success:hover {
@@ -74,8 +76,8 @@ a:hover, a:active {
 }
 
 .btn-danger {
-    background-color: $dark-shrimp_pink;
-    border-color: $dark-shrimp_pink;
+    background-color: $dark-shrimp-pink;
+    border-color: $dark-shrimp-pink;
     padding: 3px;
     padding-top: 0px;
     padding-bottom: 0px;
@@ -84,4 +86,26 @@ a:hover, a:active {
 .btn-danger:hover {
     background-color: $shrimp-pink;
     border-color: $shrimp-pink;
+}
+
+.polaroid {
+    position: relative;
+}
+
+.polaroid img {
+    border: 10px solid #fff;
+    border-bottom: 45px solid #fff;
+    -webkit-box-shadow: 3px 3px 3px #777;
+    -moz-box-shadow: 3px 3px 3px #777;
+    box-shadow: 3px 3px 3px #777;
+}
+
+.polaroid figcaption {
+    font-size: 1px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 0px;
+    font: 400 18px/1 'Kaushan Script', cursive;
+    color: #888;
 }
