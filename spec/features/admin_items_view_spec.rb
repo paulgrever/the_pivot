@@ -24,8 +24,8 @@ describe "the admin item view", type: :feature do
 
   it "can create a new item" do
     click_link_or_button("Create Item")
-    fill_in("item[title]", with: "Racoon Ragu" )
-    fill_in("item[description]", with: "A bandit of a meal" )
+    fill_in("item[title]", with: "Racoon Ragu")
+    fill_in("item[description]", with: "A bandit of a meal")
     fill_in("item[price_in_dollars]", with: 5.34)
     click_link_or_button("Create Item")
     expect(page).to have_content("Racoon Ragu")
@@ -35,8 +35,8 @@ describe "the admin item view", type: :feature do
   it "can update the item" do
     visit(admin_item_path(@item))
     click_link_or_button("Edit")
-    fill_in("item[title]", with: "Racoon Ragu" )
-    fill_in("item[description]", with: "A bandit of a meal" )
+    fill_in("item[title]", with: "Racoon Ragu")
+    fill_in("item[description]", with: "A bandit of a meal")
     fill_in("item[price_in_dollars]", with: 5.34)
     find(:css, "#category_ids_[value='#{@category.id}']").set(true)
     click_link_or_button("Update Item")
@@ -50,4 +50,5 @@ describe "the admin item view", type: :feature do
     click_link_or_button("Delete")
     expect(Item.count).to eq(0)
   end
+
 end
