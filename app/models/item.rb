@@ -7,4 +7,12 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :orders, through: :order_items
   has_many :categories, through: :item_categories
+
+  def price_in_dollars
+    if price.nil?
+      price
+    else
+      price/100.to_f
+    end
+  end
 end

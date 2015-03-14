@@ -14,7 +14,7 @@ class Admin::ItemsController < AdminController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(item_params_to_dollars)
     if @item.save
       redirect_to admin_items_path
     else
@@ -26,7 +26,7 @@ class Admin::ItemsController < AdminController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(item_params_to_dollars)
       ItemCategory.destroy_all(item_id: @item.id)
       params[:category_ids].each do |category|
         category_id = category.to_i
@@ -53,8 +53,15 @@ class Admin::ItemsController < AdminController
     params.require(:item).permit(:title,
                                  :description,
                                  :image,
-                                 :price,
+                                 :price_in_dollars,
                                  :item_status_id,
                                  :category_ids)
+  end
+
+  def item_params_to_dollars
+    { title: item_params[:title],
+      description: item_params[:description],
+      image: item_params[:image],
+      price: item_params[:price_in_dollars].to_f * 100 }
   end
 end

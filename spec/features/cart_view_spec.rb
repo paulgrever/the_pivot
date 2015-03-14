@@ -17,9 +17,19 @@ describe "the cart view", type: :feature do
     it "can add to cart" do
       expect(page).to have_content("Items in net: 1")
     end
+
+    it "can add multiple items to the cart" do
+      visit items_path
+      click_link_or_button "Add to net"
+      visit cart_items_path
+      expect(page).to have_content("Items in net: 2")
+    end
+
+    it "displays subtotals of item in car" do
+      expect(page).to have_content(2.46)
+    end
   end
 
   context "when an unauthenticated user" do
-
   end
 end
