@@ -22,6 +22,22 @@ describe "the cart view", type: :feature do
       expect(page).to have_content(2.46)
     end
 
+    it "can remove an item from the cart" do
+      click_link_or_button "Release from net"
+      expect(page).not_to have_content(2.46)
+    end
+
+    it "can increment an item in the cart" do
+      click_link_or_button "+"
+      expect(page).to have_content(4.92)
+    end
+
+    it "can decrement an item in the cart" do
+      click_link_or_button "+"
+      click_link_or_button "-"
+      expect(page).to have_content(2.46)
+    end
+
     context "when additional items are added to cart" do
       before :each do
         visit items_path

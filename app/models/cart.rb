@@ -5,13 +5,21 @@ class Cart
     @data = input_data || Hash.new
   end
 
-  def add_item(item)
-    data[item.id.to_s] ||= 0
-    data[item.id.to_s] += 1
+  def add_item(item_id)
+    data[item_id.to_s] ||= 0
+    data[item_id.to_s] += 1
   end
 
-  def count_of(item)
-    data[item.id.to_s]
+  def remove_item(item_id)
+    data.delete(item_id.to_s)
+  end
+
+  def remove_one(item_id)
+    data[item_id.to_s] -= 1
+  end
+
+  def count_of(item_id)
+    data[item_id.to_s]
   end
 
   def count_total
@@ -23,11 +31,11 @@ class Cart
   end
 
   def subtotal(item_id)
-    data[item_id] * Item.find(item_id).price_in_dollars
+    (data[item_id] * Item.find(item_id).price_in_dollars).round(2)
   end
 
   def total
-    data.keys.inject(0) { |sum, item_id| sum + subtotal(item_id) }
+    data.keys.inject(0) { |sum, item_id| sum + subtotal(item_id) }.round(2)
   end
 
 end
