@@ -1,5 +1,5 @@
 class Cart
-  attr_reader :data
+  attr_accessor :data
 
   def initialize(input_data)
     @data = input_data || Hash.new
@@ -38,4 +38,9 @@ class Cart
     data.keys.inject(0) { |sum, item_id| sum + subtotal(item_id) }.round(2)
   end
 
+  def create_order_items(order)
+    data.each do |item_id, qty|
+      order.order_items.create(item_id: item_id, quantity: qty)
+    end
+  end
 end

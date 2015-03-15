@@ -65,14 +65,22 @@ describe "the cart view", type: :feature do
       end
     end
 
-    it "can create an order" do
-      click_link_or_button("Checkout")
-      expect(current_path).to eq(order_path(Order.first))
-    end
+    context 'when a user checks out' do
+      before :each do
+        click_link_or_button("Checkout")
+      end
+      
+      it "can create an order" do
+        expect(current_path).to eq(order_path(Order.first))
+      end
 
-    it "creates an order when checking out" do
-      click_link_or_button("Checkout")
-      expect(Order.count).to eq(1)
+      it "creates an order when checking out" do
+        expect(Order.count).to eq(1)
+      end
+
+      it "clears the cart after creating an order" do
+        expect(page).to have_content("Items in net: 0")     
+      end
     end
   end
 
