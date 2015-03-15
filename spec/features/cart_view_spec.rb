@@ -79,7 +79,7 @@ describe "the cart view", type: :feature do
       end
 
       it "clears the cart after creating an order" do
-        expect(page).to have_content("Items in net: 0")     
+        expect(page).to have_content("Items in net: 0")
       end
     end
   end
