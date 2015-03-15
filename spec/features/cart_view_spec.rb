@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "the cart view", type: :feature do
   context "when an authenticated user" do
     before :each do
-      status = FactoryGirl.create(:status, id: 1)
+      FactoryGirl.create(:status, id: 1)
       @item = FactoryGirl.create(:item)
       user = FactoryGirl.create(:user)
       visit login_path
@@ -64,9 +64,10 @@ describe "the cart view", type: :feature do
         expect(page).to have_content(8.42)
       end
     end
+
     it "can create an order" do
       click_link_or_button("Checkout")
-      expect(current_path).to eq(order_path(Order.first)) 
+      expect(current_path).to eq(order_path(Order.first))
     end
 
     it "creates an order when checking out" do
