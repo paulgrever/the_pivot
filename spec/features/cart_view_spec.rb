@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "the cart view", type: :feature do
   context "when an authenticated user" do
     before :each do
+      FactoryGirl.create(:status, id: 1)
       @item = FactoryGirl.create(:item)
       user = FactoryGirl.create(:user)
       visit login_path
@@ -63,8 +64,58 @@ describe "the cart view", type: :feature do
         expect(page).to have_content(8.42)
       end
     end
+
+    context "when a user checks out" do
+      before :each do
+        click_link_or_button("Checkout")
+      end
+
+      it "can create an order" do
+        expect(current_path).to eq(order_path(Order.first))
+      end
+
+      it "creates an order when checking out" do
+        expect(Order.count).to eq(1)
+      end
+
+      it "clears the cart after creating an order" do
+        expect(page).to have_content("Items in net: 0")
+      end
+    end
   end
 
   context "when an unauthenticated user" do
+    before :each do
+      FactoryGirl.create(:status, id: 1)
+      @item = FactoryGirl.create(:item)
+      visit items_path
+      click_link_or_button "Add to net"
+      visit cart_items_path
+    end
+
+    it "can add to cart" do
+      expect(page).to have_content("Items in net: 1")
+    end
+
+    it "displays subtotals of item in cart" do
+      expect(page).to have_content(2.46)
+    end
+
+    it "can remove an item from the cart" do
+      click_link_or_button "Release from net"
+      expect(page).not_to have_content(2.46)
+    end
+
+    it "can increment an item in the cart" do
+      click_link_or_button "+"
+      expect(page).to have_content(4.92)
+    end
+
+    it "cannot checkout" do
+      click_link_or_button("Checkout")
+      expect(current_path).to eq(cart_items_path)
+      expect(Order.count).to eq(0)
+      expect(page).to have_content("Please login to checkout")
+    end
   end
 end
