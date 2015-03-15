@@ -65,11 +65,11 @@ describe "the cart view", type: :feature do
       end
     end
 
-    context 'when a user checks out' do
+    context "when a user checks out" do
       before :each do
         click_link_or_button("Checkout")
       end
-      
+
       it "can create an order" do
         expect(current_path).to eq(order_path(Order.first))
       end
