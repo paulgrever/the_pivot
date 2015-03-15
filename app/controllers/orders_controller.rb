@@ -9,8 +9,8 @@ class OrdersController < ApplicationController
 
   def create
     if current_user
-    order = Order.create(user_id: current_user.id)
-    redirect_to order
+      order = Order.create(user_id: current_user.id)
+      redirect_to order
     else
       flash[:danger] = "Please login to checkout"
       redirect_to cart_items_path
