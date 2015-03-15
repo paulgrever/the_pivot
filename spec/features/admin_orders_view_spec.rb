@@ -39,16 +39,4 @@ describe "the admins order view", type: :feature do
     end
   end
 
-  xit "displays a total number of orders by status type" do
-  end
-
-  xit "filters orders to display by status type" do
-  end
-
-  xit "link to transition to a different status " do
-  end
-
-  xit "displays total for the order" do
-    expect(page).to have_content("Cost")
-  end
 end
