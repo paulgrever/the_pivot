@@ -21,6 +21,6 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    cart.update_quantity(params[:data][:quantity] )
+    cart.update_quantity(params[:data][:quantity])
   end
 end
