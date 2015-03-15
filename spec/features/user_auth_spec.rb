@@ -57,12 +57,6 @@ RSpec.describe "the user authorization feature", type: :feature do
       visit admin_orders_path
       expect(page).to have_content('You are not authorized to access this page.')
     end
-
-    xit 'prevents a user from editing an order' do
-      order = FactoryGirl.create(:order)
-      visit edit_admin_order_path(order)
-      expect(page).to have_content('You are not authorized to access this page.')
-    end
   end
 
   context 'when an admin signs in' do

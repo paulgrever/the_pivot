@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :orders, through: :order_items
   has_many :categories, through: :item_categories
-
+  scope :active, -> { where(item_status_id: 1) }
   def price_in_dollars
     if price.nil?
       price
