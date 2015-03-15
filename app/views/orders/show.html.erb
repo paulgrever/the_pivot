@@ -1,10 +1,11 @@
-<h2>  Details for Order ID: <%=@order.id %>  </h2>
+<h2>Details for Order ID: <%=@order.id %></h2>
 
 <ul>
-  <li> Date ordered: <%= @order.date %> </li>
-  <li> Time ordered: <%= @order.time %> </li>
-  <li> Purchaser name: <%= @order.user.full_name %></li>
-  <li> Email: <%= @order.user.email %> </li>
+   <li>Name: <%= @order.user.full_name %></li>
+  <li>Email: <%= @order.user.email %></li>
+  <li> Order Status: <strong><%= @order.order_status %></strong></li>
+  <li>Date ordered: <%= @order.date %></li>
+  <li>Time ordered: <%= @order.time %></li>
 </ul>
 
 <table border ="1">
@@ -19,12 +20,17 @@
   <tr>
     <td><%= order_item.item.title%></td>
     <td><%= order_item.quantity %></td>
-    <td> <%= order_item.item.price %> </td>
-    <td><%= order_item.item_subtotal %>
-    <% end %>
+    <td>$<%= order_item.item.price_in_dollars %></td>
+    <td>$<%= order_item.item_subtotal %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <th>Total:</th>
+    <th>$<%= @order.order_total_cost %></th>
+  </tr>
 </table>
 
-<p> Status of the order: <%= @order.order_status %></p>
-<p> Total cost for the order: <%= @order.order_total_cost %> </p>
 <%= link_to "My Orders", orders_path %>
 
