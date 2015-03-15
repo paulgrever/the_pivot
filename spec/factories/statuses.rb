@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :status do
-    state "Paid"
+    state "Ordered"
   end
 end
