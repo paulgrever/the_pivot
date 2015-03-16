@@ -16,7 +16,9 @@ describe "the cart view", type: :feature do
     end
 
     it "can add to cart" do
-      expect(page).to have_content("Items in net: 1")
+      within "#cart" do
+        expect(page).to have_content("1")
+      end
     end
 
     it "displays subtotals of item in cart" do
@@ -47,7 +49,9 @@ describe "the cart view", type: :feature do
       end
 
       it "can add multiple items to the cart" do
-        expect(page).to have_content("Items in net: 2")
+        within "#cart" do
+          expect(page).to have_content("2")
+        end
       end
 
       it "displays increased subtotal when second item added to cart" do
@@ -79,7 +83,9 @@ describe "the cart view", type: :feature do
       end
 
       it "clears the cart after creating an order" do
-        expect(page).to have_content("Items in net: 0")
+        within "#cart" do
+          expect(page).to have_content("0")
+        end
       end
     end
   end
@@ -94,7 +100,9 @@ describe "the cart view", type: :feature do
     end
 
     it "can add to cart" do
-      expect(page).to have_content("Items in net: 1")
+      within "#cart" do
+        expect(page).to have_content("1")
+      end
     end
 
     it "displays subtotals of item in cart" do

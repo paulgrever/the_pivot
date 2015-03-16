@@ -8,6 +8,8 @@ $ocean-green: #70a58b;
 $dark-ocean-green: #649d81;
 $grey: #3d4b50;
 $sand: #b9a167;
+$lighter-crab-red: #e97a67;
+$light-crab-red: #e76b56;
 $crab-red: #e24d34;
 $shrimp-pink: #e49e78;
 $dark-shrimp-pink: #e19268;
@@ -16,6 +18,8 @@ $dark-clam-tan: #c2ae91;
 $dark-dark-clam-tan: #b49b78;
 $seafood-parchment: #e8e1d4;
 $white: #ffffff;
+$light-shadow-grey: #888888;
+$shadow-grey: #777777;
 
 body {
     background-color: $parchment;
@@ -29,6 +33,10 @@ h1, h2 {
     font-color: $ocean-green;
 }
 
+.row {
+    margin-left: 10px;
+}
+
 a:link, a:visited, a:active {
     color: $dark-dark-clam-tan;
     text-decoration: none;
@@ -40,12 +48,18 @@ a:link, a:visited, a:active {
 }
 
 .alert-danger {
-    background-color: $shrimp-pink;
+    background-color: $lighter-crab-red;
     color: $white;
 }
 
 a:hover, a:active {
     color: $dark-clam-tan;
+}
+
+.btn {
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 #sign-in {
@@ -54,17 +68,47 @@ a:hover, a:active {
 
 #sign-out {
     color: $white;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#sign-out:hover {
+    background-color: $lighter-crab-red;
 }
 
 #create-button {
     color: $white;
 }
 
+#cart {
+    color: $white;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#cart:hover {
+    background-color: $ocean-green;
+}
+
+#create-button {
+    color: $white;
+}
+
+#release {
+    color: $white;
+}
+
+.navbar-default {
+    background-color: $parchment;
+    border-color: $parchment;
+    margin: 5px;
+    margin-bottom: 20px;
+}
+
 .btn-success {
     background-color: $dark-ocean-green;
-    padding: 3px;
-    padding-top: 0px;
-    padding-bottom: 0px;
     border-color: $dark-ocean-green;
     margin-top: 10px;
     margin: 5px;
@@ -76,16 +120,15 @@ a:hover, a:active {
 }
 
 .btn-danger {
-    background-color: $dark-shrimp-pink;
-    border-color: $dark-shrimp-pink;
-    padding: 3px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    background-color: $light-crab-red;
+    border-color: $light-crab-red;
+    margin-top: 10px;
+    margin: 5px;
 }
 
 .btn-danger:hover {
-    background-color: $shrimp-pink;
-    border-color: $shrimp-pink;
+    background-color: $lighter-crab-red;
+    border-color: $lighter-crab-red;
 }
 
 .polaroid {
@@ -108,4 +151,57 @@ a:hover, a:active {
     bottom: 0px;
     font: 400 18px/1 'Kaushan Script', cursive;
     color: #888;
+}
+
+.btn-success {
+    color: $white;
+    background-color: $dark-ocean-green;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-color: $dark-ocean-green;
+    margin-top: 10px;
+    margin: 5px;
+}
+
+.btn-success:hover {
+    background-color: $ocean-green;
+    border-color: $ocean-green;
+}
+
+.btn-danger {
+    background-color: $light-crab-red;
+    border-color: $light-crab-red;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin: 5px;
+}
+
+.btn-danger:hover {
+    background-color: $lighter-crab-red;
+    border-color: $lighter-crab-red;
+}
+
+.polaroid {
+    position: relative;
+}
+
+.polaroid img {
+    border: 10px solid $white;
+    border-bottom: 45px solid $white;
+    -moz-box-shadow: 3px 3px 3px $shadow-grey;
+    -webkit-box-shadow: 3px 3px 3px $shadow-grey;
+    box-shadow: 3px 3px 3px $shadow-grey;
+}
+
+.polaroid figcaption {
+    font-size: 1px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 0px;
+    font: 400 18px/1 'Kaushan Script', cursive;
+    color: $light-shadow-grey;
 }
