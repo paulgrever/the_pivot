@@ -14,7 +14,7 @@ Status.create(state: "Paid")
 Status.create(state: "Cancelled")
 Status.create(state: "Completed")
 
-OrderItem.create(:item_id: 1, order_id:1, quantity: 2)
+OrderItem.create(item_id: 1, order_id:1, quantity: 2)
 
 Item.create(title: "Item1", description: "Test Description", image: "clam_default.png", price: 4532, item_status:1)
 
