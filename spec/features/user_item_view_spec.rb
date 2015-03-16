@@ -23,8 +23,12 @@ describe "the user item view", type: :feature do
 
   it "can add to cart" do
     visit item_path(@item)
-    expect(page).to have_content("Items in net: 0")
+    within "#cart" do
+      expect(page).to have_content("0")
+    end
     click_link_or_button "Add to net"
-    expect(page).to have_content("Items in net: 1")
+    within "#cart" do
+      expect(page).to have_content("1")
+    end
   end
 end

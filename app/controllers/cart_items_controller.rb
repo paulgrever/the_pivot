@@ -17,6 +17,7 @@ class CartItemsController < ApplicationController
 
   def destroy
     cart.remove_item(params[:id])
+    flash[:danger] = "Items removed from your net."
     redirect_to cart_items_path
   end
 
