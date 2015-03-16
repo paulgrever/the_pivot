@@ -1,9 +1,9 @@
 <h2>Details for Order ID: <%=@order.id %></h2>
 
 <ul>
-   <li>Name: <%= @order.user.full_name %></li>
+  <li>Name: <%= @order.user.full_name %></li>
   <li>Email: <%= @order.user.email %></li>
-  <li> Order Status: <strong><%= @order.order_status %></strong></li>
+  <li>Order Status: <strong><%= @order.order_status %></strong></li>
   <li>Date ordered: <%= @order.date %></li>
   <li>Time ordered: <%= @order.time %></li>
 </ul>
@@ -13,22 +13,22 @@
   <tr>
     <th>Item name &nbsp; &nbsp; &nbsp;</th>
     <th>Quantity &nbsp; &nbsp; &nbsp;</th>
-    <th> Price </th>
-    <th> Subtotal &nbsp; &nbsp; &nbsp;</th>
+    <th>Price </th>
+    <th>Subtotal &nbsp; &nbsp; &nbsp;</th>
   </tr>
   <% @order.order_items.each do |order_item| %>
-  <tr>
-    <td><%= order_item.item.title%></td>
+
+    <td><%= link_to order_item.item.title, item_path(order_item.item_id)%></td>
     <td><%= order_item.quantity %></td>
-    <td>$<%= order_item.item.price_in_dollars %></td>
-    <td>$<%= order_item.item_subtotal %></td>
+    <td><%= number_to_currency(order_item.item.price_in_dollars) %></td>
+    <td><%= number_to_currency(order_item.item_subtotal) %></td>
   </tr>
   <% end %>
   <tr>
     <td></td>
     <td></td>
     <th>Total:</th>
-    <th>$<%= @order.order_total_cost %></th>
+    <th><%= number_to_currency(@order.order_total_cost) %></th>
   </tr>
 </table>
 

@@ -20,6 +20,12 @@ class Order < ActiveRecord::Base
   end
 
   def order_total_cost
-    order_items.inject(0) { |sum, order_item| sum + order_item.item_subtotal }
+    order_items.inject(0) do |sum, order_item| 
+      sum + order_item.item_subtotal 
+    end
+  end
+
+  def user_full_name
+    user.full_name
   end
 end

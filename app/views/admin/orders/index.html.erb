@@ -3,17 +3,17 @@
 <table border ="1">
   <tr>
     <th>Order ID &nbsp; &nbsp; &nbsp;</th>
-    <th>User ID &nbsp; &nbsp; &nbsp;</th>
-    <th> Status </th>
-    <th> Cost &nbsp; &nbsp; &nbsp;</th>
-    <th> Details &nbsp; &nbsp; &nbsp;</th>
+    <th>User name &nbsp; &nbsp; &nbsp;</th>
+    <th>Status </th>
+    <th>Cost &nbsp; &nbsp; &nbsp;</th>
+    <th>Details &nbsp; &nbsp; &nbsp;</th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.id %>
-      <td><%= order.user_id %>
+      <td><%= order.user.full_name %>
       <td><%= order.order_status %></td>
-      <td> <%= order.order_total_cost %> </td>
+      <td><%= number_to_currency(order.order_total_cost) %> </td>
       <td><%=link_to "click here", admin_order_path(order) %>
     <% end %>
   </table>

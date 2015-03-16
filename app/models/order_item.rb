@@ -7,3 +7,5 @@ class OrderItem < ActiveRecord::Base
     (quantity * item.price) / 100.to_f.round(2)
   end
 end
+
+ # (quantity * item.price) / 100.to_f.round(2)
