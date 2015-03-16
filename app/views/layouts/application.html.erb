@@ -7,38 +7,15 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= render partial: "partials/navigation" %>
     <div id="main-container" class="container">
       <div class="row">
-        <div class="col-md-2">
-          <%= image_tag "crab_logo.png", size: "100" %>
-        </div>
-        <div class="col-md-2">
-          <h1>
-            Clamorous
-          </h1>
-        </div>
-        <div id="sign-bar" class="col-md-6">
-          <% if current_user %>
-            <% if current_user.admin? %>
-              <%= link_to "Edit Items", admin_items_path %>
-              <%= link_to "Category List", admin_categories_path %>
-              <%= link_to "Customer Orders", admin_orders_path %>
-            <% end %>
-            <%= link_to "Profile", current_user %>
-            <%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger", id: "sign-out" %>
-          <% else %>
-            <%= render partial: 'partials/sign_in' %>
-          <% end %>
-        </div>
-        <div id="cart" class="col-md-2">
-        <%= link_to "Items in net: #{cart.count_total}", cart_items_path %>
-        </div>
+      </div>
     </div>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+    <% end %>
+    <%= yield %>
   </div>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-  <% end %>
-  <%= yield %>
-</div>
 </body>
 </html>

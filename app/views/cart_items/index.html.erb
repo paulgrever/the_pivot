@@ -13,12 +13,12 @@
       <td>
         <%= button_to "-", cart_items_path(item_id: item_id, subtract: true), class: "btn btn-danger" %>
       </td>
-      <td><%= cart_quantity %></td>
+      <td align="center"><%= cart_quantity %></td>
       <td>
         <%= button_to "+", cart_items_path(item_id: item_id), class: "btn btn-success" %>
       </td>
       <td>$<%= cart.subtotal(item_id) %></td>
-      <td><%= link_to "Release from net", cart_item_path(item_id), method: :delete%></td>
+      <td><%= link_to "Release from net", cart_item_path(item_id), method: :delete, class: "btn btn-danger", id: "release"%></td>
     </tr>
   <% end %>
   <tr>

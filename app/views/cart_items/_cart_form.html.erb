@@ -1,0 +1,4 @@
+<%= form_for :cart, url: "/cart_items_path", method: :put do |f| %>
+  <%= f.number_field cart.data[item_id], in: 1..10, step: 1 %>
+  <%= f.submit "Update" %>
+<% end %>
