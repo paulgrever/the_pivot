@@ -2,6 +2,7 @@
 
 <% @statuses.each do |status| %>
   <%= link_to status.state, admin_orders_path(status_id: status.id) %>
+  <%= status.orders.count %>
 <% end %>
 <%= link_to "All Orders", admin_orders_path %>
 
