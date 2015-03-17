@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe "the admin item view", type: :feature do
   before :each do
-    @item = FactoryGirl.create(:item)
+    @item_status= FactoryGirl.create(:item_status)
+    @item = FactoryGirl.create(:item, item_status_id: @item_status.id )
     admin = FactoryGirl.create(:admin)
     @category = FactoryGirl.create(:category)
     visit login_path
