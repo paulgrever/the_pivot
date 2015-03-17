@@ -20,25 +20,22 @@ RSpec.describe "the admins order view", type: :feature do
     expect(page).to have_content("Admin Orders")
   end
 
-  xit "displays button links for each individual order if there are orders" do
-    expect(page).to has_button?("Details")
-  end
-
-  xit "shows each orders indivdual information" do
+  it "shows each orders indivdual information" do
     within('table tr:nth-child(2)') do
-      click_link_or_button("click here")
+      click_link_or_button("Details")
     end
       expect(page).to have_content("Details for Order ID:")
   end
 
-  xit "displays the order status" do
+  it "displays the order status" do
     expect(page).to have_content("Status")
   end
 
-  xit "displays order date and time" do
+  it "displays order date and time" do
    within('table tr:nth-child(2)') do
-      click_link_or_button( 'click here')
+      click_link_or_button( 'Details')
     end
+      expect(page).to have_content("Date")
   end
 
 end
