@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :orders
   resources :categories
   resources :cart_items
+  get 'graph/index'
+  get 'graph/data', :defaults => { :format => 'json' }
 
   namespace "admin" do
     resources :categories

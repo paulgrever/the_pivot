@@ -2,6 +2,9 @@ class CartItemsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def create
     if params[:subtract]
       cart.remove_one(params[:item_id])

@@ -37,6 +37,17 @@ h1, h2 {
     margin-left: 10px;
 }
 
+.axis text {
+  font: 15px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
 a:link, a:visited, a:active {
     color: $dark-dark-clam-tan;
     text-decoration: none;
@@ -86,6 +97,11 @@ a:hover, a:active {
     padding: 5px;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+#graph-container {
+    margin: 200px;
+    margin-left: 300px;
 }
 
 #cart:hover {
