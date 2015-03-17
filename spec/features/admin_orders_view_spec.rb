@@ -11,15 +11,16 @@ describe "the admins order view", type: :feature do
     fill_in("session_email", with: @admin.email)
     fill_in("session_password", with: @admin.password)
     click_button 'Sign in'
-    visit admin_orders_path
+    click_link_or_button "Customer Orders"
+    # visit admin_orders_path
   end
 
-  it "displays all the orders on the index page" do
-    expect(page).to have_content("Orders")
+  it "displays all the orders on the admin orders index page" do
+    expect(page).to have_content("Admin Orders")
   end
 
-  it "displays links for each individual order if there are orders" do
-    expect(page).to have_content("click here")
+  it "displays button links for each individual order if there are orders" do
+    expect(page).to has_button?("Details")
   end
 
   it "shows each orders indivdual information" do

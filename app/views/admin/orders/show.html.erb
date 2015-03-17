@@ -24,7 +24,7 @@
     <% end %>
 </table>
 
-<p> Status of the order: <%= @order.order_status %></p>
-<p> Total cost for the order: <%= @order.order_total_cost %> </p>
+<p> <strong>Order Status:</strong> <%= @order.order_status %></p>
+<p> <strong>Total cost for the order:</strong> <%= number_to_currency(@order.order_total_cost) %> </p>
 
-<%= link_to "orders", admin_orders_path %>
+<%= link_to "Admin Orders", admin_orders_path %>

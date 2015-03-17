@@ -10,7 +10,7 @@
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.id %>
-      <td><%= order.user.full_name %>
+      <td><%= order.user_full_name %>
       <td><%= order.order_status %></td>
       <td><%= number_to_currency(order.order_total_cost) %> </td>
       <td><%=link_to "Details", admin_order_path(order), class: "btn btn-success" %>
