@@ -65,7 +65,7 @@ RSpec.describe Item, type: :model do
   end
 
   it "has an item status from item_status table" do
-    item_status = FactoryGirl.create(:item_status)
+    item_status = FactoryGirl.create(:item_status, id: 1)
     expect(item.item_status.state).to eq("Completed")
   end
 
