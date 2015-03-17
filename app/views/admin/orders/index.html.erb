@@ -1,11 +1,19 @@
 <h1> Admin Orders Dashboard</h1>
 
+<% @statuses.each do |status| %>
+  <%= link_to status.state, admin_orders_path(status_id: status.id) %>
+<% end %>
+<%= link_to "All Orders", admin_orders_path %>
+
 <table border ="1">
   <tr>
     <th>Order ID &nbsp; &nbsp; &nbsp;</th>
     <th>User name &nbsp; &nbsp; &nbsp;</th>
     <th>Status </th>
     <th>Cost &nbsp; &nbsp; &nbsp;</th>
+    <th>Cost &nbsp; &nbsp; &nbsp;</th>
+
+
   </tr>
   <% @orders.each do |order| %>
     <tr>
