@@ -37,6 +37,17 @@ h1, h2 {
     margin-left: 10px;
 }
 
+.axis text {
+  font: 15px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
 a:link, a:visited, a:active {
     color: $dark-dark-clam-tan;
     text-decoration: none;
@@ -66,6 +77,10 @@ a:hover, a:active {
     color: $white;
 }
 
+#sign-in:hover, #sign-in:focus {
+    background-color: $ocean-green;
+}
+
 #sign-out {
     color: $white;
     padding: 5px;
@@ -73,7 +88,7 @@ a:hover, a:active {
     padding-left: 10px;
 }
 
-#sign-out:hover {
+#sign-out:hover, #sign-out:focus {
     background-color: $lighter-crab-red;
 }
 
@@ -86,6 +101,11 @@ a:hover, a:active {
     padding: 5px;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+#graph-container {
+    margin: 200px;
+    margin-left: 300px;
 }
 
 #cart:hover {
@@ -114,7 +134,7 @@ a:hover, a:active {
     margin: 5px;
 }
 
-.btn-success:hover {
+.btn-success:hover, .btn-success:focus {
     background-color: $ocean-green;
     border-color: $ocean-green;
 }

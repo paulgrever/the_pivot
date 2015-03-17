@@ -16,4 +16,8 @@ class Item < ActiveRecord::Base
       price/100.to_f
     end
   end
+
+  def revenue
+    order_items.inject(0) { |sum, order_item| sum + order_item.item_subtotal }
+  end
 end
