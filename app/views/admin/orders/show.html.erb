@@ -10,17 +10,17 @@
 <table border ="1">
   <p> Items Purchased </p>
   <tr>
-    <th>Item name &nbsp; &nbsp; &nbsp;</th>
-    <th>Quantity &nbsp; &nbsp; &nbsp;</th>
+    <th> Item name &nbsp; &nbsp; &nbsp;</th>
+    <th> Quantity &nbsp; &nbsp; &nbsp;</th>
     <th> Price </th>
     <th> Subtotal &nbsp; &nbsp; &nbsp;</th>
    </tr>
   <% @order.order_items.each do |order_item| %>
   <tr>
-    <td><%= link_to order_item.item.title, item_path(order_item.item_id)%></td>
+    <td><%= link_to order_item.item.title, admin_item_path(order_item.item_id)%></td>
     <td><%= order_item.quantity %></td>
-    <td> <%= number_to_currency(order_item.item.price %> </td>
-    <td><%= number_to_currency(order_item.item_subtotal) %>
+    <td><%= number_to_currency(order_item.item.price_in_dollars)%> </td>
+    <td><%= number_to_currency(order_item.item_subtotal)%></td>
     <% end %>
 </table>
 
