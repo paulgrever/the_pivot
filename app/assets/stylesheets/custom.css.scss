@@ -66,6 +66,10 @@ a:hover, a:active {
     color: $white;
 }
 
+#sign-in:hover, #sign-in:focus {
+    background-color: $ocean-green;
+}
+
 #sign-out {
     color: $white;
     padding: 5px;
@@ -73,7 +77,7 @@ a:hover, a:active {
     padding-left: 10px;
 }
 
-#sign-out:hover {
+#sign-out:hover, #sign-out:focus {
     background-color: $lighter-crab-red;
 }
 
@@ -88,7 +92,7 @@ a:hover, a:active {
     padding-left: 10px;
 }
 
-#cart:hover {
+#cart:hover, #cart:focus {
     background-color: $ocean-green;
 }
 
@@ -114,7 +118,7 @@ a:hover, a:active {
     margin: 5px;
 }
 
-.btn-success:hover {
+.btn-success:hover, .btn-success:focus {
     background-color: $ocean-green;
     border-color: $ocean-green;
 }

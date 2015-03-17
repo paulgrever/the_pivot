@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'cancancan'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
@@ -25,4 +26,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem "factory_girl_rails"
   gem 'faker'
+  gem 'awesome_print', :require => 'ap'
+  gem 'irbtools'
 end
