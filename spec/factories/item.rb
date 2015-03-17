@@ -6,7 +6,8 @@ FactoryGirl.define do
     item_status_id 1
     price 246
   end
- factory :item2, class: Item  do
+
+  factory :item2, class: Item do
     title "Crab Cake"
     description "Savory stew made with fresh possum"
     image "http://cdn.attackofthecute.com/March-21-2012-01-40-38-fdghnfdgn.jpeg"
