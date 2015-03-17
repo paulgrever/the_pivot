@@ -11,8 +11,7 @@
     <th>User name &nbsp; &nbsp; &nbsp;</th>
     <th>Status </th>
     <th>Cost &nbsp; &nbsp; &nbsp;</th>
-    <th>Cost &nbsp; &nbsp; &nbsp;</th>
-
+    <th> &nbsp; &nbsp; &nbsp;</th>
 
   </tr>
   <% @orders.each do |order| %>
@@ -22,5 +21,16 @@
       <td><%= order.order_status %></td>
       <td><%= number_to_currency(order.order_total_cost) %> </td>
       <td><%=link_to "Details", admin_order_path(order), class: "btn btn-success" %>
+
+      <% if order.order_status == "Paid" %>
+        <%= link_to "Completed", admin_order_path(order), method: :patch, class: "btn btn-success" %>
+        <%= link_to "Cancel", admin_order_path(order), method: :patch, class: "btn btn-danger" %>
+      <% elsif order.order_status == "Ordered" %>
+        <%= link_to "Paid", admin_order_path(order), method: :patch, class: "btn btn-success" %>
+        <%= link_to "Cancel", admin_order_path(order), method: :patch, class: "btn btn-danger" %>
+       <% else %>
+      <p></p>
+      <% end %>
+
     <% end %>
   </table>

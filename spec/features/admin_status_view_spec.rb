@@ -29,10 +29,10 @@ RSpec.describe "the admin status view", type: :feature do
 
   it "displays the total number of complete orders" do
     admin = FactoryGirl.create(:admin)
-    order = FactoryGirl.create(:order)
-    order2 = FactoryGirl.create(:order)
+    order = FactoryGirl.create(:order, status_id: 4)
+    # order2 = FactoryGirl.create(:order)
     orders = Order.all
-    expect(Order.paid.count).to eq(26)
+    expect(Order.all.order_status == "Completed").to be_valid
   end
 
 

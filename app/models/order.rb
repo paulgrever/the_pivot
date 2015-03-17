@@ -28,14 +28,4 @@ class Order < ActiveRecord::Base
   end
 
 
-# if "Ordered" || "Paid"
-#   produce "Cancel" button --> link to update params
-#   (link to "cancel" individual orders which are currently "ordered" or "paid")
-# if "Ordered"
-#   produce "Mark as Paid" button --> link to update params
-#   (link to "mark as paid" orders which are "ordered")
-#  if "Paid"
-#   produce "Mark as completed" button --> link to update params
-#   (link to "mark as completed" individual orders which are currently "paid")
-
 end
