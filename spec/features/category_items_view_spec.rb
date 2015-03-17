@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "category_items", type: :feature do
-  before :each do 
+  before :each do
     @user = FactoryGirl.create(:user)
     @category1 = FactoryGirl.create(:category)
     @category2 = FactoryGirl.create(:category2)
@@ -18,7 +18,7 @@ describe "category_items", type: :feature do
   end
 
   context "clicking on a category" do
-    before :each do 
+    before :each do
       click_link_or_button("vegan")
     end
   
@@ -41,6 +41,6 @@ describe "category_items", type: :feature do
   it "displays items that belong to category" do
     click_link_or_button("appetizer")
     expect(page).to have_content("Crab Cake")
-    expect(page).to_not have_content("Possum Stew")    
+    expect(page).to_not have_content("Possum Stew")
   end
 end
