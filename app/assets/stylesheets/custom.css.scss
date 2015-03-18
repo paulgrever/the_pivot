@@ -20,6 +20,7 @@ $seafood-parchment: #e8e1d4;
 $white: #ffffff;
 $light-shadow-grey: #888888;
 $shadow-grey: #777777;
+$dark-parchment: #dbd0b1;
 
 body {
     background-color: $parchment;
@@ -35,6 +36,11 @@ h1, h2 {
 
 .row {
     margin-left: 10px;
+}
+
+.category-nav {
+    background-color: crab-red;
+    margin: 10px;
 }
 
 .axis text {
@@ -126,6 +132,8 @@ a:hover, a:active {
     margin: 5px;
     margin-bottom: 20px;
 }
+
+
 
 .btn-success {
     background-color: $dark-ocean-green;

@@ -1,0 +1,16 @@
+<div class="row">
+  <% @items.each do |item| %>
+    <div class="box col-sm-3">
+      <% if current_user.nil? || !current_user.admin?%>
+        <% @item_show = item_path(item)  %>
+      <% else %>
+        <% @item_show = admin_item_path(item) %>
+      <% end %>
+      <figcaption><%= link_to item.title, @item_show %></figcaption>
+      <%= link_to image_tag(item.image, size: "100"), @item_show %>
+      <div id=<%= "net-button-#{item.id}" %>>
+        <%= button_to "Add to net", cart_items_path(item_id: item), class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>
