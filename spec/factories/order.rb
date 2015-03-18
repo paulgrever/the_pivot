@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :order do
     user
-    status 
+    status
 
     before :create do
       create :user

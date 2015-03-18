@@ -1,7 +1,8 @@
 class Admin::OrdersController < AdminController
   def index
     @statuses = Status.all
-    @orders = params[:status_id] ? Status.find(params[:status_id]).orders : Order.all
+    @orders = params[:status_id] ? Status.find(params[:status_id])
+      .orders : Order.all
   end
 
   def show
@@ -21,6 +22,3 @@ class Admin::OrdersController < AdminController
     params.require(:order).permit(:status_id)
   end
 end
-
-
-
