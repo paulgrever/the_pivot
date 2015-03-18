@@ -1,11 +1,30 @@
-function runAjax() {
+$(document).ready(function() {
+    if(window.location.pathname === '/graph/index') {
+            runAjaxRev();
+            runAjaxUnits();
+    };
+
+    $("#rev").click(function() {
+        draw(rev_data);
+    });
+
+    //$("#units").click(function() {
+        //draw(units_data);
+    //});
+
+});
+
+var rev_data
+var units_data
+
+function runAjaxRev() {
     $.ajax({
            type: "GET",
            contentType: "application/json; charset=utf-8",
-           url: "data",
+           url: "data_revenue",
            dataType: "json",
            success: function (data) {
-               draw(data);
+               rev_data = data;
            },
            error: function (result) {
                error(result);
@@ -13,10 +32,21 @@ function runAjax() {
        });
 }
 
-$(document).ready(function() {
-    if(window.location.pathname === '/graph/index')
-        runAjax();
-});
+function runAjaxUnits() {
+    $.ajax({
+           type: "GET",
+           contentType: "application/json; charset=utf-8",
+           url: "data_units",
+           dataType: "json",
+           success: function (data) {
+               units_data = data;
+           },
+           error: function (result) {
+               error(result);
+           }
+       });
+}
+
 
 function draw(data) {
     var color = d3.scale.category20b();
@@ -65,7 +95,37 @@ function draw(data) {
                   return "translate(0," + (data.numbers.length * barHeight) + ")";
               })
       .call(xAxis);
+
+    d3.select("#units")
+        .on("click", function() {
+            console.log("clicked");
+            var graph = d3.select('.graph')
+                .attr("class", "x axis")
+                .attr("transform", function (d, i) {
+                return "translate(0," + (data.numbers.length * barHeight) + ")";
+                })
+                .call(xAxis);
+            graph.selectAll("g")
+                .attr("transform", function (d, i) {
+                  return "translate(0," + i * barHeight + ")";
+                });
+            graph.selectAll("rect")
+                .attr("width", x)
+                .attr("height", barHeight - 1)
+                .style("fill", function (d) {
+                   return color(d);
+                });
+            graph.selectAll("text")
+                .attr("x", 25)
+                .attr("y", barHeight / 2)
+                .attr("dy", ".5em")
+                .style("fill", "white")
+                .text(function (d, i) {
+                  return data.item[i];
+              });
+            });
 }
+
 
 function error(e) {
     console.log("error", e)

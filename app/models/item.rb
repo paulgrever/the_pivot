@@ -20,4 +20,8 @@ class Item < ActiveRecord::Base
   def revenue
     order_items.inject(0) { |sum, order_item| sum + order_item.item_subtotal }
   end
+
+  def units_sold
+    order_items.inject(0) { |sum, order_item| sum + order_item.quantity }
+  end
 end
