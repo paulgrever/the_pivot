@@ -10,11 +10,15 @@ class Admin::OrdersController < AdminController
 
   def update
     @order = Order.find(params[:id])
-    if @order.update_attributes(params[:order])
-      redirect_to admin_orders_path(status_id: status.id)
+    if @order.update(order_params)
+      redirect_to admin_orders_path
     else
       redirect_to admin_orders_path
     end 
+  end
+
+  def order_params
+    params.require(:order).permit(:status_id)
   end
 end
 

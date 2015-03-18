@@ -24,14 +24,31 @@
       <td><%=link_to "Details", admin_order_path(order), class: "btn btn-success" %>
 
       <% if order.order_status == "Paid" %>
-        <%= link_to "Completed", admin_order_path(order), method: :patch, class: "btn btn-success" %>
-        <%= link_to "Cancel", admin_order_path(order), method: :patch, class: "btn btn-danger" %>
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 4 %>
+          <%= f.submit "Completed", class: "btn btn-success" %>
+        <% end %>
+
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 3 %>
+          <%= f.submit "Cancel", class: "btn btn-danger" %>
+        <% end %>
+
+
       <% elsif order.order_status == "Ordered" %>
-        <%= link_to "Paid", admin_order_path(order), method: :patch, class: "btn btn-success" %>
-        <%= link_to "Cancel", admin_order_path(order), method: :patch, class: "btn btn-danger" %>
-       <% else %>
-      <p></p>
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 2 %>
+          <%= f.submit "Paid", class: "btn btn-success" %>
+        <% end %>
+
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 3 %>
+          <%= f.submit "Cancel", class: "btn btn-danger" %>
+        <% end %>
+
+      <% else %>
+        <p></p>
       <% end %>
 
-    <% end %>
+  <% end %>
   </table>
