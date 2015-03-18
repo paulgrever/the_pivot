@@ -1,11 +1,27 @@
 FactoryGirl.define do
   factory :order do
-    user_id 3
-    status_id 2
+    user
+    status
+
+    before :create do
+      create :user
+    end
+
+    before :create do
+      create :status
+    end
   end
 
   factory :order2, class: Order do
-    user_id 2
-    status_id 1
-  end  
+    user
+    status
+    
+    before :create do
+      create :user
+    end
+
+    before :create do
+      create :status
+    end
+  end
 end

@@ -5,6 +5,7 @@ FactoryGirl.define do
     display_name "jgu"
     password "gu"
     role "default"
+
   end
 
   factory :admin, class: User do

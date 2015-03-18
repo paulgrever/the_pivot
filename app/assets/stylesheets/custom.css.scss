@@ -20,6 +20,7 @@ $seafood-parchment: #e8e1d4;
 $white: #ffffff;
 $light-shadow-grey: #888888;
 $shadow-grey: #777777;
+$dark-parchment: #dbd0b1;
 
 body {
     background-color: $parchment;
@@ -35,6 +36,11 @@ h1, h2 {
 
 .row {
     margin-left: 10px;
+}
+
+.category-nav {
+    background-color: crab-red;
+    margin: 10px;
 }
 
 .axis text {
@@ -128,6 +134,8 @@ a:hover, a:active {
     margin-bottom: 20px;
 }
 
+
+
 .btn-success {
     background-color: $dark-ocean-green;
     border-color: $dark-ocean-green;
@@ -150,28 +158,6 @@ a:hover, a:active {
 .btn-danger:hover {
     background-color: $lighter-crab-red;
     border-color: $lighter-crab-red;
-}
-
-.polaroid {
-    position: relative;
-}
-
-.polaroid img {
-    border: 10px solid #fff;
-    border-bottom: 45px solid #fff;
-    -webkit-box-shadow: 3px 3px 3px #777;
-    -moz-box-shadow: 3px 3px 3px #777;
-    box-shadow: 3px 3px 3px #777;
-}
-
-.polaroid figcaption {
-    font-size: 1px;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    bottom: 0px;
-    font: 400 18px/1 'Kaushan Script', cursive;
-    color: #888;
 }
 
 .btn-success {
@@ -203,56 +189,4 @@ a:hover, a:active {
 .btn-danger:hover {
     background-color: $lighter-crab-red;
     border-color: $lighter-crab-red;
-}
-
-.polaroid {
-    position: relative;
-}
-
-.polaroid img {
-    border: 10px solid $white;
-    border-bottom: 45px solid $white;
-    -moz-box-shadow: 3px 3px 3px $shadow-grey;
-    -webkit-box-shadow: 3px 3px 3px $shadow-grey;
-    box-shadow: 3px 3px 3px $shadow-grey;
-}
-
-.polaroid figcaption {
-    font-size: 1px;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    bottom: 0px;
-    font: 400 18px/1 'Kaushan Script', cursive;
-    color: $light-shadow-grey;
-}
-
-text {
-  font-size: 11px;
-  pointer-events: none;
-}
-
-text.parent {
-  fill: #1f77b4;
-}
-
-circle {
-  fill: #ccc;
-  stroke: #999;
-  pointer-events: all;
-}
-
-circle.parent {
-  fill: #1f77b4;
-  fill-opacity: .1;
-  stroke: steelblue;
-}
-
-circle.parent:hover {
-  stroke: #ff7f0e;
-  stroke-width: .5px;
-}
-
-circle.child {
-  pointer-events: none;
 }

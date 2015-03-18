@@ -1,19 +1,54 @@
 <h1> Admin Orders Dashboard</h1>
 
+<% @statuses.each do |status| %>
+  <%= link_to status.state, admin_orders_path(status_id: status.id) %>
+  <%= status.orders.count %>
+<% end %>
+<%= link_to "All Orders", admin_orders_path %>
+
 <table border ="1">
   <tr>
     <th>Order ID &nbsp; &nbsp; &nbsp;</th>
-    <th>User ID &nbsp; &nbsp; &nbsp;</th>
-    <th> Status </th>
-    <th> Cost &nbsp; &nbsp; &nbsp;</th>
-    <th> Details &nbsp; &nbsp; &nbsp;</th>
+    <th>User name &nbsp; &nbsp; &nbsp;</th>
+    <th>Status </th>
+    <th>Cost &nbsp; &nbsp; &nbsp;</th>
+    <th> &nbsp; &nbsp; &nbsp;</th>
+
   </tr>
   <% @orders.each do |order| %>
     <tr>
       <td><%= order.id %>
-      <td><%= order.user_id %>
+      <td><%= order.user_full_name %>
       <td><%= order.order_status %></td>
-      <td> <%= order.order_total_cost %> </td>
-      <td><%=link_to "click here", admin_order_path(order) %>
-    <% end %>
+      <td><%= number_to_currency(order.order_total_cost) %> </td>
+      <td><%=link_to "Details", order, class: "btn btn-success" %>
+
+      <% if order.order_status == "Paid" %>
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 4 %>
+          <%= f.submit "Completed", class: "btn btn-success" %>
+        <% end %>
+
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 3 %>
+          <%= f.submit "Cancel", class: "btn btn-danger" %>
+        <% end %>
+
+
+      <% elsif order.order_status == "Ordered" %>
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 2 %>
+          <%= f.submit "Paid", class: "btn btn-success" %>
+        <% end %>
+
+        <%= form_for(order, url: admin_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 3 %>
+          <%= f.submit "Cancel", class: "btn btn-danger" %>
+        <% end %>
+
+      <% else %>
+        <p></p>
+      <% end %>
+
+  <% end %>
   </table>
