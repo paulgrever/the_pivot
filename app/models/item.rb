@@ -8,6 +8,9 @@ class Item < ActiveRecord::Base
   has_many :orders, through: :order_items
   has_many :categories, through: :item_categories
   scope :active, -> { where(item_status_id: 1) }
+  has_attached_file :image
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
 
   def price_in_dollars
     if price.nil?
