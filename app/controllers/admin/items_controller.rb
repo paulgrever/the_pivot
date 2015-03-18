@@ -62,6 +62,7 @@ class Admin::ItemsController < AdminController
     { title: item_params[:title],
       description: item_params[:description],
       image: item_params[:image],
+      item_status_id: item_params[:item_status_id],
       price: item_params[:price_in_dollars].to_f * 100 }
   end
 end
