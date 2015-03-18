@@ -100,7 +100,7 @@ GEM
     fancy_irb (0.7.3)
       paint (>= 0.8.1)
       unicode-display_width (>= 0.1.1)
-    ffi (1.9.7)
+    ffi (1.9.8)
     g (1.7.2)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
