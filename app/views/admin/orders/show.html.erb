@@ -1,4 +1,4 @@
-<h2>  Details for Order ID: <%=@order.id %>  </h2>
+<h2>  Admin Details for Order ID: <%=@order.id %>  </h2>
 
 <ul>
   <li> Date ordered: <%= @order.date %></li>
@@ -10,21 +10,21 @@
 <table border ="1">
   <p> Items Purchased </p>
   <tr>
-    <th>Item name &nbsp; &nbsp; &nbsp;</th>
-    <th>Quantity &nbsp; &nbsp; &nbsp;</th>
+    <th> Item name &nbsp; &nbsp; &nbsp;</th>
+    <th> Quantity &nbsp; &nbsp; &nbsp;</th>
     <th> Price </th>
     <th> Subtotal &nbsp; &nbsp; &nbsp;</th>
    </tr>
   <% @order.order_items.each do |order_item| %>
   <tr>
-    <td><%= order_item.item.title%></td>
+    <td><%= link_to order_item.item.title, admin_item_path(order_item.item_id)%></td>
     <td><%= order_item.quantity %></td>
-    <td> <%= order_item.item.price %> </td>
-    <td><%= order_item.item_subtotal %>
+    <td><%= number_to_currency(order_item.item.price_in_dollars)%> </td>
+    <td><%= number_to_currency(order_item.item_subtotal)%></td>
     <% end %>
 </table>
 
-<p> Status of the order: <%= @order.order_status %></p>
-<p> Total cost for the order: <%= @order.order_total_cost %> </p>
+<p> <strong>Order Status:</strong> <%= @order.order_status %></p>
+<p> <strong>Total cost for the order:</strong> <%= number_to_currency(@order.order_total_cost) %> </p>
 
-<%= link_to "orders", admin_orders_path %>
+<%= link_to "Admin Orders", admin_orders_path %>
