@@ -59,7 +59,7 @@ function draw(data) {
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .ticks(10, "$")
+        .ticks(10, "&nbsp;")
         .orient("bottom");
 
     var chart = d3.select(".graph")
@@ -100,22 +100,26 @@ function draw(data) {
         .on("click", function() {
             console.log("clicked");
             var graph = d3.select('.graph')
+                .data(units_data)
                 .attr("class", "x axis")
                 .attr("transform", function (d, i) {
                 return "translate(0," + (data.numbers.length * barHeight) + ")";
                 })
                 .call(xAxis);
             graph.selectAll("g")
+                .data(units_data)
                 .attr("transform", function (d, i) {
                   return "translate(0," + i * barHeight + ")";
                 });
             graph.selectAll("rect")
+                .data(units_data)
                 .attr("width", x)
                 .attr("height", barHeight - 1)
                 .style("fill", function (d) {
                    return color(d);
                 });
             graph.selectAll("text")
+                .data(units_data)
                 .attr("x", 25)
                 .attr("y", barHeight / 2)
                 .attr("dy", ".5em")
