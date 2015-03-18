@@ -1,8 +1,8 @@
 class Admin::OrdersController < AdminController
   def index
     @statuses = Status.all
-    @orders = params[:status_id] ? Status.find(params[:status_id])
-      .orders : Order.all
+    @orders = params[:status_id] ? Status.find(params[:status_id]).
+              orders : Order.all
   end
 
   def show
@@ -15,7 +15,7 @@ class Admin::OrdersController < AdminController
       redirect_to admin_orders_path
     else
       redirect_to admin_orders_path
-    end 
+    end
   end
 
   def order_params

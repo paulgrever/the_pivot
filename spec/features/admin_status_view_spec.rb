@@ -23,11 +23,4 @@ RSpec.describe "the admin status view", type: :feature do
     status = FactoryGirl.create(:status, id: 4)
     expect(order.status.state).to eq("Ordered")
   end
-
-  xit "can update the status when the paid button is clicked" do
-    click_link_or_button "Customer Orders"
-    click_link_or_button("Paid")
-    expect(current_path).to eq(admin_orders_path)
-  end
-
 end
