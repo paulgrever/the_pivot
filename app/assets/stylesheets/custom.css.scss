@@ -38,13 +38,13 @@ h1, h2 {
 }
 
 .axis text {
-  font: 15px sans-serif;
+  font: 18px sans-serif;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: $ocean-green;
   shape-rendering: crispEdges;
 }
 
@@ -104,8 +104,8 @@ a:hover, a:active {
 }
 
 #graph-container {
-    margin: 200px;
-    margin-left: 300px;
+    margin: 50px;
+    margin-left: 75px;
 }
 
 #cart:hover {
@@ -224,4 +224,34 @@ a:hover, a:active {
     bottom: 0px;
     font: 400 18px/1 'Kaushan Script', cursive;
     color: $light-shadow-grey;
+}
+
+text {
+  font-size: 11px;
+  pointer-events: none;
+}
+
+text.parent {
+  fill: #1f77b4;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #999;
+  pointer-events: all;
+}
+
+circle.parent {
+  fill: #1f77b4;
+  fill-opacity: .1;
+  stroke: steelblue;
+}
+
+circle.parent:hover {
+  stroke: #ff7f0e;
+  stroke-width: .5px;
+}
+
+circle.child {
+  pointer-events: none;
 }
