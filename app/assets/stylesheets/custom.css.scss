@@ -151,28 +151,6 @@ a:hover, a:active {
     border-color: $lighter-crab-red;
 }
 
-.polaroid {
-    position: relative;
-}
-
-.polaroid img {
-    border: 10px solid #fff;
-    border-bottom: 45px solid #fff;
-    -webkit-box-shadow: 3px 3px 3px #777;
-    -moz-box-shadow: 3px 3px 3px #777;
-    box-shadow: 3px 3px 3px #777;
-}
-
-.polaroid figcaption {
-    font-size: 1px;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    bottom: 0px;
-    font: 400 18px/1 'Kaushan Script', cursive;
-    color: #888;
-}
-
 .btn-success {
     color: $white;
     background-color: $dark-ocean-green;
@@ -202,26 +180,4 @@ a:hover, a:active {
 .btn-danger:hover {
     background-color: $lighter-crab-red;
     border-color: $lighter-crab-red;
-}
-
-.polaroid {
-    position: relative;
-}
-
-.polaroid img {
-    border: 10px solid $white;
-    border-bottom: 45px solid $white;
-    -moz-box-shadow: 3px 3px 3px $shadow-grey;
-    -webkit-box-shadow: 3px 3px 3px $shadow-grey;
-    box-shadow: 3px 3px 3px $shadow-grey;
-}
-
-.polaroid figcaption {
-    font-size: 1px;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    bottom: 0px;
-    font: 400 18px/1 'Kaushan Script', cursive;
-    color: $light-shadow-grey;
 }
