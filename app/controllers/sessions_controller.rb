@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
   def destroy
     flash[:success] = "You have successfully signed out."
     session.clear
-    redirect_to items_path
+    redirect_to root_path
   end
 end
