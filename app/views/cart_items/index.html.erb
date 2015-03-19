@@ -1,34 +1,34 @@
-<h1>Currently caught in your net</h1>
-<table>
-  <tr>
-    <td>Item</td>
-    <td></td>
-    <td>Quantity</td>
-    <td></td>
-    <td>Cost</td>
-  </tr>
-  <% cart.data.each do |item_id, cart_quantity| %>
+<div id="cart-div">
+  <h3 id="cat-header">Currently caught in your net</h3>
+  <table class="table">
     <tr>
-      <td><%= cart.find_item(item_id) %></td>
-      <td>
-        <%= button_to "-", cart_items_path(item_id: item_id, subtract: true), class: "btn btn-danger" %>
-      </td>
-      <td align="center"><%= cart_quantity %></td>
-      <td>
-        <%= button_to "+", cart_items_path(item_id: item_id), class: "btn btn-success" %>
-      </td>
-      <td>$<%= cart.subtotal(item_id) %></td>
-      <td><%= link_to "Release from net", cart_item_path(item_id), method: :delete, class: "btn btn-danger", id: "release"%></td>
+      <td>Item</td>
+      <td></td>
+      <td class="text-center">Quantity</td>
+      <td class="text-center">Cost</td>
     </tr>
-  <% end %>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Total:&nbsp;</td>
-    <td>$<%= cart.total %></td>
-    <td><%= button_to "Checkout", orders_path, class: "btn btn-success" %></td>
-  </tr>
-</table>
-
-<%= link_to("Back", items_path) %>
+    <% cart.data.each do |item_id, cart_quantity| %>
+      <tr>
+        <td><%= cart.find_item(item_id) %></td>
+        <td>
+          <div class="pull-left">
+          <%= button_to "-", cart_items_path(item_id: item_id, subtract: true), class: "btn btn-danger" %>
+        </div>
+        <div>
+          <%= button_to "+", cart_items_path(item_id: item_id), class: "btn btn-success" %>
+        </div>
+        </td>
+        <td class="text-center"><%= cart_quantity %></td>
+        <td class="text-center">$<%= cart.subtotal(item_id) %></td>
+        <td><%= link_to "Release from net", cart_item_path(item_id), method: :delete, class: "btn btn-danger", id: "release"%></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td class="text-center"><strong>Total</strong></td>
+      <td class="text-center">$<%= cart.total %></td>
+      <td><%= button_to "Checkout", orders_path, class: "btn btn-success" %></td>
+    </tr>
+  </table>
+</div>

@@ -6,11 +6,21 @@
       <% else %>
         <% @item_show = admin_item_path(item) %>
       <% end %>
-      <figcaption><%= link_to item.title, @item_show %></figcaption>
       <%= link_to image_tag(item.image, size: "100"), @item_show %>
-      <div id=<%= "net-button-#{item.id}" %>>
-        <%= button_to "Add to net", cart_items_path(item_id: item), class: "btn btn-success" %>
-      </div>
+      <figcaption><%= link_to item.title, @item_show %></figcaption>
+      <% if current_user.nil? || !current_user.admin?%>
+        <div id=<%= "net-button-#{item.id}" %>>
+          <%= button_to "Add to net", cart_items_path(item_id: item), class: "btn btn-success" %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to "Edit", edit_admin_item_path(item), class: "btn btn-success", id: "btn-edit" %>
+          <%= link_to "Delete", admin_item_path(item), class:"btn btn-danger", id: "btn-delete", method: :delete %>
+        </div>
+      <% end %>
     </div>
+  <% end %>
+  <% unless current_user.nil? || !current_user.admin?%>
+    <%= link_to "Create Item", new_admin_item_path, class: "btn btn-success", id: "create-button" %>
   <% end %>
 </div>
