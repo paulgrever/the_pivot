@@ -42,6 +42,15 @@ h1, h2, h3 {
     margin: 25px;
 }
 
+#clam-pic {
+    background: $dark-ocean-green;
+    border: 5px solid $dark-ocean-green;
+    margin-top: 40px;
+    margin-right: 150px;
+    padding:5px;
+    width: 80%;
+}
+
 #big-title {
     color: $dark-ocean-green;
     font-size: 35px;
