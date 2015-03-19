@@ -1,24 +1,31 @@
-$.ajax({
+function runAjax() {
+    $.ajax({
            type: "GET",
            contentType: "application/json; charset=utf-8",
-           url: 'data',
-           dataType: 'json',
+           url: "data",
+           dataType: "json",
            success: function (data) {
                draw(data);
            },
            error: function (result) {
-               error();
+               error(result);
            }
        });
+}
+
+$(document).ready(function() {
+    if(window.location.pathname === '/graph/index')
+        runAjax();
+});
 
 function draw(data) {
     var color = d3.scale.category20b();
-    var width = 900,
+    var width = 800,
         barHeight = 50;
 
     var x = d3.scale.linear()
         .range([0, width])
-        .domain([0, d3.max(data.revenue)]);
+        .domain([0, d3.max(data.numbers)]);
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -27,10 +34,10 @@ function draw(data) {
 
     var chart = d3.select(".graph")
         .attr("width", width)
-        .attr("height", barHeight * data.revenue.length);
+        .attr("height", barHeight * data.numbers.length + 100);
 
     var bar = chart.selectAll("g")
-        .data(data.revenue)
+        .data(data.numbers)
         .enter().append("g")
         .attr("transform", function (d, i) {
                   return "translate(0," + i * barHeight + ")";
@@ -54,9 +61,12 @@ function draw(data) {
 
     chart.append("g")
       .attr("class", "x axis")
+      .attr("transform", function (d, i) {
+                  return "translate(0," + (data.numbers.length * barHeight) + ")";
+              })
       .call(xAxis);
 }
 
-function error() {
-    console.log("error")
+function error(e) {
+    console.log("error", e)
 }
