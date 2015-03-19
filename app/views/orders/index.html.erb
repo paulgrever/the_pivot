@@ -1,5 +1,4 @@
-<h1> <%= current_user.full_name %>'s Orders Dashboard</h1>
-<h3> User ID: <%= current_user.id %> </h3>
+<h3>My Orders</h3>
 
 <table border ="1">
   <tr>
@@ -12,8 +11,6 @@
       <td><%= order.id %></td>
       <td><%= order.order_status %></td>
       <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
-      <td><%=link_to "Details", order_path(order), class: "btn btn-success" %>
+      <td><%=link_to "Details", order_path(order), class: "btn btn-details float-left" %>
     <% end %>
   </table>
-
-
