@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
   scope :active, -> { where(item_status_id: 1) }
   has_attached_file :image, styles: { large: "500x340>", medium: "250x170>", thumb: "100x100>" }, default_url: "http://www.espinaler.com/wp-content/uploads/almeja-blanca.png"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-
+  # http://www.espinaler.com/wp-content/uploads/almeja-blanca.png
 
   def price_in_dollars
     if price.nil?
