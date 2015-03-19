@@ -1,54 +1,58 @@
 <h1> Admin Orders Dashboard</h1>
 
-<% @statuses.each do |status| %>
-  <%= link_to status.state, admin_orders_path(status_id: status.id) %>
-  <%= status.orders.count %>
-<% end %>
+  <% @statuses.each do |status| %>
+    <div class="status">
+      <%= link_to status.state, admin_orders_path(status_id: status.id) %>
+      <%= status.orders.count %>
+    </div> 
+   <% end %>
 <%= link_to "All Orders", admin_orders_path %>
+
 
 <table border ="1">
   <tr>
-    <th>Order ID &nbsp; &nbsp; &nbsp;</th>
-    <th>User name &nbsp; &nbsp; &nbsp;</th>
+    <th class="medium-column">Order ID</th>
+    <th>User name</th>
     <th>Status </th>
-    <th>Cost &nbsp; &nbsp; &nbsp;</th>
-    <th> &nbsp; &nbsp; &nbsp;</th>
+    <th class="money">Cost</th>
+    <th class="large-column"></th>
 
   </tr>
   <% @orders.each do |order| %>
     <tr>
-      <td><%= order.id %>
+      <td class="medium-column"><%= order.id %>
       <td><%= order.user_full_name %>
       <td><%= order.order_status %></td>
-      <td><%= number_to_currency(order.order_total_cost) %> </td>
-      <td><%=link_to "Details", order, class: "btn btn-success" %>
+      <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
+      <td class="large-column"><%=link_to "Details", order, class: "btn btn-success float-left" %>
 
       <% if order.order_status == "Paid" %>
         <%= form_for(order, url: admin_order_path(order)) do |f| %>
           <%= f.hidden_field :status_id, value: 4 %>
-          <%= f.submit "Completed", class: "btn btn-success" %>
+          <%= f.submit "Completed", class: "btn btn-success float-left" %>
         <% end %>
 
         <%= form_for(order, url: admin_order_path(order)) do |f| %>
           <%= f.hidden_field :status_id, value: 3 %>
-          <%= f.submit "Cancel", class: "btn btn-danger" %>
+          <%= f.submit "Cancel", class: "btn btn-danger float-left" %>
         <% end %>
 
 
       <% elsif order.order_status == "Ordered" %>
         <%= form_for(order, url: admin_order_path(order)) do |f| %>
           <%= f.hidden_field :status_id, value: 2 %>
-          <%= f.submit "Paid", class: "btn btn-success" %>
+          <%= f.submit "Paid", class: "btn btn-success float-left" %>
         <% end %>
 
         <%= form_for(order, url: admin_order_path(order)) do |f| %>
           <%= f.hidden_field :status_id, value: 3 %>
-          <%= f.submit "Cancel", class: "btn btn-danger" %>
+          <%= f.submit "Cancel", class: "btn btn-danger float-left" %>
         <% end %>
 
       <% else %>
         <p></p>
-      <% end %>
+      <% end %></td>
 
   <% end %>
+  <div style="clear:both;"></div>
   </table>

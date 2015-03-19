@@ -189,3 +189,45 @@ a:hover, a:active {
     background-color: $lighter-crab-red;
     border-color: $lighter-crab-red;
 }
+
+table {
+   width: 75%;
+   margin-top: 20px;
+}
+
+th, td {
+    padding: 7px 10px 10px 10px;
+}
+
+.small-column {
+    text-align: center;
+    width: 30px;
+}
+
+.medium-column {
+    text-align: center;
+    width: 90px;
+}
+
+.large-column {
+    width: 300px;
+}
+
+.money {
+    text-align: right;
+    width: 100px;
+}
+
+.status {
+    display: inline;
+    margin-right: 10px;
+    width: 10%;
+}
+
+.content {
+    margin-left: 55px;
+}
+
+.float-left {
+    float: left;
+}
