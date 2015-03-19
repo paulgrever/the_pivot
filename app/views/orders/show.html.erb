@@ -9,26 +9,25 @@
 </ul>
 
 <table border ="1">
-  <p> Items Purchased </p>
   <tr>
-    <th>Item name &nbsp; &nbsp; &nbsp;</th>
-    <th>Quantity &nbsp; &nbsp; &nbsp;</th>
-    <th>Price </th>
-    <th>Subtotal &nbsp; &nbsp; &nbsp;</th>
+    <th>Items Purchased</th>
+    <th class="small-column">Quantity</th>
+    <th class="money">Price</th>
+    <th class="money">Subtotal</th>
   </tr>
   <% @order.order_items.each do |order_item| %>
 
     <td><%= link_to order_item.item.title, item_path(order_item.item_id)%></td>
-    <td><%= order_item.quantity %></td>
-    <td><%= number_to_currency(order_item.item.price_in_dollars) %></td>
-    <td><%= number_to_currency(order_item.item_subtotal) %></td>
+    <td class="small-column"><%= order_item.quantity %></td>
+    <td class="money"><%= number_to_currency(order_item.item.price_in_dollars) %></td>
+    <td class="money"><%= number_to_currency(order_item.item_subtotal) %></td>
   </tr>
   <% end %>
   <tr>
     <td></td>
     <td></td>
-    <th>Total:</th>
-    <th><%= number_to_currency(@order.order_total_cost)%></th>
+    <th class="money">Total:</th>
+    <th class="money"><%= number_to_currency(@order.order_total_cost)%></th>
   </tr>
 </table>
 
