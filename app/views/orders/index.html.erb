@@ -11,8 +11,6 @@
       <td><%= order.id %></td>
       <td><%= order.order_status %></td>
       <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
-      <td><%=link_to "Details", order_path(order), class: "btn btn-success" %>
+      <td><%=link_to "Details", order_path(order), class: "btn btn-details float-left" %>
     <% end %>
   </table>
-
-
