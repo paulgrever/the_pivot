@@ -4,6 +4,6 @@ class OrderItem < ActiveRecord::Base
   validates :quantity, presence: true
 
   def item_subtotal
-    (quantity * item.price) / 100
+    (quantity * item.price) / 100.00      
   end
 end

@@ -23,24 +23,24 @@ $shadow-grey: #777777;
 $dark-parchment: #dbd0b1;
 
 body {
-    background-color: $parchment;
+  background-color: $parchment;
 }
 
 h1, h2 {
-    color: $ocean-green;
+  color: $ocean-green;
 }
 
 #big-title {
-    font-color: $ocean-green;
+  font-color: $ocean-green;
 }
 
 .row {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .category-nav {
-    background-color: crab-red;
-    margin: 10px;
+  background-color: crab-red;
+  margin: 10px;
 }
 
 .axis text {
@@ -55,58 +55,58 @@ h1, h2 {
 }
 
 a:link, a:visited, a:active {
-    color: $dark-dark-clam-tan;
-    text-decoration: none;
+  color: $dark-dark-clam-tan;
+  text-decoration: none;
 }
 
 .alert-success {
-    background-color: $ocean-green;
-    color: $white;
+  background-color: $ocean-green;
+  color: $white;
 }
 
 .alert-danger {
-    background-color: $lighter-crab-red;
-    color: $white;
+  background-color: $lighter-crab-red;
+  color: $white;
 }
 
 a:hover, a:active {
-    color: $dark-clam-tan;
+  color: $dark-clam-tan;
 }
 
 .btn {
-    padding: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #sign-in {
-    color: $white;
+  color: $white;
 }
 
 #sign-in:hover, #sign-in:focus {
-    background-color: $ocean-green;
+  background-color: $ocean-green;
 }
 
 #sign-out {
-    color: $white;
-    padding: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+  color: $white;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #sign-out:hover, #sign-out:focus {
-    background-color: $lighter-crab-red;
+  background-color: $lighter-crab-red;
 }
 
 #create-button {
-    color: $white;
+  color: $white;
 }
 
 #cart {
-    color: $white;
-    padding: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+  color: $white;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 #graph-container {
@@ -115,77 +115,125 @@ a:hover, a:active {
 }
 
 #cart:hover {
-    background-color: $ocean-green;
+  background-color: $ocean-green;
 }
 
 #create-button {
-    color: $white;
+  color: $white;
 }
 
 #release {
-    color: $white;
+  color: $white;
 }
 
 .navbar-default {
-    background-color: $parchment;
-    border-color: $parchment;
-    margin: 5px;
-    margin-bottom: 20px;
+  background-color: $parchment;
+  border-color: $parchment;
+  margin: 5px;
+  margin-bottom: 20px;
 }
 
-
+.btn-details {
+  background-color: #ffffff;
+  border-color: $clam-tan;
+  margin-top: 10px;
+  margin: 5px;
+  color: white;
+}
 
 .btn-success {
-    background-color: $dark-ocean-green;
-    border-color: $dark-ocean-green;
-    margin-top: 10px;
-    margin: 5px;
+  background-color: $dark-ocean-green;
+  border-color: $dark-ocean-green;
+  margin-top: 10px;
+  margin: 5px;
 }
 
 .btn-success:hover, .btn-success:focus {
-    background-color: $ocean-green;
-    border-color: $ocean-green;
+  background-color: $ocean-green;
+  border-color: $ocean-green;
 }
 
 .btn-danger {
-    background-color: $light-crab-red;
-    border-color: $light-crab-red;
-    margin-top: 10px;
-    margin: 5px;
+  background-color: $light-crab-red;
+  border-color: $light-crab-red;
+  margin-top: 10px;
+  margin: 5px;
 }
 
 .btn-danger:hover {
-    background-color: $lighter-crab-red;
-    border-color: $lighter-crab-red;
+  background-color: $lighter-crab-red;
+  border-color: $lighter-crab-red;
 }
 
 .btn-success {
-    color: $white;
-    background-color: $dark-ocean-green;
-    padding: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-color: $dark-ocean-green;
-    margin-top: 10px;
-    margin: 5px;
+  color: $white;
+  background-color: $dark-ocean-green;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-color: $dark-ocean-green;
+  margin-top: 10px;
+  margin: 5px;
 }
 
 .btn-success:hover {
-    background-color: $ocean-green;
-    border-color: $ocean-green;
+  background-color: $ocean-green;
+  border-color: $ocean-green;
 }
 
 .btn-danger {
-    background-color: $light-crab-red;
-    border-color: $light-crab-red;
-    padding: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-top: 10px;
-    margin: 5px;
+  background-color: $light-crab-red;
+  border-color: $light-crab-red;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin: 5px;
 }
 
 .btn-danger:hover {
-    background-color: $lighter-crab-red;
-    border-color: $lighter-crab-red;
+  background-color: $lighter-crab-red;
+  border-color: $lighter-crab-red;
+}
+
+table {
+ width: 75%;
+ margin-top: 20px;
+}
+
+th, td {
+  padding: 7px 5px 5px 10px;
+}
+
+.small-column {
+  text-align: center;
+  width: 30px;
+}
+
+.medium-column {
+  text-align: center;
+  width: 90px;
+}
+
+.large-column {
+  width: 280px;
+}
+
+.money {
+  text-align: right;
+  width: 100px;
+}
+
+.status {
+  display: inline;
+  margin-right: 10px;
+  width: 10%;
+}
+
+.content {
+  margin-left: 55px;
+}
+
+.float-left {
+  float: left;
 }
