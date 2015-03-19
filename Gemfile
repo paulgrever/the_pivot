@@ -16,6 +16,8 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'rails_12factor', group: :production
 gem 'd3_rails'
+gem "figaro"
+gem 'twilio-ruby', '~> 3.12'
 
 group :development, :test do
   gem 'byebug'
