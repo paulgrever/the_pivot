@@ -23,10 +23,10 @@ OrderItem.create(item_id: 1, order_id:1, quantity: 2)
 
 Item.create(title: "Clams", description: "Our most famous dish", price: 4532, item_status_id: 1)
 
-Category.create(name: "Appetizer")
-Category.create(name: "Cocktail")
-Category.create(name: "Dessert")
-Category.create(name: "Entree")
-Category.create(name: "Salad")
+Category.create(name: "Appetizers")
+Category.create(name: "Cocktails")
+Category.create(name: "Desserts")
+Category.create(name: "Entrees")
+Category.create(name: "Salads")
 
 ItemCategory.create(item_id: 1, category_id: 1)
