@@ -2,22 +2,24 @@
   <div class="container-fluid">
 
     <div class="navbar-header">
-      <%= link_to image_tag("crab_logo.png", width: "90", height: "60"), root_path %>
+      <%= link_to image_tag("crab_logo.png", width: "75", height: "50"), root_path %>
     </div>
 
     <div class="navbar-header">
-      <a class="navbar-brand" href="/items">Clamorous</a>
+      <a class="navbar-brand" id="big-title" href="/items">Clamorous</a>
     </div>
 
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse pull-right" id="misc-nav">
       <ul class="nav navbar-nav">
         <% if current_user %>
           <% if current_user.admin? %>
             <li><%= link_to "Edit Items", admin_items_path %></li>
-            <li><%= link_to "Customer Orders", admin_orders_path %></li>
             <li><%= link_to "Edit Categories", admin_categories_path %></li>
+            <li><%= link_to "List Orders", admin_orders_path %></li>
             <li><%= link_to "Graph", graph_index_path %></li>
           <% end %>
+          <li><%= link_to "Item List", items_path %></li>
+          <li><%= link_to "My Orders", orders_path(current_user) %></li>
           <li><%= link_to current_user.email, current_user %></li>
           <li><%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger", id: "sign-out" %></li>
         <% else %>

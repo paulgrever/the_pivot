@@ -1,8 +1,8 @@
-<nav>
-  <ul class="pagination pagination-lg" >
-    <li class="category-nav"><%= link_to "All", items_path %></li>
+<nav class="collapse navbar-collapse">
+  <ul class="nav navbar-nav" id="cat-nav" >
+    <li class="dropdown-toggle"><%= link_to "All", items_path %></li>
     <% Category.all.each do |category| %>
-    <li class="category-nav"><%= link_to "#{category.name}", category_path(category.id) %></li>
+      <li><%= link_to "#{category.name}", category_path(category.id) %></li>
     <% end %>
   </ul>
 </nav>

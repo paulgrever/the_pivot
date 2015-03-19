@@ -1,7 +1,5 @@
 <%= form_for :session, html: {class: "form-inline"}, url: '/login' do |f| %>
-  <%= f.label 'Email' %>
-  <%= f.text_field :email %>
-  <%= f.label 'Password' %>
-  <%= f.password_field :password %>
+  <%= f.text_field :email, placeholder: "email" %>
+  <%= f.password_field :password, placeholder: "password" %>
   <%= f.submit 'Sign in', class: "btn btn-success navbar-btn", id: "sign-in"%>
 <% end %>

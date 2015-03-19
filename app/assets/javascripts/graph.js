@@ -1,8 +1,14 @@
-function runAjax() {
+$(document).ready(function() {
+    if(window.location.pathname === '/graph/index') {
+            runAjaxRev();
+    };
+});
+
+function runAjaxRev() {
     $.ajax({
            type: "GET",
            contentType: "application/json; charset=utf-8",
-           url: "data",
+           url: "data_revenue",
            dataType: "json",
            success: function (data) {
                draw(data);
@@ -13,15 +19,26 @@ function runAjax() {
        });
 }
 
-$(document).ready(function() {
-    if(window.location.pathname === '/graph/index')
-        runAjax();
-});
+function runAjaxUnits() {
+    $.ajax({
+           type: "GET",
+           contentType: "application/json; charset=utf-8",
+           url: "data_units",
+           dataType: "json",
+           success: function (data) {
+               units_data = data;
+           },
+           error: function (result) {
+               error(result);
+           }
+       });
+}
+
 
 function draw(data) {
     var color = d3.scale.category20b();
     var width = 800,
-        barHeight = 50;
+        barHeight = 30;
 
     var x = d3.scale.linear()
         .range([0, width])
@@ -51,7 +68,7 @@ function draw(data) {
                });
 
     bar.append("text")
-        .attr("x", 25)
+        .attr("x", 15)
         .attr("y", barHeight / 2)
         .attr("dy", ".5em")
         .style("fill", "white")
@@ -66,6 +83,7 @@ function draw(data) {
               })
       .call(xAxis);
 }
+
 
 function error(e) {
     console.log("error", e)

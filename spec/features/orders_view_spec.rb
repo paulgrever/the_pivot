@@ -15,7 +15,7 @@ describe "the default users order view", type: :feature do
   end
 
   it "displays all the orders on the index page" do
-    expect(page).to have_content("Orders Dashboard")
+    expect(page).to have_content("My Orders")
   end
 
   it "displays links for each individual order if there are orders" do
