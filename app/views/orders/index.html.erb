@@ -2,15 +2,15 @@
 
 <table border ="1">
   <tr>
-    <th>Order ID &nbsp; &nbsp; &nbsp;</th>
-    <th>Status </th>
-    <th>Cost &nbsp; &nbsp; &nbsp;</th>
+    <th>Order ID</th>
+    <th>Status</th>
+    <th class="money">Cost</th>
   </tr>
   <% current_user.orders.each do |order| %>
     <tr>
       <td><%= order.id %></td>
       <td><%= order.order_status %></td>
-      <td> <%= number_to_currency(order.order_total_cost) %> </td>
+      <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
       <td><%=link_to "Details", order_path(order), class: "btn btn-success" %>
     <% end %>
   </table>
