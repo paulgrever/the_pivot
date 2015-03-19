@@ -24,7 +24,7 @@
       <td><%= order.user_full_name %>
       <td><%= order.order_status %></td>
       <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
-      <td class="large-column"><%=link_to "Details", order, class: "btn btn-success float-left" %>
+      <td class="large-column"><%=link_to "Details", order, class: "btn btn-details float-left" %>
 
       <% if order.order_status == "Paid" %>
         <%= form_for(order, url: admin_order_path(order)) do |f| %>

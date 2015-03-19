@@ -133,6 +133,13 @@ a:hover, a:active {
     margin-bottom: 20px;
 }
 
+.btn-details {
+    background-color: $white;
+    border-color: $clam-tan;
+    margin-top: 10px;
+    margin: 5px;
+    color: white;
+}
 
 
 .btn-success {
@@ -196,7 +203,7 @@ table {
 }
 
 th, td {
-    padding: 7px 10px 10px 10px;
+    padding: 7px 5px 5px 10px;
 }
 
 .small-column {
@@ -210,7 +217,7 @@ th, td {
 }
 
 .large-column {
-    width: 300px;
+    width: 280px;
 }
 
 .money {
