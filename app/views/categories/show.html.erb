@@ -1,15 +1,13 @@
 <%= render 'partials/category_nav_bar' %>
-<h1><%= @category.name%> Items</h1>
+<h3 class="text-center"id="cat-header"><%= @category.name%></h3>
 <div class="row">
   <% @category.items.each do |item| %>
-    <div class="box col-sm-4 polaroid">
-      <figcaption><%= link_to item.title, item_path(item) %></figcaption>
+    <div class="box col-sm-3">
       <%= link_to image_tag(item.image, size: "100"), item %>
+      <figcaption><%= link_to item.title, item_path(item) %></figcaption>
       <div id=<%= "net-button-#{item.id}" %>>
         <%= button_to "Add to net", cart_items_path(item_id: item), class: "btn btn-success" %>
       </div>
     </div>
   <% end %>
 </div>
-
-<%= link_to "Menu", items_path %>

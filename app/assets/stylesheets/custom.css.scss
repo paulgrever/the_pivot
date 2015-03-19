@@ -18,20 +18,38 @@ $dark-clam-tan: #c2ae91;
 $dark-dark-clam-tan: #b49b78;
 $seafood-parchment: #e8e1d4;
 $white: #ffffff;
-$light-shadow-grey: #888888;
-$shadow-grey: #777777;
 $dark-parchment: #dbd0b1;
 
 body {
+    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
     background-color: $parchment;
 }
 
-h1, h2 {
-    color: $ocean-green;
+.pagination {
+    margin-left: 100px;
+}
+
+h1, h2, h3 {
+    color: $dark-dark-clam-tan;
+}
+
+.navbar {
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+#form {
+    margin: 25px;
 }
 
 #big-title {
-    font-color: $ocean-green;
+    /*color: $dark-dark-clam-tan;*/
+    color: $dark-ocean-green;
+    font-size: 35px;
+}
+
+#misc-nav {
+    color: $dark-dark-clam-tan;
 }
 
 .row {
@@ -80,12 +98,21 @@ a:hover, a:active {
     padding-left: 10px;
 }
 
-#sign-in {
+#sign-in, #btn-delete, #btn-edit, #create-button, #release {
     color: $white;
 }
 
 #sign-in:hover, #sign-in:focus {
     background-color: $ocean-green;
+}
+
+#cat-nav {
+    margin-left: 150px;
+}
+
+#cat-header {
+    color: $dark-ocean-green;
+    margin-bottom: 50px;
 }
 
 #sign-out {
@@ -100,7 +127,7 @@ a:hover, a:active {
 }
 
 #create-button {
-    color: $white;
+    margin-top: 75px;
 }
 
 #cart {
@@ -108,6 +135,10 @@ a:hover, a:active {
     padding: 5px;
     padding-right: 10px;
     padding-left: 10px;
+}
+
+#cart-div {
+    margin-left: 50px;
 }
 
 #graph-container {
@@ -119,22 +150,12 @@ a:hover, a:active {
     background-color: $ocean-green;
 }
 
-#create-button {
-    color: $white;
-}
-
-#release {
-    color: $white;
-}
-
 .navbar-default {
     background-color: $parchment;
     border-color: $parchment;
     margin: 5px;
     margin-bottom: 20px;
 }
-
-
 
 .btn-success {
     background-color: $dark-ocean-green;
