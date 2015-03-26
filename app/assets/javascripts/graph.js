@@ -1,8 +1,18 @@
 $(document).ready(function() {
     if(window.location.pathname === '/graph/index') {
             runAjaxRev();
+            runAjaxUnits();
+            $("#revTitle").click(function() {
+                draw(revData);
+            });
+            $("#unitsTitle").click(function() {
+                updateData(unitsData);
+            });
     };
 });
+
+var revData;
+var unitsData;
 
 function runAjaxRev() {
     $.ajax({
@@ -11,7 +21,7 @@ function runAjaxRev() {
            url: "data_revenue",
            dataType: "json",
            success: function (data) {
-               draw(data);
+               revData = data;
            },
            error: function (result) {
                error(result);
@@ -26,7 +36,7 @@ function runAjaxUnits() {
            url: "data_units",
            dataType: "json",
            success: function (data) {
-               units_data = data;
+               unitsData = data;
            },
            error: function (result) {
                error(result);
@@ -34,11 +44,12 @@ function runAjaxUnits() {
        });
 }
 
+var margin = {top: 30, right: 100, bottom: 50, left: 50};
+var color = d3.scale.category20b();
+var width = 800 - margin.left - margin.right,
+    barHeight = 30;
 
 function draw(data) {
-    var color = d3.scale.category20b();
-    var width = 800,
-        barHeight = 30;
 
     var x = d3.scale.linear()
         .range([0, width])
@@ -50,7 +61,7 @@ function draw(data) {
         .orient("bottom");
 
     var chart = d3.select(".graph")
-        .attr("width", width)
+        .attr("width", width + margin.left + margin.right)
         .attr("height", barHeight * data.numbers.length + 100);
 
     var bar = chart.selectAll("g")
@@ -61,23 +72,64 @@ function draw(data) {
               });
 
     bar.append("rect")
-        .attr("width", x)
+    .attr("width", function(d,i) { return x(data.numbers[i])})
         .attr("height", barHeight - 1)
         .style("fill", function (d) {
                    return color(d)
                });
 
     bar.append("text")
-        .attr("x", 15)
+        .attr("x", function(d,i) {
+            return x(data.numbers[i]);
+        })
         .attr("y", barHeight / 2)
         .attr("dy", ".5em")
-        .style("fill", "white")
+        .style("fill", "#649d81")
         .text(function (d, i) {
                   return data.item[i];
               });
 
     chart.append("g")
       .attr("class", "x axis")
+      .attr("transform", function (d, i) {
+                  return "translate(0," + (data.numbers.length * barHeight) + ")";
+              })
+      .call(xAxis);
+}
+
+function updateData(data) {
+    var x = d3.scale.linear()
+        .range([0, width])
+        .domain([0, d3.max(data.numbers)]);
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .ticks(10, "")
+        .orient("bottom");
+    var chart = d3.select(".graph").transition()
+        .duration(3000);
+
+    chart.selectAll("rect")
+        .duration(3000)
+        .attr("width", function(d,i) { return x(data.numbers[i])})
+        .attr("height", barHeight - 1)
+        .style("fill", function (d) {
+                   return color(d)
+               });
+
+    chart.selectAll("text")
+        .duration(3000)
+        .attr("x", function(d,i) {
+            return x(data.numbers[i]);
+        })
+        .attr("y", barHeight / 2)
+        .attr("dy", ".5em")
+        .style("fill", "#649d81")
+        .text(function (d, i) {
+                  return data.item[i];
+              });
+
+    chart.select(".x.axis")
+    .duration(3000)
       .attr("transform", function (d, i) {
                   return "translate(0," + (data.numbers.length * barHeight) + ")";
               })
