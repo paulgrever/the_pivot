@@ -50,7 +50,6 @@ var width = 800 - margin.left - margin.right,
     barHeight = 30;
 
 function draw(data) {
-
     var x = d3.scale.linear()
         .range([0, width])
         .domain([0, d3.max(data.numbers)]);
@@ -72,19 +71,23 @@ function draw(data) {
               });
 
     bar.append("rect")
-    .attr("width", function(d,i) { return x(data.numbers[i])})
-        .attr("height", barHeight - 1)
         .style("fill", function (d) {
                    return color(d)
-               });
+               })
+        .attr("width", 0)
+        .transition().duration(3000)
+        .attr("width", function(d,i) { return x(data.numbers[i])})
+        .attr("height", barHeight - 1);
 
     bar.append("text")
+        .style("fill", "#649d81")
+        .attr("x", 0)
+        .transition().duration(3000)
         .attr("x", function(d,i) {
             return x(data.numbers[i]);
         })
         .attr("y", barHeight / 2)
         .attr("dy", ".5em")
-        .style("fill", "#649d81")
         .text(function (d, i) {
                   return data.item[i];
               });
@@ -110,7 +113,8 @@ function updateData(data) {
 
     chart.selectAll("rect")
         .duration(3000)
-        .attr("width", function(d,i) { return x(data.numbers[i])})
+        .ease("linear")
+        .attr("width", function(d,i) { return x(data.numbers[i]) })
         .attr("height", barHeight - 1)
         .style("fill", function (d) {
                    return color(d)
@@ -118,21 +122,18 @@ function updateData(data) {
 
     chart.selectAll("text")
         .duration(3000)
-        .attr("x", function(d,i) {
-            return x(data.numbers[i]);
-        })
+        .ease("linear")
+        .attr("x", function(d,i) { return x(data.numbers[i]); })
         .attr("y", barHeight / 2)
         .attr("dy", ".5em")
         .style("fill", "#649d81")
-        .text(function (d, i) {
-                  return data.item[i];
-              });
+        .text(function (d, i) { return data.item[i]; });
 
     chart.select(".x.axis")
-    .duration(3000)
       .attr("transform", function (d, i) {
-                  return "translate(0," + (data.numbers.length * barHeight) + ")";
-              })
+                return "translate(0," +
+                (data.numbers.length * barHeight) + ")";
+        })
       .call(xAxis);
 }
 
