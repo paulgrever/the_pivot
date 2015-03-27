@@ -1,5 +1,7 @@
 ## README
 
-Dinner Dash
+Our Dinner Dash Project - Clamorous
 
-https://limitless-inlet-4473.herokuapp.com/
+https://warm-temple-2043.herokuapp.com/
+
+By Jeff Gu, Lori Culberson and Paul Grever
