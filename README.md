@@ -1,7 +1,10 @@
-## README
+# THE PIVOT
 
-Our Dinner Dash Project - Clamorous
+[Clamorous Pivot](https://warm-temple-2043.herokuapp.com/)
 
-https://warm-temple-2043.herokuapp.com/
+Pual Grever, Kit Pearson, and Austin Wood
 
-By Jeff Gu, Lori Culberson and Paul Grever
+[![Mood Ring](http://moodring.black/repos/106/badge.svg)](http://moodring.black/repos/106)
+[![Stories in Ready](https://badge.waffle.io/paulgrever/the_pivot.svg?label=ready&title=Ready)](http://waffle.io/paulgrever/the_pivot)
+
+---
