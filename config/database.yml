@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: droply_production
-  username: droply_dash
+  username: droply
   password: <%= ENV['DROPLY_DATABASE_PASSWORD'] %>
