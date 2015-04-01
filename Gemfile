@@ -17,7 +17,6 @@ gem 'rails_12factor', group: :production
 gem 'd3_rails'
 gem "figaro"
 gem 'twilio-ruby', '~> 3.12'
-gem 'puma'
 
 group :development, :test do
   gem 'byebug'
