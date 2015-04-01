@@ -1,76 +1,97 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+class Seed
+  def call
+    generate_users
+    generate_item_statuses
+    generate_active_items
+    generate_retired_items
+    generate_categories
+    add_categories_to_items
+    generate_order_statuses
+    generate_orders
+    create_orders_with_items
+  end
+
+  def generate_users
+    User.create(email: 'test@gmail.com', full_name: "test_user", display_name: "test_user", password: "test", role: 0)
+    User.create(email: 'admin@gmail.com', full_name: "admin_user", display_name: "admin_user", password: "test", role: 1)
+  end
+
+  def generate_active_items
+    10.times do
+      item = Item.create(title: Faker::Commerce.product_name,
+                         description: Faker::Hacker.say_something_smart,
+                         price: Faker::Number.number(4),
+                         item_status_id: 1)
+      puts "Created Active Item: #{item.title}"
+    end
+  end
+
+  def generate_retired_items
+    5.times do
+      item = Item.create(title: Faker::Commerce.product_name,
+                         description: Faker::Hacker.say_something_smart,
+                         price: Faker::Number.number(4),
+                         item_status_id: 2)
+      puts "Created Retired Item: #{item.title}"
+    end
+  end
+
+  def generate_categories
+    5.times do
+      category = Category.create(name: Faker::Commerce.department)
+      puts "Created Category: #{category.name}"
+    end
+  end
 
 
+  def add_categories_to_items
+    30.times do
+      selected_item = Item.all.sample
+      selected_category = Category.all.sample
+      ItemCategory.create(item_id: selected_item.id,
+                          category_id: selected_category.id)
+      puts "Added Category '#{selected_category.name}' for Item '#{selected_item.title}'"
+    end
+  end
 
-10.times do
-  Item.create(title: Faker::Commerce.product_name,
-              description: Faker::Hacker.say_something_smart,
-              price: Faker::Number.number(4),
-              item_status_id: 1)
+  def generate_orders
+    30.times do
+      selected_user= User.all.sample
+      random_status = [1, 2, 3, 4].sample
+      Order.create(user_id: selected_user.id,
+                   status_id: random_status,
+                   created_at: Faker::Time.between(2.days.ago, Time.now),
+                   updated_at: Faker::Time.between(2.days.ago, Time.now))
+      puts "Create Order for: #{selected_user.full_name}"
+    end
+  end
+
+  def create_orders_with_items
+    70.times do |i|
+      selected_item_id = Item.all.sample.id
+      random_value = Order.all.sample.id
+      OrderItem.create!(item_id: selected_item_id,
+                        order_id: random_value,
+                        quantity: (1..4).to_a.sample)
+      puts "Created Order ##{i}"
+    end
+  end
+
+  def generate_item_statuses
+    ItemStatus.create(state: "Active")
+    ItemStatus.create(state: "Retired")
+  end
+
+  def generate_order_statuses
+    Status.create(state: "Ordered")
+    Status.create(state: "Paid")
+    Status.create(state: "Cancelled")
+    Status.create(state: "Completed")
+  end
+
+  def self.call
+    new.call
+  end
 end
 
-5.times do
-  Item.create(title: Faker::Commerce.product_name,
-              description: Faker::Hacker.say_something_smart,
-              price: Faker::Number.number(4),
-              item_status_id: 2)
-end
-
-5.times do
-  Category.create(name:Faker::Commerce.department)
-end
-
-30.times do
-  selected_item = Item.all.sample
-  selected_category = Category.all.sample
-  ItemCategory.create(item_id: selected_item.id,
-                      category_id: selected_category.id)
-end
-
-# Create Users
-User.create(email: 'test@gmail.com', full_name: "test_user", display_name: "test_user", password: "test", role: 0)
-User.create(email: 'test1@gmail.com', full_name: "test_user1", display_name: "test_user1", password: "test", role: 0)
-User.create(email: 'admin@gmail.com', full_name: "admin_user", display_name: "admin_user", password: "test", role: 1)
-
-# Create Orders
-
-30.times do
-  selected_item = Item.all.sample
-  selected_user= User.all.sample
-  random_status = [1, 2, 3, 4].sample
-  Order.create(user_id: selected_user.id,
-               status_id: random_status,
-               created_at: Faker::Time.between(2.days.ago, Time.now),
-               updated_at: Faker::Time.between(2.days.ago, Time.now)
-               )
-end
-
-Order.create(user_id: 1, status_id: 1)
-Order.create(user_id: 1, status_id: 2)
-Order.create(user_id: 2, status_id: 3)
-
-# Item Status
-ItemStatus.create(state: "Active")
-ItemStatus.create(state: "Retired")
-
-# Order Statuses
-Status.create(state: "Ordered")
-Status.create(state: "Paid")
-Status.create(state: "Cancelled")
-Status.create(state: "Completed")
-
-# Order Items
-70.times do
-  selected_item_id = Item.all.sample.id
-  random_value = Order.all.sample.id
-  OrderItem.create!(item_id: selected_item_id,
-                    order_id: random_value,
-                    quantity: (1..4).to_a.sample
-                   )
-end
+Seed.call
