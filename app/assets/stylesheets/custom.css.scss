@@ -6,14 +6,37 @@
   src: local("./fonts/AvenirNextLTPro-Regular.otf")
 }
 
-$background: #f3f4f5;
-$nav-bar: #e2fcef;
+$site-white: #EDEFED;
+$site-brown: #EDBC7B;
+$site-black: #333;
+$site-mint: #A4F2EA;
+$site-red: #E3655B;
 
 body {
   font-family: Avenir;
-  background-color: $background;
+  color: $site-black;
+  background-color: $site-white;
+}
+
+.main-title {
+  color: $site-red;
+  font-size: 90px;
+  margin-bottom: 30px;
+}
+
+.features {
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .features .glyphicon {
   font-size: 32px;
+}
+
+.navbar .container-fluid {
+  background-color: $site-brown;
+}
+
+.well {
+  background-color: $site-brown;
 }
