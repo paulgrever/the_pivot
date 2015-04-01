@@ -16,7 +16,7 @@
     <%= image_tag "droply-icon.png", width: "135", height: "135", title: "Droply Icon" %>
     <%= image_tag "droply-icon.png", width: "135", height: "135", title: "Droply Icon" %>
   </div>
-</div>
+</div> <!-- row well well-lg -->
 
 <div class="row text-center features">
   <div class="col-sm-4 col-xs-10 col-xs-offset-1 col-sm-offset-0">
@@ -36,7 +36,7 @@
     <h3>Choose a Location</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non ex enim. Vivamus ac nunc eu arcu rhoncus feugiat. Etiam placerat molestie maximus. Morbi auctor ultricies risus eget blandit. Sed eget lacinia ligula, laoreet elementum lacus. Ut scelerisque magna ac risus dapibus, nec placerat nibh dignissim.</p>
   </div>
-</div>
+</div> <!-- row text-center features -->
 
 <div class="container rescue-options">
   <div class="row">
@@ -75,4 +75,86 @@
     </ul>
     <p> <%= button_to "Purchase", root_path, class: "btn btn-info" %></p>
   </div>
-</div>
+</div> <!-- row text-center -->
+
+<div class="container get-help-today">
+  <div class="row">
+
+    <div class="col-md-8">
+      <h2>Get Help Today!</h2>
+      <ul class="nav nav-tabs">
+        <li> <%= link_to "Deliveries", root_path, class: "active" %></li>
+        <li> <%= link_to "Deals", root_path %></li>
+        <li> <%= link_to "Browse current relief programs", root_path %></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane fade active", id="time">
+          <p>Deliveries</p>
+        </div>
+        <div class="tab-pane fade", id="deals">
+          <p>Deals here</p>
+        </div>
+        <div class="tab-pane fade", id="forecast">
+          <p>Programs</p>
+        </div>
+      </div>
+    </div>
+
+    <div class='col-md-3 col-md-offset-1'>
+      <div class='panel-group'>
+
+        <div class='panel panel-success'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a href='#currentPackages' data-toggle="collapse" data-parent=".panel-group">Offered Packages</a>
+            </h4>
+          </div>
+          <div id='currentPackages' class='collapse panel-collapse in'>
+            <div class='panel-body'>
+              <p>Current Packages</p>
+              <ul class='list-unstyled'>
+                <li><i class='glyphicon glyphicon-leaf'></i> Food Package</li>
+                <li><i class='glyphicon glyphicon-tint'></i> Water Package</li>
+                <li><i class='glyphicon glyphicon-plane'></i> Airlift Package</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class='panel panel-warning'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a href='#weatherAlert' data-toggle="collapse" data-parent=".panel-group">Weather Alert</a>
+            </h4>
+          </div>
+          <div id='weatherAlert' class='collapse panel-collapse'>
+            <div class='panel-body'>
+              <p>The National Weather Service has issued a CAT 4 hurricane in the Southeast. Our suppliers are looking forward to helping</p>
+              <ul class='list-unstyled'>
+                <li><strong>February 9th, 21:43</strong></li>
+                <li><strong>May 18, 19:82</strong></li>
+                <li><strong>July 4, 08:42</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class='panel panel-danger'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a href='#airliftSafety' data-toggle="collapse" data-parent=".panel-group">Transportation Generals Warning: Airlift Safety</a>
+            </h4>
+          </div>
+          <div id='airliftSafety' class='collapse panel-collapse'>
+            <div class='panel-body'>
+              <p>Our Airlift pilots are highly trained and qualified to make calls on the base landing zones in a location of extreme disaster. Please keep in contact with them if you plan for a delivery system after a disaster has already begun.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div> <!-- row -->
+</div> <!-- container get-help-today -->
