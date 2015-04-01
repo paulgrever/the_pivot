@@ -41,7 +41,7 @@
       </li>
 
       <li>
-        <%= link_to cart_items_path, class: "btn btn-success" do %>
+        <%= link_to cart_items_path, class: "btn btn-success", id: "cart" do %>
           <%= image_tag "icon-net.png", height: "15", width: "15" %>
           &nbsp;<%= cart.count_total %>
       <% end %>
