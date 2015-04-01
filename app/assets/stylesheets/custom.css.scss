@@ -16,12 +16,17 @@ body {
   font-family: Avenir;
   color: $site-black;
   background-color: $site-white;
+  padding-top: 70px;
 }
 
 .main-title {
   color: $site-red;
   font-size: 90px;
   margin-bottom: 30px;
+}
+
+.navbar-brand-image {
+  padding-top: 10px;
 }
 
 .features {
@@ -31,10 +36,6 @@ body {
 
 .features .glyphicon {
   font-size: 32px;
-}
-
-.navbar .container-fluid {
-  background-color: $site-brown;
 }
 
 .well {
