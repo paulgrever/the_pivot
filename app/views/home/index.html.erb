@@ -1,20 +1,20 @@
 <div class="row">
   <div class="col-md-12">
-    <h1>A Dewdrop of Droply</h1>
+    <h1 class="text-center main-title">Droply</h1>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <h2>The Most Reliable Source of Supplies</h2>
-    <p class="lead">Help your team get relief supplies to the people and places that need them</p>
-    <%= button_to "Shop", root_path %>
+<div class="row well well-lg">
+  <div class="col-md-7">
+    <h2>The Most Reliable Source for Relief Supplies</h2>
+    <p class="lead">Help your team gather resources faster to get to the people and places that are in need of support</p>
+    <%= button_to "Find Supplies", root_path, class: "btn btn-lg btn-info" %>
   </div>
 
-  <div class="col-md-6 visible-md visible-lg">
-    <%= image_tag "droply-icon.png", width: "150", height: "150", title: "Droply Icon" %>
-    <%= image_tag "droply-icon.png", width: "150", height: "150", title: "Droply Icon" %>
-    <%= image_tag "droply-icon.png", width: "150", height: "150", title: "Droply Icon" %>
+  <div class="col-md-5 visible-md visible-lg">
+    <%= image_tag "droply-icon.png", width: "135", height: "135", title: "Droply Icon" %>
+    <%= image_tag "droply-icon.png", width: "135", height: "135", title: "Droply Icon" %>
+    <%= image_tag "droply-icon.png", width: "135", height: "135", title: "Droply Icon" %>
   </div>
 </div>
 
@@ -27,7 +27,7 @@
 
   <div class="col-sm-4 col-xs-6">
     <i class="glyphicon glyphicon-eye-open"></i>
-    <h3>View Our Suppliers</h3>
+    <h3>View Suppliers</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non ex enim. Vivamus ac nunc eu arcu rhoncus feugiat. Etiam placerat molestie maximus. Morbi auctor ultricies risus eget blandit. Sed eget lacinia ligula, laoreet elementum lacus. Ut scelerisque magna ac risus dapibus, nec placerat nibh dignissim.</p>
   </div>
 
@@ -35,5 +35,44 @@
     <i class="glyphicon glyphicon-map-marker"></i>
     <h3>Choose a Location</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non ex enim. Vivamus ac nunc eu arcu rhoncus feugiat. Etiam placerat molestie maximus. Morbi auctor ultricies risus eget blandit. Sed eget lacinia ligula, laoreet elementum lacus. Ut scelerisque magna ac risus dapibus, nec placerat nibh dignissim.</p>
+  </div>
+</div>
+
+<div class="container rescue-options">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h2>What We Provide</h2>
+      <p>Learn more about our available rescue packages and supply options to find out what will be the best fit for your company</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="food col-md-3 col-md-offset-1">
+    <h3><i class="glyphicon glyphicon-leaf"></i> Food Inventories</h3>
+    <ul>
+      <li>Pre-packaged meals</li>
+      <li>Quick delivery or pickup</li>
+      <li>Bulk shipments</li>
+    </ul>
+    <p> <%= button_to "Purchase", root_path %></p>
+  </div>
+  <div class="water col-md-3 col-md-offset-1">
+    <h3><i class="glyphicon glyphicon-tint"></i> Water Packages </h3>
+    <ul>
+      <li>Bottled and bundled</li>
+      <li>Purified</li>
+      <li>Bulk shipments</li>
+    </ul>
+    <p> <%= button_to "Purchase", root_path %></p>
+  </div>
+  <div class="airlift col-md-3 col-md-offset-1">
+    <h3><i class="glyphicon glyphicon-plane"></i> Airlift Deliveries</h3>
+    <ul>
+      <li>Hundred of available dropzones</li>
+      <li>Available overseas</li>
+      <li>Supplier discounts</li>
+    </ul>
+    <p> <%= button_to "Purchase", root_path %></p>
   </div>
 </div>
