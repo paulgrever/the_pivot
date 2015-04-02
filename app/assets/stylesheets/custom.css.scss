@@ -19,25 +19,52 @@ body {
   padding-top: 70px;
 }
 
+a { color: $site-red; }
+
 .main-title {
   color: $site-red;
   font-size: 90px;
   margin-bottom: 30px;
 }
 
-.navbar-brand-image {
-  padding-top: 10px;
+.well {
+  background-color: $site-brown;
+}
+
+.btn {
+  margin: 4px;
+  border-color: none;
+}
+
+.btn:hover {
+  color: $site-brown;
+}
+
+.btn-supply {
+  background-color: $site-mint;
+}
+
+.btn-tour {
+  background-color: $site-red;
 }
 
 .features {
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .features .glyphicon {
   font-size: 32px;
 }
 
-.well {
+.featured {
+  padding-top: 40px;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: auto;
   background-color: $site-brown;
 }
