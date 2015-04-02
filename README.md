@@ -1,6 +1,6 @@
 # [Droply](https://droply.herokuapp.com/)
 
-[Pual Grever](https://github.com/paulgrever/),
+[Paul Grever](https://github.com/paulgrever/),
 [Kit Pearson](https://github.com/kpearson/),
 [Austin Wood](https://github.com/indiesquidge/)
 
