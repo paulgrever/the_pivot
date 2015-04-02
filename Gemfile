@@ -18,6 +18,7 @@ gem 'masonry-rails'
 gem 'd3_rails'
 gem "figaro"
 gem 'twilio-ruby', '~> 3.12'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'
@@ -28,7 +29,6 @@ group :development, :test do
   gem 'pry'
   gem 'database_cleaner'
   gem "factory_girl_rails"
-  gem 'faker'
   gem 'awesome_print'
 end
 
