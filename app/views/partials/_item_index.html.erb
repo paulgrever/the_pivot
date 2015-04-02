@@ -1,22 +1,23 @@
 <div class= "container">
   <div class = 'row'>
     <% @items.first(3).each do |item| %>
-      <div class="box col-md-4">
+      <div class="col-md-4 text-center">
         <% if current_user.nil? || !current_user.admin?%>
           <% @item_show = item_path(item)  %>
         <% else %>
           <% @item_show = admin_item_path(item) %>
         <% end %>
         <%= link_to image_tag('big_supply.png'), @item_show, class: "img-responsive"%>
+        <p><%= item.description %></p>
       </div>
-    <% end %> 
+    <% end %>
   </div>
 <br>
 <br>
 
   <div class="row">
     <% @items.each do |item| %>
-      <div class="box col-sm-3">
+      <div class="col-sm-3 text-center">
         <% if current_user.nil? || !current_user.admin?%>
           <% @item_show = item_path(item)  %>
         <% else %>
