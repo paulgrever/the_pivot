@@ -30,10 +30,9 @@ class Seed
   def generate_businesses
     10.times do
       random_user = User.all.sample
-    # require 'pry'; binding.pry
-      business = Business.create!(name: Faker::Company.name,
-                                  discription: Faker::Company.bs,
-                                  user_id: random_user)
+      business = Business.create(name: Faker::Company.name,
+                                 discription: Faker::Company.bs,
+                                 user_id: random_user.id)
       puts "Created Business: #{business.name}"
     end
   end

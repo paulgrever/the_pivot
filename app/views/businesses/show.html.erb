@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-11 col-md-11 col-sm-11">
+    <div class="col-sm-12">
       <div class="jumbotron">
         <h1 class="text-center"><%= @business.name %></h1>
         <p class="text-center"><%= @business.discription %></P>
@@ -11,13 +11,13 @@
 
 <div class="container">
   <div class="row">
-    <div class="large-12 columns">
+    <div class="col-sm-12">
       <!-- Masonry Container -->
       <div id="masonry-container">
         <% 15.times do %>
-        <div class="box">
-          <%= link_to( image_tag("http://placehold.it/#{@items.sample}text=Item"), "#") %>
-        </div>
+          <div class="box">
+            <%= link_to( image_tag("http://placehold.it/#{@items.sample}text=Item"), "#") %>
+          </div>
         <% end %>
       </div>
     </div>
