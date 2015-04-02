@@ -1,289 +1,91 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$parchment: #ebe5d5;
-$dark-blue: #112230;
-$light-blue: #68b7e1;
-$ocean-green: #70a58b;
-$dark-ocean-green: #649d81;
-$grey: #3d4b50;
-$sand: #b9a167;
-$lighter-crab-red: #e97a67;
-$light-crab-red: #e76b56;
-$crab-red: #e24d34;
-$shrimp-pink: #e49e78;
-$dark-shrimp-pink: #e19268;
-$clam-tan: #d7cab7;
-$dark-clam-tan: #c2ae91;
-$dark-dark-clam-tan: #b49b78;
-$seafood-parchment: #e8e1d4;
-$white: #ffffff;
-$dark-parchment: #dbd0b1;
+@font-face {
+  font-family: Avenir;
+  src: local("./fonts/AvenirNextLTPro-Regular.otf")
+}
+
+$site-white: #EDEFED;
+$site-brown: #EDBC7B;
+$site-black: #333;
+$site-mint: #A4F2EA;
+$site-red: #E3655B;
 
 body {
-    font-family: Optima,Segoe,Segoe UI,Candara,Calibri,Arial,sans-serif;
-    background-color: $parchment;
-}
-
-.pagination {
-    margin-left: 100px;
-}
-
-h1, h2, h3 {
-    color: $dark-dark-clam-tan;
-}
-
-.navbar {
-    font-weight: bold;
-    padding-top: 10px;
-}
-
-#form {
-    margin: 25px;
-}
-
-#clam-pic {
-    background: $dark-ocean-green;
-    border: 5px solid $dark-ocean-green;
-    margin-top: 40px;
-    margin-right: 150px;
-    padding:5px;
-    width: 80%;
-}
-
-#big-title {
-    color: $dark-ocean-green;
-    font-size: 35px;
-}
-
-#misc-nav {
-  color: $dark-dark-clam-tan;
-  background-color: $parchment;
-}
-
-h1, h2 {
-  color: $ocean-green;
-}
-
-#big-title {
-  font-color: $ocean-green;
-}
-
-.row {
-  margin-left: 10px;
-}
-
-.category-nav {
-  background-color: crab-red;
-  margin: 10px;
-}
-
-.axis text {
-  font: 18px sans-serif;
-  fill: $dark-ocean-green;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: $ocean-green;
-  shape-rendering: crispEdges;
-}
-
-a:link, a:visited, a:active {
-  color: $dark-dark-clam-tan;
-  text-decoration: none;
-}
-
-.alert-success {
-  background-color: $ocean-green;
-  color: $white;
-}
-
-.alert-danger {
-  background-color: $lighter-crab-red;
-  color: $white;
-}
-
-a:hover, a:active {
-  color: $dark-clam-tan;
-}
-
-.btn {
-  padding: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-#sign-in, #btn-delete, #btn-edit, #create-button, #release {
-    color: $white;
-}
-
-#sign-in:hover, #sign-in:focus {
-  background-color: $ocean-green;
-}
-
-#cat-nav {
-    margin-left: 150px;
-}
-
-#cat-header {
-    color: $dark-ocean-green;
-    margin-bottom: 50px;
-}
-
-#sign-out {
-  color: $white;
-  padding: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-#sign-out:hover, #sign-out:focus {
-  background-color: $lighter-crab-red;
-}
-
-#create-button {
-    margin-top: 75px;
-    color: $white;
-}
-
-#cart {
-  color: $white;
-  padding: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-#cart-div {
-    margin-left: 50px;
-}
-
-#graph-container {
-    margin: 50px;
-    margin-left: 75px;
-}
-
-#cart:hover {
-  background-color: $ocean-green;
-}
-
-#create-button {
-  color: $white;
-}
-
-#release {
-  color: $white;
+  font-family: Avenir;
+  color: $site-black;
+  background-color: $site-white;
+  padding-top: 70px;
 }
 
 .navbar-default {
-  background-color: $parchment;
-  border-color: $parchment;
-  margin: 5px;
-  margin-bottom: 20px;
+  background-color: $site-mint;
+  border-color: $site-black;
 }
 
-.btn-details {
-  background-color: #ffffff;
-  border-color: $clam-tan;
-  margin-top: 10px;
-  margin: 5px;
-  color: white;
+#nav-title {
+  padding-top: 15px;
+  font-size: 20px;
+  color: $site-red;
 }
 
-.btn-success {
-  background-color: $dark-ocean-green;
-  border-color: $dark-ocean-green;
-  margin-top: 10px;
-  margin: 5px;
-}
-
-.btn-success:hover, .btn-success:focus {
-  background-color: $ocean-green;
-  border-color: $ocean-green;
-}
-
-.btn-danger {
-  background-color: $light-crab-red;
-  border-color: $light-crab-red;
-  margin-top: 10px;
-  margin: 5px;
-}
-
-.btn-danger:hover {
-  background-color: $lighter-crab-red;
-  border-color: $lighter-crab-red;
-}
-
-.btn-success {
-  color: $white;
-  background-color: $dark-ocean-green;
+.navbar-brand-image {
+  width: 50px;
+  height: 50px;
   padding: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-  border-color: $dark-ocean-green;
-  margin-top: 10px;
-  margin: 5px;
 }
 
-.btn-success:hover {
-  background-color: $ocean-green;
-  border-color: $ocean-green;
+a { color: $site-red; }
+
+li { list-style: none; }
+
+.main-title {
+  color: $site-red;
+  font-size: 90px;
+  margin-bottom: 30px;
 }
 
-.btn-danger {
-  background-color: $light-crab-red;
-  border-color: $light-crab-red;
-  padding: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-  margin-top: 10px;
-  margin: 5px;
+.well {
+  background-color: $site-brown;
 }
 
-.btn-danger:hover {
-  background-color: $lighter-crab-red;
-  border-color: $lighter-crab-red;
+.btn {
+  margin: 4px;
+  border-color: none;
 }
 
-table {
- width: 75%;
- margin-top: 20px;
+.btn:hover {
+  color: $site-brown;
 }
 
-th, td {
-  padding: 7px 5px 5px 10px;
+.btn-supply {
+  background-color: $site-mint;
 }
 
-.small-column {
-  text-align: center;
-  width: 30px;
+.btn-tour {
+  background-color: $site-red;
 }
 
-.medium-column {
-  text-align: center;
-  width: 90px;
+.features {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.large-column {
-  width: 280px;
+.features .glyphicon {
+  font-size: 32px;
 }
 
-.money {
-  text-align: right;
-  width: 100px;
+.featured {
+  padding-top: 40px;
 }
 
-.status {
-  display: inline;
-  margin-right: 10px;
-  width: 10%;
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background-color: $site-brown;
 }
 
-.content {
-  margin-left: 55px;
-}
-
-.float-left {
-  float: left;
-}
+#sign-in { margin: 50px; }
