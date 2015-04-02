@@ -8,6 +8,7 @@ class Seed
     add_categories_to_items
     generate_order_statuses
     generate_orders
+    generate_businesses
     create_orders_with_items
   end
 
@@ -23,6 +24,16 @@ class Seed
                          price: Faker::Number.number(4),
                          item_status_id: 1)
       puts "Created Active Item: #{item.title}"
+    end
+  end
+
+  def generate_businesses
+    10.times do
+      random_user = User.all.sample
+      business = Business.create(name: Faker::Company.name,
+                                 discription: Faker::Company.bs,
+                                 user_id: random_user.id)
+      puts "Created Business: #{business.name}"
     end
   end
 

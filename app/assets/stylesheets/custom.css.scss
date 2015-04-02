@@ -36,6 +36,10 @@ body {
   padding: 5px;
 }
 
+.jumbotron {
+  background-color: $site-mint;
+}
+
 a { color: $site-red; }
 
 li { list-style: none; }
