@@ -30,3 +30,7 @@ group :development, :test do
   gem 'faker'
   gem 'awesome_print'
 end
+
+group :test do
+  gem "simplecov", require: false
+end

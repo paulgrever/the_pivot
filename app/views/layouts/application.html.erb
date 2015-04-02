@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
   <head>
-    <title>Clamorous</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <title>Droply</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+
   <body>
     <%= render partial: "partials/navigation" %>
-    <div id="main-container" class="container">
-      <div class="row">
-      </div>
+
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-#{name} text-center" %>
+      <% end %>
     </div>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "alert alert-#{name} text-center" %>
-    <% end %>
-    <div class="content">
+
       <%= yield %>
-    </div>
-  </div>
-</body>
+
+    <%= render partial: "partials/footer" %>
+  </body>
+
 </html>

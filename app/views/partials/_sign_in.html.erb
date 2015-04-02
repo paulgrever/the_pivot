@@ -1,5 +1,7 @@
-<%= form_for :session, html: {class: "form-inline"}, url: '/login' do |f| %>
-  <%= f.text_field :email, placeholder: "email" %>
-  <%= f.password_field :password, placeholder: "password" %>
-  <%= f.submit 'Sign in', class: "btn btn-success navbar-btn", id: "sign-in"%>
-<% end %>
+<div class="container text-center" id="sign-in">
+  <%= form_for :session, html: {class: "form-inline"}, url: '/login' do |f| %>
+    <%= f.text_field :email, placeholder: "email" %>
+    <%= f.password_field :password, placeholder: "password" %>
+    <%= f.submit 'Sign in', class: "btn btn-tour navbar-btn", id: "sign-in"%>
+  <% end %>
+</div>

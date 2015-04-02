@@ -1,37 +1,50 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
 
     <div class="navbar-header">
-      <%= link_to image_tag("crab_logo.png", width: "75", height: "50"), root_path %>
-    </div>
+        <%= link_to image_tag("droply-icon.png", class: "navbar-brand-image"), root_path %>
+        <%= link_to "Droply", root_path, class: "navbar-brand pull-right hidden-xs", id: "nav-title" %>
 
-    <div class="navbar-header">
-      <a class="navbar-brand" id="big-title" href="/">Clamorous</a>
-    </div>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div> <!-- navbar-header -->
 
-    <div class="collapse navbar-collapse pull-right" id="misc-nav">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Menu", items_path %></li>
-        <% if current_user %>
-          <% if current_user.admin? %>
-            <li><%= link_to "Edit Items", admin_items_path %></li>
-            <li><%= link_to "Edit Categories", admin_categories_path %></li>
-            <li><%= link_to "List Orders", admin_orders_path %></li>
-            <li><%= link_to "Graph", graph_index_path %></li>
-          <% end %>
-          <li><%= link_to "My Orders", orders_path(current_user) %></li>
-          <li><%= link_to current_user.email, current_user %></li>
-          <li><%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger", id: "sign-out" %></li>
-        <% else %>
-          <li><%= render partial: 'partials/sign_in' %></li>
+    <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+      <li><%= link_to "Menu", items_path %></li>
+
+      <% if current_user %>
+        <% if current_user.admin? %>
+          <li><%= link_to "Edit Items", admin_items_path %></li>
+          <li><%= link_to "Edit Categories", admin_categories_path %></li>
+          <li><%= link_to "List Orders", admin_orders_path %></li>
+          <li><%= link_to "Graph", graph_index_path %></li>
         <% end %>
-        <li>
-          <%= link_to cart_items_path, class: "btn btn-success", id: "cart" do %>
-            <%= image_tag "icon-net.png", height: "15", width: "15" %>
-            &nbsp;<%= cart.count_total %>
-        <% end %>
+
+        <li><%= link_to "My Orders", orders_path(current_user) %></li>
+        <li><%= link_to current_user.email, current_user %></li>
+        <li><%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger", id: "sign-out" %></li>
+      <% else %>
+        <li><%= link_to "Sign in", login_path %></li>
+      <% end %>
+
+      <li><%= link_to cart_items_path, id: "cart" do %>
+        <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
+        <%= cart.count_total %>
+      <% end %></li>
+      <li><a href="/" data-target="#" data-toggle="dropdown">
+          About <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Our Story", root_path %></li>
+          <li><%= link_to "Contact Us", root_path %></li>
+          <li><%= link_to "Blog", root_path %></li>
+        </ul>
       </li>
     </ul>
-  </div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
-</nav>
+
+  </div> <!-- navbar navbar-default navbar-fixed-top -->
+</div> <!-- container -->
