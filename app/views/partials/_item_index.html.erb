@@ -27,7 +27,7 @@
         <figcaption><%= link_to item.title, @item_show %></figcaption>
         <% if current_user.nil? || !current_user.admin?%>
           <div id=<%= "net-button-#{item.id}" %>>
-            <%= button_to "Add to net", cart_items_path(item_id: item), class: "btn btn-success" %>
+            <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-success" %>
           </div>
         <% else %>
           <div>
