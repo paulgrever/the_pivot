@@ -19,7 +19,14 @@ body {
   padding-top: 70px;
 }
 
+.navbar-default {
+  background-color: $site-mint;
+  border-color: $site-black;
+}
+
 a { color: $site-red; }
+
+li { list-style: none; }
 
 .main-title {
   color: $site-red;
@@ -68,3 +75,5 @@ a { color: $site-red; }
   height: auto;
   background-color: $site-brown;
 }
+
+#sign-in { margin: 50px; }

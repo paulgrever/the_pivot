@@ -27,9 +27,13 @@
         <li><%= link_to current_user.email, current_user %></li>
         <li><%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger", id: "sign-out" %></li>
       <% else %>
-        <li><%= render partial: 'partials/sign_in' %></li>
+        <li><%= link_to "Sign in", login_path %></li>
       <% end %>
 
+      <li><%= link_to cart_items_path, id: "cart" do %>
+        <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
+        <%= cart.count_total %>
+      <% end %></li>
       <li><a href="/" data-target="#" data-toggle="dropdown">
           About <span class="caret"></span>
         </a>
@@ -38,13 +42,6 @@
           <li><%= link_to "Contact Us", root_path %></li>
           <li><%= link_to "Blog", root_path %></li>
         </ul>
-      </li>
-
-      <li>
-        <%= link_to cart_items_path, class: "btn btn-success", id: "cart" do %>
-          <%= image_tag "icon-net.png", height: "15", width: "15" %>
-          &nbsp;<%= cart.count_total %>
-      <% end %>
       </li>
     </ul>
 
