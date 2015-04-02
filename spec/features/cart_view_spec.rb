@@ -11,7 +11,7 @@ describe "the cart view", type: :feature do
       fill_in("session_password", with: user.password)
       click_button 'Sign in'
       visit items_path
-      click_link_or_button "Add to net"
+      click_link_or_button "Add to cart"
       visit cart_items_path
     end
 
@@ -44,7 +44,7 @@ describe "the cart view", type: :feature do
     context "when additional items are added to cart" do
       before :each do
         visit items_path
-        click_link_or_button "Add to net"
+        click_link_or_button "Add to cart"
         visit cart_items_path
       end
 
@@ -62,7 +62,7 @@ describe "the cart view", type: :feature do
         item_2 = FactoryGirl.create(:item, title: "Clam Stew", price: 350)
         visit items_path
         within("#net-button-#{item_2.id}") do
-          click_link_or_button "Add to net"
+          click_link_or_button "Add to cart"
         end
         visit cart_items_path
         expect(page).to have_content(8.42)
@@ -95,7 +95,7 @@ describe "the cart view", type: :feature do
       FactoryGirl.create(:status, id: 1)
       @item = FactoryGirl.create(:item)
       visit items_path
-      click_link_or_button "Add to net"
+      click_link_or_button "Add to cart"
       visit cart_items_path
     end
 
