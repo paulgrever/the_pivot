@@ -9,15 +9,17 @@
   </div>
 </div>
 
-<!-- Masonry Container -->
-<div class="row">
-  <div class="large-12 columns">
-    <div id="masonry-container">
-      <% 15.times do %>
-      <div class="box">
-        <%= link_to( image_tag("http://placehold.it/#{@items.sample}text=Item"), "#") %>
+<div class="container">
+  <div class="row">
+    <div class="large-12 columns">
+      <!-- Masonry Container -->
+      <div id="masonry-container">
+        <% 15.times do %>
+        <div class="box">
+          <%= link_to( image_tag("http://placehold.it/#{@items.sample}text=Item"), "#") %>
+        </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
 </div>
