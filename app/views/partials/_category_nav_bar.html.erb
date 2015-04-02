@@ -1,8 +1,58 @@
-<nav class="collapse navbar-collapse">
-  <ul class="nav navbar-nav" id="cat-nav" >
-    <li class="dropdown-toggle"><%= link_to "All", items_path %></li>
-    <% Category.all.each do |category| %>
+<br>
+<div class="btn-group btn-group-justified">
+  <div class="btn-group">
+    <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      region <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a>Asia</a></li>
+      <li><a>Africa</a></li>
+      <li><a>Australia</a></li>
+      <li><a>Europe</a></li>
+      <li><a>North America</a></li>
+      <li><a>South America</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      disaster type <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a>Hurricane</a></li>
+      <li><a>Fire</a></li>
+      <li><a>Earth Quake</a></li>
+      <li><a>Tornado</a></li>
+      <li><a>Oil Spill</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      relief supplier <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a>Deer Park</a></li>
+      <li><a>Target</a></li>
+      <li><a>North Face</a></li>
+      <li><a>Campbells Soups</a></li>
+      <li><a>Bush's Beans</a></li>
+    </ul>
+  </div>
+  <div class="btn-group">
+    <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      item-filter <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <% Category.all.each do |category| %>
       <li><%= link_to "#{category.name}", category_path(category.id) %></li>
     <% end %>
-  </ul>
-</nav>
+    <li class="divider"></li>
+    <li><%= link_to "All", items_path %></li>
+    </ul>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-dange">
+      <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    </button>
+  </div> 
+
+</div>
