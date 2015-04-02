@@ -24,6 +24,18 @@ body {
   border-color: $site-black;
 }
 
+#nav-title {
+  padding-top: 15px;
+  font-size: 20px;
+  color: $site-red;
+}
+
+.navbar-brand-image {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
 a { color: $site-red; }
 
 li { list-style: none; }
