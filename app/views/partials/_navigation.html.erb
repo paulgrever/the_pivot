@@ -28,6 +28,7 @@
         <li><%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger", id: "sign-out" %></li>
       <% else %>
         <li><%= link_to "Sign in", login_path %></li>
+        <li><%= link_to "Sign up", new_user_path %></li>
       <% end %>
 
       <li><%= link_to cart_items_path, id: "cart" do %>
