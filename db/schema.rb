@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20150403003611) do
     t.integer "role",            default: 0
     t.string  "provider"
     t.string  "uid"
-    t.string  "image",           default: "Denver, CO"
-    t.string  "location",        default: "default_user_image.png"
+    t.string  "image",           default: "default_user_image.png"
+    t.string  "location",        default: "Denver, CO"
   end
 
   add_foreign_key "businesses", "users"
