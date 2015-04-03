@@ -9,15 +9,15 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         flash[:success] = "Welcome, #{user.full_name}."
       else
-        flash[:danger] = 'Invalid login.'
+        flash[:danger] = "Invalid login."
       end
     else
       user = User.find_or_create_from_auth(request.env["omniauth.auth"])
-      if user 
+      if user
         session[:user_id] = user.id
         flash[:success] = "Welcome, #{user.full_name}."
       else
-        flash[:danger] = 'Invalid login.'
+        flash[:danger] = "Invalid login."
       end
     end
     redirect_to items_path

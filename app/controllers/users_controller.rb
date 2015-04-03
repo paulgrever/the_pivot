@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def new
     @user = User.new
   end
@@ -13,9 +13,7 @@ class UsersController < ApplicationController
     else
       flash[:danger] = "Input is invalid, please try again"
       render(:new)
-      
     end
-
   end
 
   def show
@@ -23,7 +21,8 @@ class UsersController < ApplicationController
     authorize! :view, @user
   end
 
-  private
+private
+
   def user_params
     params.require(:user).permit(:email,
                                  :full_name,
