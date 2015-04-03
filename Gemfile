@@ -19,6 +19,9 @@ gem 'd3_rails'
 gem "figaro"
 gem 'twilio-ruby', '~> 3.12'
 gem 'faker'
+gem 'omniauth'
+gem 'omniauth-twitter'
+
 
 group :development, :test do
   gem 'byebug'
