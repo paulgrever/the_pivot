@@ -5,6 +5,8 @@ FactoryGirl.define do
     display_name "jgu"
     password "gu"
     role "default"
+    provider "twitter"
+    uid "abc123"
 
   end
 
@@ -14,5 +16,7 @@ FactoryGirl.define do
     display_name "jgu"
     password "admin"
     role "admin"
+    provider "twitter"
+    uid "abc123"
   end
 end

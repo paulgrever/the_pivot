@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root "home#index"
+  get '/auth/:provider/callback' => "sessions#create"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  resources :users, only: [:show]
+  resources :users
   resources :items, only: [:index, :show]
   resources :businesses, only: [:show]
   resources :orders

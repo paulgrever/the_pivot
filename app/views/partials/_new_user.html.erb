@@ -1,0 +1,11 @@
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :full_name, placeholder: "name" %> 
+  <%= f.text_field :display_name, placeholder: "optional display" %>
+  <%= f.text_field :email, placeholder: "email" %>
+  <%= f.password_field :password, placeholder: "password" %>
+  <%= f.text_field :location, placeholder: "city & state" %>
+  <%= f.text_field :image, placeholder: "image url" %>
+  <%= f.submit 'Register', class: "btn btn-tour navbar-btn", id: "sign-in"%>
+    
+<% end %>
+

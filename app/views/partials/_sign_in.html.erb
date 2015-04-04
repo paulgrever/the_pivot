@@ -4,4 +4,9 @@
     <%= f.password_field :password, placeholder: "password" %>
     <%= f.submit 'Sign in', class: "btn btn-tour navbar-btn", id: "sign-in"%>
   <% end %>
+  <div>
+    Sign in with:
+    <%= button_to "Twitter", "/auth/twitter", class: "btn btn-primary" %>
+  </div>
+
 </div>
