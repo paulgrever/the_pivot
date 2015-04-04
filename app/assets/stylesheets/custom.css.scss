@@ -16,8 +16,11 @@ body {
   font-family: Avenir;
   color: $site-black;
   background-color: $site-white;
-  padding-top: 70px;
 }
+
+.container { padding-top: 46px; }
+
+.container.nav { padding-top: 0; }
 
 .navbar-default {
   background-color: $site-mint;
@@ -34,6 +37,13 @@ body {
   width: 50px;
   height: 50px;
   padding: 5px;
+}
+
+/* navbar dropdown */
+.navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: $site-brown;
 }
 
 .jumbotron {
@@ -95,4 +105,8 @@ li { list-style: none; }
   height: auto;
   margin-top: 50px;
   background-color: $site-brown;
+}
+
+#cart-show {
+  min-height: 100vh;
 }
