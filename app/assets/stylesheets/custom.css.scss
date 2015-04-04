@@ -39,9 +39,7 @@ body {
   padding: 5px;
 }
 
-/* navbar dropdown */
-.navbar-nav > .open > a,
-.navbar-default .navbar-nav > .open > a:hover,
+// navbar dropdown
 .navbar-default .navbar-nav > .open > a:focus {
   background-color: $site-brown;
 }
