@@ -8,19 +8,23 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id
         flash[:success] = "Welcome, #{user.full_name}."
+        redirect_to items_path
       else
         flash[:danger] = "Invalid login."
+        render(:new)
       end
     else
       user = User.find_or_create_from_auth(request.env["omniauth.auth"])
       if user
         session[:user_id] = user.id
         flash[:success] = "Welcome, #{user.full_name}."
+        redirect_to items_path
       else
         flash[:danger] = "Invalid login."
+        render(:new)
       end
     end
-    redirect_to items_path
+    
   end
 
   def destroy
@@ -28,4 +32,7 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
+
+
+
 end

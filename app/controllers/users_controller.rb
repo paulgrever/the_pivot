@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "#{@user.full_name} has been created"
       session[:user_id] = @user.id
-      redirect_to(:back)
+      redirect_to user_path(@user)
     else
       flash[:danger] = "Input is invalid, please try again"
       render(:new)
