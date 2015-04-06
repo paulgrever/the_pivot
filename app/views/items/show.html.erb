@@ -1,9 +1,13 @@
-<h3>Menu Item Details: <%= @item.title %></h3>
-<p><%= @item.description %> $<%= @item.price_in_dollars %></p>
-<%= image_tag @item.image, size: "100" %>
-<%= button_to "Add to net", cart_items_path(item_id: @item), class: "btn btn-success" %>
-<p> Item Categories:
-  <% @item.categories.each do |item| %>
-    <%= item.name %>
-  <% end %>
-</p>
+<div class="container">
+  <div class="row">
+    <h3>Menu Item Details: <%= @item.title %></h3>
+    <p><%= @item.description %> $<%= @item.price_in_dollars %></p>
+    <%= image_tag @item.image, size: "300" %>
+    <%= button_to "Add to cart", cart_items_path(item_id: @item), class: "btn btn-tour" %>
+    <p> Item Categories:
+    <% @item.categories.uniq.each do |category| %>
+      <%= link_to category.name, category_path(category) %>,
+    <% end %>
+    </p>
+  </div>
+</div>

@@ -16,8 +16,11 @@ body {
   font-family: Avenir;
   color: $site-black;
   background-color: $site-white;
-  padding-top: 70px;
 }
+
+.container { padding-top: 46px; }
+
+.container.nav { padding-top: 0; }
 
 .navbar-default {
   background-color: $site-mint;
@@ -36,6 +39,11 @@ body {
   padding: 5px;
 }
 
+// navbar dropdown
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: $site-brown;
+}
+
 .jumbotron {
   background-color: $site-mint;
 }
@@ -43,6 +51,8 @@ body {
 a { color: $site-red; }
 
 li { list-style: none; }
+
+#sign-in { margin: 50px; }
 
 .main-title {
   color: $site-red;
@@ -84,6 +94,8 @@ li { list-style: none; }
   padding-top: 40px;
 }
 
+.item { margin-bottom: 70px; }
+
 .footer {
   position: relative;
   bottom: 0;
@@ -101,4 +113,7 @@ li { list-style: none; }
 
 #profile-table{
   margin-top: 20px;
+}
+#cart-show {
+  min-height: 100vh;
 }
