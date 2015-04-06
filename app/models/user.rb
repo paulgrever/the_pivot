@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   has_secure_password
   has_many :orders
+  has_many :businesses
   has_many :order_items, through: :orders
   has_many :items, through: :order_items
-  enum role: %w(default admin)
+  enum role: %w(default admin business_admin)
 
   def self.find_or_create_from_auth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)

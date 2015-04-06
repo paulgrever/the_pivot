@@ -21,6 +21,7 @@ gem "twilio-ruby", "~> 3.12"
 gem "faker"
 gem "omniauth"
 gem "omniauth-twitter"
+gem "simple_form"
 
 
 group :development, :test do
