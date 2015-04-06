@@ -25,8 +25,10 @@ RSpec.describe User, type: :model do
   it "it displays placed orders for user" do
     item = FactoryGirl.create(:item)
     order = FactoryGirl.create(:order, user_id: @user.id)
-    order_item = FactoryGirl.create(:order_item, item_id: item.id, order_id: order.id)
+    order_item = FactoryGirl.create(:order_item,
+                                    item_id: item.id,
+                                    order_id: order.id)
     order = FactoryGirl.create(:order, user_id: @user.id)
-    expect(@user.previously_order_items.first.title).to eq(item.title) 
+    expect(@user.previously_order_items.first.title).to eq(item.title)
   end
 end
