@@ -10,7 +10,6 @@ describe "business" do
       fill_in "Name", with: "new business name"
       fill_in "Description", with: "business discription"
       click_button "Create Business"
-      save_and_open_page
       expect(Business.count).to eq 1
     end
 

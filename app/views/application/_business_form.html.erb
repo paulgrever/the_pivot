@@ -1,5 +1,7 @@
-<%= simple_form_for([:user, @business]) do |f| %>
-  <%= f.input :name, lable: "Name" %>
-  <%= f.input :description, lable: "Description" %>
-  <%= f.button :submit %>
-<% end %>
+<div class="input-group">
+  <%= simple_form_for([:user, @business], html: { class: 'form-horizontal' }) do |f| %>
+    <%= f.input :name, lable: "Name" %>
+    <%= f.input :description, lable: "Description" %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

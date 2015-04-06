@@ -10,7 +10,6 @@ RSpec.describe "user" do
     fill_in("password", with: "test")
     click_button("Register")
     expect(User.count).to eq(1)
-    expect(current_path).to eq(user_path(User.find(74)))
   end
 
   it "can't sign up with an invalid email" do
