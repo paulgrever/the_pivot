@@ -26,6 +26,7 @@
             <td><%=mail_to "#{@user.email}"  %></td>
         </tbody>
       </table>
+      <%= link_to("Edit Info", edit_user_path(@user), class: "btn btn-primary center-block") %>
     </div>
     <div class="col-md-6 col-lg-6" >
       <h3 class ="text-center" id = "supply-hist"> previously ordered supplies:</h3>
@@ -39,7 +40,6 @@
             </div>
           </div>
         <% end %>
-        
     </div>
   </div>
 </div>

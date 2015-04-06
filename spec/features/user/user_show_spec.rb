@@ -34,6 +34,7 @@ RSpec.describe "the user show page", type: :feature do
       fill_in("session_email", with: "paullorijgu@gmail.com")
       fill_in("session_password", with: "gu")
       click_button "Sign in"
+      visit user_path(@user)
     end
   
     it "displays a user's recent order" do
@@ -42,6 +43,15 @@ RSpec.describe "the user show page", type: :feature do
 
     it "has a link to send an email" do
       expect(page).to have_link("paullorijgu@gmail.com")  
+    end
+
+    it "can edit their profile info" do
+      click_link_or_button("Edit Info")
+      expect(current_path).to eq(edit_user_path(@user))
+      fill_in("user[email]", with: "test@example.com")
+      click_link_or_button("update personal information")
+      expect(page).to have_link("test@example.com")
+      expect(page).to have_content("Your information has been updated")
     end
   end
 end
