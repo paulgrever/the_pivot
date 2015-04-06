@@ -1,1 +1,45 @@
-<h1><%= current_user.full_name %>'s profile</h1>
+<div class="container">
+  <div class = "row">
+     <div class=" col-md-offset-2 col-md-4"><%= image_tag(@user.image,  width: "100") %></div>
+      <div class = "col-md-4"> <h1><%= current_user.full_name %>'s profile</h1> </div> 
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class "row">
+    <div class=" col-md-5 col-lg-5 " id="profile-table"> 
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <td>Full Name:</td>
+            <td><%=@user.full_name%></td>
+          </tr>
+          <tr>
+            <td>Display Name:</td>
+            <td><%=@user.display_name%></td>
+          </tr>
+          <tr>
+            <td>Location:</td>
+            <td><%= @user.location %></td>
+          <tr <%="class=danger" unless @user.email %>>
+            <td>Email</td>
+            <td><%=mail_to "#{@user.email}"  %></td>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6 col-lg-6" >
+      <h3 class ="text-center" id = "supply-hist"> previously ordered supplies:</h3>
+      
+        <% @user.previously_order_items.last(4).each do |item| %>
+        <div class = "text-center col-md-6 col-lg-6">
+               <%= link_to image_tag(item.image, size: "100"), @item_show %>
+        <figcaption><%= link_to item.title, @item_show %></figcaption>
+                 <div id=<%= "net-button-#{item.id}" %>>
+            <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-success" %>
+            </div>
+          </div>
+        <% end %>
+        
+    </div>
+  </div>
+</div>
