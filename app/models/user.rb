@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def previously_order_items
-    self.order_items.map do |order_item|
+    order_items.map do |order_item|
       Item.find(order_item.item_id)
     end
   end

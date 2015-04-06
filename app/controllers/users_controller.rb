@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  
+
   def new
     @user = User.new
   end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       flash[:success] = "Your information has been updated"
       redirect_to user_path(@user)
     else
-      flash[:danger] = "#{@user.errors.full_messages.each {|m| m}}"
+      flash[:danger] = "#{@user.errors.full_messages.each { |m| m } }"
       render(:edit)
     end
   end
