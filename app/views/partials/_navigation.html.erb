@@ -27,8 +27,8 @@
         <li><%= link_to current_user.email, current_user %></li>
         <li><%= link_to "Sign out", logout_path, method: :delete, class: "btn btn-danger", id: "sign-out" %></li>
       <% else %>
-        <li><%= link_to "Sign in", login_path %></li>
-        <li><%= link_to "Sign up", new_user_path %></li>
+        <li><%= link_to "Sign in", "#", data: { toggle: "modal", target: "#signInModal" } %></li>
+        <li><%= link_to "Sign up", "#", data: { toggle: "modal", target: "#signUpModal" } %></li>
       <% end %>
 
       <li><%= link_to cart_items_path, id: "cart" do %>
@@ -48,3 +48,21 @@
 
   </div> <!-- container nav -->
 </div> <!-- navbar navbar-default navbar-fixed-top -->
+
+<!-- Sign in modal -->
+<div id="signInModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signInModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= render partial: "partials/sign_in" %>
+    </div>
+  </div>
+</div>
+
+<!-- Sign up modal -->
+<div id="signUpModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="signUpModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= render partial: "partials/sign_up" %>
+    </div>
+  </div>
+</div>

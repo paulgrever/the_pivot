@@ -1,12 +1,22 @@
-<div class="container text-center" id="sign-in">
-  <%= form_for :session, html: {class: "form-inline"}, url: '/login' do |f| %>
-    <%= f.text_field :email, placeholder: "email" %>
-    <%= f.password_field :password, placeholder: "password" %>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+  <h4 class="modal-title" id="myModalLabel">Sign in</h4>
+</div>
+<div class="modal-body">
+  <%= form_for :session, url: '/login' do |f| %>
+    <div class="form-group">
+      <%= f.label "email" %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "password" %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
     <%= f.submit 'Sign in', class: "btn btn-tour navbar-btn", id: "sign-in"%>
   <% end %>
-  <div>
-    Sign in with:
-    <%= button_to "Twitter", "/auth/twitter", class: "btn btn-primary" %>
+</div>
+<div class="modal-footer">
+  <div class="pull-left">
+    <%= button_to "Sign in with Twitter", "/auth/twitter", class: "btn btn-info" %>
   </div>
-
 </div>
