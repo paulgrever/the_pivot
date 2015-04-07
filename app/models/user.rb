@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validates :full_name, presence: true
-  validates :email,
-            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+  # validates :email,
+  #           format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   has_secure_password
   has_many :orders
   has_many :order_items, through: :orders
@@ -19,5 +19,11 @@ class User < ActiveRecord::Base
     user.image = auth.info.image
     user.save
     user
+  end
+
+  def previously_order_items
+    order_items.map do |order_item|
+      Item.find(order_item.item_id)
+    end
   end
 end

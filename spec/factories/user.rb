@@ -7,7 +7,6 @@ FactoryGirl.define do
     role "default"
     provider "twitter"
     uid "abc123"
-
   end
 
   factory :admin, class: User do
