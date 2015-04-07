@@ -3,7 +3,7 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
+  <body style = "background: #EDEFED; color: #333; ">
     <h3>Hi <%= @user.full_name %>, </h3>
     <p>
       Thank you for signing up to be a Droply member. We take pride in our efforts to get you the supplies you need in the quickest manner possible. 
@@ -13,5 +13,9 @@
 
     <p>Thanks for your support,</p>
     <p><strong>The Droply Team</strong></p>
+      <img src="https://droply.herokuapp.com/assets/droply-icon-90769066a0dfcacd19c9a5e5be35291c.png" width="50px">
   </body>
+  <footer style= "background: #EDBC7B; color: #E3655B">
+     <%= mail_to "jorge@turing.io", "contact@drop.ly"  %>
+  </footer>
 </html>
