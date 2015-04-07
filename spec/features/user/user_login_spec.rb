@@ -1,5 +1,6 @@
 require "rails_helper"
 OmniAuth.config.test_mode = true
+OmniAuth.config.logger = Rails.logger
 
 RSpec.describe "the user authentication feature", type: :feature do
   context "when given correct credentials" do
@@ -57,7 +58,7 @@ RSpec.describe "the user authentication feature", type: :feature do
       expect(page).to have_content("Welcome, #{user.info.name}.")
     end
 
-    xit "can handle authentication error" do
+    it "can handle authentication error" do
       OmniAuth.config.mock_auth[:twitter] = :invalid_credentials
       visit root_path
       within("#signInModal") do
