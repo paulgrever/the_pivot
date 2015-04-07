@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'graph/data_units', :defaults => { :format => 'json' }
   get 'graph/data_revenue', :defaults => { :format => 'json' }
 
-  namespace "user" do
+  namespace "user", path: "/:slug" do
     resources :businesses
   end
 

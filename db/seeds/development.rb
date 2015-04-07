@@ -13,8 +13,17 @@ class Seed
   end
 
   def generate_users
-    User.create(email: 'test@gmail.com', full_name: "test_user", display_name: "test_user", password: "test", role: 0)
-    User.create(email: 'admin@gmail.com', full_name: "admin_user", display_name: "admin_user", password: "test", role: 1)
+    User.create(email: 'test@gmail.com',
+                full_name: "test_user",
+                display_name: "test_user",
+                password: "test",
+                role: 0)
+
+    User.create(email: 'admin@gmail.com',
+                full_name: "admin_user",
+                display_name: "admin_user",
+                password: "test",
+                role: 1)
   end
 
   def generate_active_items
@@ -31,7 +40,7 @@ class Seed
     10.times do
       random_user = User.all.sample
       business = Business.create(name: Faker::Company.name,
-                                 discription: Faker::Company.bs,
+                                 description: Faker::Company.bs,
                                  user_id: random_user.id)
       puts "Created Business: #{business.name}"
     end
