@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "the admin status view", type: :feature do
   before :each do
@@ -8,7 +8,7 @@ RSpec.describe "the admin status view", type: :feature do
     within("#signInModal") do
       fill_in("session_email", with: admin.email)
       fill_in("session_password", with: admin.password)
-      click_button 'Sign in'
+      click_button "Sign in"
     end
   end
 

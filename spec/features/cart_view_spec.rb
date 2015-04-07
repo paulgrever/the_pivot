@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "the cart view", type: :feature do
   context "when an authenticated user" do
@@ -10,7 +10,7 @@ describe "the cart view", type: :feature do
       within("#signInModal") do
         fill_in("session_email", with: user.email)
         fill_in("session_password", with: user.password)
-        click_button 'Sign in'
+        click_button "Sign in"
       end
       visit items_path
       click_link_or_button "Add to cart"

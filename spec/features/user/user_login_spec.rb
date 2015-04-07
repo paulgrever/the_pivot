@@ -40,18 +40,18 @@ RSpec.describe "the user authentication feature", type: :feature do
       within("#signInModal") do
         expect(page).to have_selector(:link_or_button, "Sign in with Twitter")
       end
-      user = OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({
-        'provider' => 'twitter',
-        'uid' => '123545',
-        'info' => {
-          'name' => 'mockuser',
-          'image' => 'mock_user_thumbnail_url'
+      user = OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new(
+        "provider" => "twitter",
+        "uid" => "123545",
+        "info" => {
+          "name" => "mockuser",
+          "image" => "mock_user_thumbnail_url"
         },
-        'credentials' => {
-          'token' => 'mock_token',
-          'secret' => 'mock_secret'
+        "credentials" => {
+          "token" => "mock_token",
+          "secret" => "mock_secret"
         }
-      })
+      )
       within("#signInModal") do
         click_link_or_button "Sign in with Twitter"
       end

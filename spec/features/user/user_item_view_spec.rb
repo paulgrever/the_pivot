@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "the user item view", type: :feature do
   before :each do
@@ -8,7 +8,7 @@ describe "the user item view", type: :feature do
     within("#signInModal") do
       fill_in("session_email", with: user.email)
       fill_in("session_password", with: user.password)
-      click_button 'Sign in'
+      click_button "Sign in"
     end
     visit items_path
   end

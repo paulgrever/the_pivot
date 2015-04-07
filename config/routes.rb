@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :cart_items
   get "graph/index"
-  get "graph/data_units", :defaults => { :format => "json" }
-  get "graph/data_revenue", :defaults => { :format => "json" }
+  get "graph/data_units", defaults: { :format => "json" }
+  get "graph/data_revenue", defaults: { :format => "json" }
 
   namespace "user" do
     resources :businesses

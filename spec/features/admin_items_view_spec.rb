@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "the admin item view", type: :feature do
   before :each do
@@ -10,7 +10,7 @@ describe "the admin item view", type: :feature do
     within("#signInModal") do
       fill_in("session_email", with: admin.email)
       fill_in("session_password", with: admin.password)
-      click_button 'Sign in'
+      click_button "Sign in"
     end
     visit admin_items_path
   end
@@ -43,7 +43,7 @@ describe "the admin item view", type: :feature do
     fill_in("item[price_in_dollars]", with: 5.34)
     find(:css, "#category_ids_[value='#{@category.id}']").set(true)
     click_link_or_button("Update Item")
-    expect(page).to have_content('Racoon Ragu')
+    expect(page).to have_content("Racoon Ragu")
     expect(current_path). to eq(admin_item_path(@item))
   end
 
