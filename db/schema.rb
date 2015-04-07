@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406050212) do
+ActiveRecord::Schema.define(version: 20150407021341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150406050212) do
     t.string  "shipping_address"
     t.string  "billing_address"
     t.string  "credit_card"
+    t.string  "slug"
   end
 
   add_foreign_key "businesses", "users"
