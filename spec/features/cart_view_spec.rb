@@ -26,7 +26,7 @@ describe "the cart view", type: :feature do
     end
 
     it "can remove an item from the cart" do
-      click_link_or_button "Release from net"
+      click_link_or_button "Remove all"
       expect(page).not_to have_content(2.46)
     end
 
@@ -110,7 +110,7 @@ describe "the cart view", type: :feature do
     end
 
     it "can remove an item from the cart" do
-      click_link_or_button "Release from net"
+      click_link_or_button "Remove all"
       expect(page).not_to have_content(2.46)
     end
 

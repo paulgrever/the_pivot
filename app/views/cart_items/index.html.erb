@@ -1,5 +1,5 @@
-<div id="cart-div">
-  <h3 id="cat-header">Currently caught in your net</h3>
+<div class="container" id="cart-show">
+  <h3>Currently in your cart</h3>
   <table class="table">
     <tr>
       <td>Item</td>
@@ -12,15 +12,15 @@
         <td><%= cart.find_item(item_id) %></td>
         <td>
           <div class="pull-left">
-          <%= button_to "-", cart_items_path(item_id: item_id, subtract: true), class: "btn btn-danger" %>
-        </div>
-        <div>
-          <%= button_to "+", cart_items_path(item_id: item_id), class: "btn btn-success" %>
-        </div>
+            <%= button_to "-", cart_items_path(item_id: item_id, subtract: true), class: "btn btn-danger" %>
+          </div>
+          <div>
+            <%= button_to "+", cart_items_path(item_id: item_id), class: "btn btn-success" %>
+          </div>
         </td>
         <td class="text-center"><%= cart_quantity %></td>
         <td class="text-center">$<%= cart.subtotal(item_id) %></td>
-        <td><%= link_to "Release from net", cart_item_path(item_id), method: :delete, class: "btn btn-danger", id: "release"%></td>
+        <td><%= link_to "Remove all", cart_item_path(item_id), method: :delete, class: "btn btn-danger", id: "release"%></td>
       </tr>
     <% end %>
     <tr>

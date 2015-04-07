@@ -12,7 +12,7 @@ RSpec.describe "user" do
     expect(User.count).to eq(1)
   end
 
-  it "can't sign up with an invalid email" do
+  xit "can't sign up with an invalid email" do
     visit root_path
     click_link_or_button("Sign up")
     expect(current_path).to eq(new_user_path)
