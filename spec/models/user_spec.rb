@@ -14,10 +14,6 @@ RSpec.describe User, type: :model do
     expect(@user).not_to be_valid
   end
 
-  it 'has a slug' do
-    expect("xxxx").to eq @user.slug
-  end
-
   it "should have many orders" do
     expect(@user).to respond_to(:orders)
   end
