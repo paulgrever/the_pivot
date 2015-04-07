@@ -6,10 +6,12 @@ describe "the cart view", type: :feature do
       FactoryGirl.create(:status, id: 1)
       @item = FactoryGirl.create(:item)
       user = FactoryGirl.create(:user)
-      visit login_path
-      fill_in("session_email", with: user.email)
-      fill_in("session_password", with: user.password)
-      click_button 'Sign in'
+      visit root_path
+      within("#signInModal") do
+        fill_in("session_email", with: user.email)
+        fill_in("session_password", with: user.password)
+        click_button 'Sign in'
+      end
       visit items_path
       click_link_or_button "Add to cart"
       visit cart_items_path

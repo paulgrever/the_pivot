@@ -4,10 +4,12 @@ RSpec.describe "the user authorization feature", type: :feature do
   context 'when a default user signs in' do
     before :each do
       user = FactoryGirl.create(:user)
-      visit login_path
-      fill_in("session_email", with: user.email)
-      fill_in("session_password", with: user.password)
-      click_button "Sign in"
+      visit root_path
+      within("#signInModal") do
+        fill_in("session_email", with: user.email)
+        fill_in("session_password", with: user.password)
+        click_button "Sign in"
+      end
       visit user_path(user)
     end
 
@@ -62,10 +64,12 @@ RSpec.describe "the user authorization feature", type: :feature do
   context 'when an admin signs in' do
     before :each do
       admin = FactoryGirl.create(:admin)
-      visit login_path
-      fill_in("session_email", with: admin.email)
-      fill_in("session_password", with: admin.password)
-      click_button 'Sign in'
+      visit root_path
+      within("#signInModal") do
+        fill_in("session_email", with: admin.email)
+        fill_in("session_password", with: admin.password)
+        click_button 'Sign in'
+      end
     end
 
     it 'allows admins to view the orders dashboard' do

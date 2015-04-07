@@ -7,10 +7,12 @@ describe "the default users order view", type: :feature do
     @status = FactoryGirl.create(:status)
     @order = FactoryGirl.create(:order, user_id: @user.id, status: @status)
     @order2 = FactoryGirl.create(:order, status: @status)
-    visit login_path
-    fill_in("session_email", with: "paullorijgu@gmail.com")
-    fill_in("session_password", with: "gu")
-    click_button 'Sign in'
+    visit root_path
+    within("#signInModal") do
+      fill_in("session_email", with: "paullorijgu@gmail.com")
+      fill_in("session_password", with: "gu")
+      click_button 'Sign in'
+    end
     visit orders_path
   end
 
@@ -26,7 +28,7 @@ describe "the default users order view", type: :feature do
     within('table tr:nth-child(2)') do
       click_link_or_button("Details")
     end
-      expect(page).to have_content("Details for Order ID:")
+    expect(page).to have_content("Details for Order ID:")
   end
 
   it "displays the order status" do
