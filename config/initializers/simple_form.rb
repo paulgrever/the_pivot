@@ -83,7 +83,8 @@ SimpleForm.setup do |config|
   # Series of attempts to detect a default value method for collection.
   # config.collection_value_methods = [ :id, :to_s ]
 
-  # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
+  # You can wrap a collection of radio/check boxes in
+  # a pre-defined tag, defaulting to none.
   # config.collection_wrapper_tag = nil
 
   # You can define the class to use on all collection wrappers. Defaulting to none.
@@ -113,27 +114,35 @@ SimpleForm.setup do |config|
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true
 
-  # Tell browsers whether to use the native HTML5 validations (novalidate form option).
-  # These validations are enabled in SimpleForm's internal config but disabled by default
-  # in this configuration, which is recommended due to some quirks from different browsers.
-  # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
+  # Tell browsers whether to use the native HTML5
+  # validations (novalidate form option).
+  # These validations are enabled in SimpleForm's internal config
+  # but disabled by default
+  # in this configuration, which is recommended due to some
+  # quirks from different browsers.
+  # To stop SimpleForm from generating the novalidate option,
+  # enabling the HTML5 validations,
   # change this configuration to true.
   config.browser_validations = false
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]
 
-  # Custom mappings for input types. This should be a hash containing a regexp
-  # to match as key, and the input type that will be used when the field name
+  # Custom mappings for input types. This should be a 
+  # hash containing a regexp
+  # to match as key, and the input type that will
+  # be used when the field name
   # matches the regexp as value.
   # config.input_mappings = { /count/ => :integer }
 
-  # Custom wrappers for input types. This should be a hash containing an input
-  # type as key and the wrapper that will be used for all inputs with specified type.
+  # Custom wrappers for input types. This should be a 
+  # hash containing an input
+  # type as key and the wrapper that will be used for all 
+  # inputs with specified type.
   # config.wrapper_mappings = { string: :prepend }
 
-  # Namespaces where SimpleForm should look for custom input classes that
-  # override default inputs.
+  # Namespaces where SimpleForm should look for custom input
+  # classes that override default inputs.
   # config.custom_inputs_namespaces << "CustomInputs"
 
   # Default priority for time_zone inputs.
@@ -154,11 +163,12 @@ SimpleForm.setup do |config|
   # Default class for inputs
   # config.input_class = nil
 
-  # Define the default class of the input wrapper of the boolean input.
+  # Define the default class of the input wrapper 
+  # of the boolean input.
   config.boolean_label_class = 'checkbox'
 
-  # Defines if the default input wrapper class should be included in radio
-  # collection wrappers.
+  # Defines if the default input wrapper class should be 
+  # included in radio collection wrappers.
   # config.include_default_input_wrapper_class = true
 
   # Defines which i18n scope will be used in Simple Form.

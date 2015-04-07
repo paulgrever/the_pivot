@@ -1,5 +1,4 @@
 class User::BusinessesController < ApplicationController
-
   def edit
     @business = Business.find(params[:id])
     authorize! :edit, @business
