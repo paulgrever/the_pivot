@@ -4,9 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @user.full_name %></h1>
+    <h3>Hi <%= @user.full_name %>, </h3>
     <p>
-      Sample mail sent using smtp.
+      Thank you for signing up to be a Droply member. We take pride in our efforts to get you the supplies you need in the quickest manner possible. 
     </p>
+
+    <p>Checkout our <%= link_to("supplies!", "https://droply.herokuapp.com/items" ) %> </p>
+
+    <p>Thanks for your support,</p>
+    <p><strong>The Droply Team</strong></p>
   </body>
 </html>
