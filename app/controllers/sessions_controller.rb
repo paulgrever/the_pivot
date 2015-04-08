@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id
         flash[:success] = "Welcome, #{user.full_name}."
-        redirect_to items_path
+        redirect_to :back
       else
         flash[:danger] = "Invalid login."
         render(:new)
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       if user
         session[:user_id] = user.id
         flash[:success] = "Welcome, #{user.full_name}."
-        redirect_to items_path
+        redirect_to :back
       else
         flash[:danger] = "Invalid login."
         render(:new)
