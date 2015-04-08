@@ -3,19 +3,27 @@
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body style = "background: #EDEFED; color: #333; ">
+  <body style = "background: #A4F2EA; color: #E3655B; ">
     <h3>Hi <%= @user.full_name %>, </h3>
     <p>
       Thank you for signing up to be a Droply member. We take pride in our efforts to get you the supplies you need in the quickest manner possible. 
     </p>
 
-    <p>Checkout our <%= link_to("supplies!", "https://droply.herokuapp.com/items" ) %> </p>
+    <p>We are the place to go when peoples lives are at stake. We provide easy, fast, and cost effective <%= link_to("supplies.", "https://droply.herokuapp.com/items", style: "color: #E3655B" ) %>, so you can concentrate on saving lives.</p>
+
+    <p>There is just a little more information need to collect, before we can begin shipping you supplies. <%= link_to("Complete your account now,", "https://droply.herokuapp.com/users/#{@user.id}", style: "color: #E3655B" ) %> so you are prepared when disaster strikes. </p>
 
     <p>Thanks for your support,</p>
-    <p><strong>The Droply Team</strong></p>
+    <h4><strong>The Droply Team</strong></h4>
       <img src="https://droply.herokuapp.com/assets/droply-icon-90769066a0dfcacd19c9a5e5be35291c.png" width="50px">
   </body>
-  <footer style= "background: #EDBC7B; color: #E3655B">
-     <%= mail_to "jorge@turing.io", "contact@drop.ly"  %>
+  <footer style="background: #EDBC7B; color: #333;, margin: 10px;">
+    <em>Want to become a registered Droply supplier? <%= link_to("Apply Now!", "https://droply.herokuapp.com/businesses", style: "color: #E3655B") %></em>
+
+    <h4>Contact Us</h4>
+
+    <p><%= mail_to "jorge@turing.io", "contact@drop.ly",  style: "color: #E3655B" %></p>
+    <p>1-555-droply</p>
+    <p>1510 Blake St, Denver, CO</p>
   </footer>
 </html>

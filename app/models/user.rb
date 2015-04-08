@@ -26,4 +26,11 @@ class User < ActiveRecord::Base
       Item.find(order_item.item_id)
     end
   end
+
+  def sign_up_via_email?(user)
+    binding.pry
+    if user.email
+      SignUpMailer.sign_up_email(user).deliver_now
+    end
+  end
 end

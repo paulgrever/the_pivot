@@ -20,6 +20,5 @@ RSpec.describe SignUpMailer, type: :mailer do
     it 'assigns @name' do
       expect(mail.body.encoded).to match(user.full_name)
     end
- 
   end
 end
