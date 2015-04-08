@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
   def sign_up_via_email?
-    if self.email
+    if email
       SignUpMailer.sign_up_email(self).deliver_now
     end
   end

@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   def failure
     render text: "Authentication failed. Please try again."
   end
-  
+
   private
 
   def email_login(user)
@@ -45,6 +45,4 @@ class SessionsController < ApplicationController
       render(:new)
     end
   end
-
-
 end

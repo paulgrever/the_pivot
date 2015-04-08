@@ -14,7 +14,7 @@ class TwilioNotifier
     client.messages.create(
       from: '+19495372518',
       to: '+12026817334',
-      body: "Thank you for placing an order at Droply. Your supplies #{ordered_item_titles} will delivered to #{@order.user.shipping_address}. 
+      body: "Thank you for placing an order at Droply. Your supplies #{ordered_item_titles} will delivered to #{@order.user.shipping_address}.
       The total cost of your order was $#{@order.order_total_cost.round(2)}"
     )
   end
