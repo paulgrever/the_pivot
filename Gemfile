@@ -23,7 +23,6 @@ gem "omniauth"
 gem "omniauth-twitter"
 gem "simple_form"
 
-
 group :development, :test do
   gem "byebug"
   gem "web-console", "~> 2.0"
@@ -33,6 +32,7 @@ group :development, :test do
   gem "pry"
   gem "factory_girl_rails"
   gem "awesome_print"
+  gem "brakeman", require: false
 end
 
 group :test do
