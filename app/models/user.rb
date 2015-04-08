@@ -27,10 +27,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def sign_up_via_email?(user)
-    binding.pry
-    if user.email
-      SignUpMailer.sign_up_email(user).deliver_now
+  def sign_up_via_email?
+    if self.email
+      SignUpMailer.sign_up_email(self).deliver_now
     end
   end
 end

@@ -14,7 +14,8 @@ class TwilioNotifier
     client.messages.create(
       from: '+19495372518',
       to: '+12026817334',
-      body: "Thank you for placing an order at Clamorous. Your #{ordered_item_titles} are being prepared by our expert chefs and will be delivered shortly. Your total is $#{@order.order_total_cost.round(2)}, our delivery team accepts all major credit cards."
+      body: "Thank you for placing an order at Droply. Your supplies #{ordered_item_titles} will delivered to #{@order.user.shipping_address}. 
+      The total cost of your order was $#{@order.order_total_cost.round(2)}"
     )
   end
 
@@ -22,8 +23,6 @@ class TwilioNotifier
 
   def client
      @client ||= Twilio::REST::Client.new(ENV['twilio_account_sid'], ENV['twilio_auth_token'])
-
-    # @client ||= Twilio::REST::Client.new(Rails.application.secrets[:twilio_account_sid], Rails.application.secrets[:twilio_auth_token])
   end
 end
 

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      SignUpMailer.sign_up_email(@user).deliver_now if @user.email
+      @user.sign_up_via_email?
       flash[:notice] = "#{@user.full_name} has been created"
       session[:user_id] = @user.id
       redirect_to user_path(@user)
