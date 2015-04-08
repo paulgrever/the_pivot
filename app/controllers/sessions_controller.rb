@@ -40,5 +40,8 @@ class SessionsController < ApplicationController
       flash[:danger] = "Invalid login."
       render(:new)
     end
+
+  def failure
+    render text: "Authentication failed. Please try again."
   end
 end

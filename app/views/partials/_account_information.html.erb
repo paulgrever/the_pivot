@@ -1,16 +1,16 @@
-<div>
+<div id="edit-account-info">
   <%= form_for(@user) do |f| %>
     <div class="form-group">
       <%=f.label  "shipping address" %>
-      <%= f.text_field :shipping_address, placeholder: "address, city, state, zipcode ", class: "form-control" %> 
+      <%= f.text_field :shipping_address, placeholder: "address, city, state, zipcode ", class: "form-control" %>
     </div>
-   <div class="form-group">
+    <div class="form-group">
       <%=f.label  "billing address" %>
-      <%= f.text_field :billing_address, placeholder: "address, city, state, zipcode ", class: "form-control" %> 
+      <%= f.text_field :billing_address, placeholder: "address, city, state, zipcode ", class: "form-control" %>
     </div>
     <div class="form-group">
       <%=f.label  "credit card" %>
-      <%= f.text_field :credit_card, placeholder: "credit card number", class: "form-control" %> 
+      <%= f.text_field :credit_card, placeholder: "credit card number", class: "form-control" %>
     </div>
     <div class = "text-center">
       <%= f.submit "update account information", class: "btn btn-tour navbar-btn", id: "sign-in"%>

@@ -21,7 +21,7 @@ gem "twilio-ruby", "~> 3.12"
 gem "faker"
 gem "omniauth"
 gem "omniauth-twitter"
-
+gem "simple_form"
 
 group :development, :test do
   gem "byebug"
@@ -30,12 +30,13 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "pry"
-  gem "database_cleaner"
   gem "factory_girl_rails"
   gem "awesome_print"
+  gem "brakeman", require: false
 end
 
 group :test do
   gem "simplecov", require: false
   gem "codeclimate-test-reporter", require: nil
+  gem "database_cleaner"
 end
