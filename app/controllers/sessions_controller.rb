@@ -17,6 +17,10 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
+
+  def failure
+    render text: "Authentication failed. Please try again."
+  end
   
   private
 
@@ -40,8 +44,7 @@ class SessionsController < ApplicationController
       flash[:danger] = "Invalid login."
       render(:new)
     end
-
-  def failure
-    render text: "Authentication failed. Please try again."
   end
+
+
 end

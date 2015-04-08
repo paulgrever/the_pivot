@@ -26,7 +26,6 @@
         <li><%= link_to "My Orders", orders_path(current_user) %></li>
         <li><%= link_to current_user.full_name, current_user %></li>
         <li><%= link_to "Sign out", logout_path, method: :delete, id: "sign-out" %></li>
-
       <% else %>
         <li><%= link_to "Sign in", "#", data: { toggle: "modal", target: "#signInModal" } %></li>
         <li><%= link_to "Sign up", "#", data: { toggle: "modal", target: "#signUpModal" } %></li>

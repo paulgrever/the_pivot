@@ -19,21 +19,6 @@ RSpec.describe "user" do
     expect(current_path).to eq(user_path(User.find(1)))
   end
 
-  xit "can't sign up with an invalid email" do
-    within(".navbar-nav") do
-      click_link_or_button("Sign up")
-    end
-    within("#signUpModal") do
-      fill_in("name", with: "Paul")
-      fill_in("email", with: "hi")
-      fill_in("password", with: "test")
-      click_link_or_button("Sign up")
-    end
-    expect(User.count).to eq(0)
-    expect(page).to have_content("Input is invalid, please try again")
-    expect(current_path).to eq(users_path)
-  end
-
   it "can't sign up without a full name" do
     within(".navbar-nav") do
       click_link_or_button("Sign up")
