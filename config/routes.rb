@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
-  get '/auth/:provider/callback' => "sessions#create"
-  get "/login", to: "sessions#new"
+  get "/auth/:provider/callback", to: "sessions#create"
+  get "/auth/failure", to: "sessions#failure"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :users
@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   resources :orders
   resources :categories
   resources :cart_items
-  get 'graph/index'
-  get 'graph/data_units', :defaults => { :format => 'json' }
-  get 'graph/data_revenue', :defaults => { :format => 'json' }
+  get "graph/index"
+  get "graph/data_units", defaults: { :format => "json" }
+  get "graph/data_revenue", defaults: { :format => "json" }
 
   namespace "user" do
     resources :businesses

@@ -15,10 +15,12 @@ RSpec.describe "the user show page", type: :feature do
     end
 
     it "is valid if user is authenticated" do
-      visit login_path
-      fill_in("session_email", with: "paullorijgu@gmail.com")
-      fill_in("session_password", with: "gu")
-      click_button "Sign in"
+      visit root_path
+      within("#signInModal") do
+        fill_in("session_email", with: "paullorijgu@gmail.com")
+        fill_in("session_password", with: "gu")
+        click_button "Sign in"
+      end
       visit user_path(@user)
       expect(page).to have_content("Laul Guberson")
     end
@@ -29,14 +31,15 @@ RSpec.describe "the user show page", type: :feature do
       @user = FactoryGirl.create(:user)
       item = FactoryGirl.create(:item)
       order = FactoryGirl.create(:order, user_id: @user.id)
-      order_item = FactoryGirl.create(:order_item,
-                                      item_id: item.id,
-                                      order_id: order.id)
-      order = FactoryGirl.create(:order, user_id: @user.id)
-      visit login_path
-      fill_in("session_email", with: "paullorijgu@gmail.com")
-      fill_in("session_password", with: "gu")
-      click_button "Sign in"
+      FactoryGirl.create(:order_item,
+                         item_id: item.id,
+                         order_id: order.id)
+      visit root_path
+      within("#signInModal") do
+        fill_in("session_email", with: "paullorijgu@gmail.com")
+        fill_in("session_password", with: "gu")
+        click_button "Sign in"
+      end
       visit user_path(@user)
     end
 
@@ -51,8 +54,10 @@ RSpec.describe "the user show page", type: :feature do
     it "can edit their personal info" do
       click_link_or_button("Edit Info")
       expect(current_path).to eq(edit_user_path(@user))
-      fill_in("user[email]", with: "test@example.com")
-      click_link_or_button("update personal information")
+      within("#edit-personal-info") do
+        fill_in("user[email]", with: "test@example.com")
+        click_link_or_button("update personal information")
+      end
       expect(page).to have_link("test@example.com")
       expect(page).to have_content("Your information has been updated")
     end

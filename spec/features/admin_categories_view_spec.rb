@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "the category view", type: :feature do
   context "as an admin" do
@@ -6,10 +6,12 @@ describe "the category view", type: :feature do
       @category = FactoryGirl.create(:category)
       @category2 = FactoryGirl.create(:category2)
       @admin = FactoryGirl.create(:admin)
-      visit login_path
-      fill_in("session_email", with: @admin.email)
-      fill_in("session_password", with: @admin.password)
-      click_button 'Sign in'
+      visit root_path
+      within("#signInModal") do
+        fill_in("session_email", with: @admin.email)
+        fill_in("session_password", with: @admin.password)
+        click_button "Sign in"
+      end
       visit admin_categories_path
     end
 
@@ -27,16 +29,16 @@ describe "the category view", type: :feature do
     end
 
     it "can edit a category" do
-      within('#category_vegan') do
+      within("#category_vegan") do
         click_link_or_button("Edit")
       end
       fill_in("category[name]", with: "New Category")
-      click_link_or_button('Update Category')
+      click_link_or_button("Update Category")
       expect(page).to have_content("New Category")
     end
 
     it "can delete a category" do
-       within('#category_vegan') do
+      within("#category_vegan") do
         click_link_or_button("Delete")
       end
       expect(page).to_not have_content("vegan")

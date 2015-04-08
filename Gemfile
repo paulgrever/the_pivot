@@ -31,7 +31,6 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "pry"
-  gem "database_cleaner"
   gem "factory_girl_rails"
   gem "awesome_print"
 end
@@ -39,4 +38,5 @@ end
 group :test do
   gem "simplecov", require: false
   gem "codeclimate-test-reporter", require: nil
+  gem "database_cleaner"
 end

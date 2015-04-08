@@ -1,13 +1,15 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "the user item view", type: :feature do
   before :each do
     @item = FactoryGirl.create(:item)
     user = FactoryGirl.create(:user)
-    visit login_path
-    fill_in("session_email", with: user.email)
-    fill_in("session_password", with: user.password)
-    click_button 'Sign in'
+    visit root_path
+    within("#signInModal") do
+      fill_in("session_email", with: user.email)
+      fill_in("session_password", with: user.password)
+      click_button "Sign in"
+    end
     visit items_path
   end
 
