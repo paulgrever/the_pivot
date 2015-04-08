@@ -4,17 +4,13 @@ RSpec.describe "the user authorization feature", type: :feature do
   context "when a default user signs in" do
     before :each do
       user = FactoryGirl.create(:user)
-      visit root_path
-      within("#signInModal") do
-        fill_in("session_email", with: user.email)
-        fill_in("session_password", with: user.password)
-        click_button "Sign in"
-      end
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(user)
       visit user_path(user)
     end
 
     it "allows a user to view his page" do
-      expect(page).to have_content("Laul Guberson's profile")
+      expect(page).to have_content("Default user's profile")
     end
 
     it "prevents a user from viewing anothers profile" do

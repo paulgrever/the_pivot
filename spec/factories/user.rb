@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    email "paullorijgu@gmail.com"
-    full_name  "Laul Guberson"
-    display_name "jgu"
-    password "gu"
+    email "default.user@mail.com"
+    full_name  "Default user"
+    password "password"
     role "default"
     provider "twitter"
     uid "abc123"
