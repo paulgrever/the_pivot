@@ -1,25 +1,12 @@
 <h1> Admin Dashboard </h1>
 <div class="container">
-  <div class="well">
-    <h3> Pending Businesses Approvals </h3>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <td>Business</td>
-          <td>Approve</td>
-          <td>Deny</td>
-        </tr>
-      </thead>
-      <tbody>
-    <% @businesses.each do |business| %>
-      <tr>
-        <td><%= link_to business.name, show_business_path(business.slug), class: "btn btn-info" %></td>
-        <td><%= link_to "Approve", "#", class: "btn btn-sm btn-success" %></td>
-        <td><%= link_to "Deny", "#", class: "btn btn-sm btn-danger" %></td>
-      </tr>
-    <% end %>
-    </tbody>
-    </table>
+  <div class="row">
+    <div class="col-md-6">
+      <%= render "pending_businesses" %>
+    </div>
+    <div class="col-md-4">
+      <%= render "categories" %>
+    </div>
   </div>
 </div>
 

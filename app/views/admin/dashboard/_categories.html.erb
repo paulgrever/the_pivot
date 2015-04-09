@@ -1,0 +1,21 @@
+<div class="well well-width">
+  <h3>Admin Categories</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td class="values h2">Category</td>
+        <td class="values h2">Edit</td>
+        <td class="values h2">Remove</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+      <tr id="category_<%=category.name%>">
+        <td><%=category.name %></td>
+        <td><%= link_to "Edit", edit_admin_category_path(category), class: "btn btn-success", id: "btn-edit" %></td>
+        <td><%= link_to "Delete", admin_category_path(category), method: :delete, class: "btn btn-danger", id: "btn-delete"%></td>
+      <% end %>
+    </tbody>
+  </table>
+<%= link_to "New Category", new_admin_category_path, class: "btn btn-success", id: "btn-edit"%>
+</div>
