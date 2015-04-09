@@ -5,24 +5,10 @@ class SessionsController < ApplicationController
   def create
     if params[:session]
       user = User.find_by_email(params[:session][:email])
-      if user && user.authenticate(params[:session][:password])
-        session[:user_id] = user.id
-        flash[:success] = "Welcome, #{user.full_name}."
-        redirect_to :back
-      else
-        flash[:danger] = "Invalid login."
-        render(:new)
-      end
+      email_login(user)
     else
       user = User.find_or_create_from_auth(request.env["omniauth.auth"])
-      if user
-        session[:user_id] = user.id
-        flash[:success] = "Welcome, #{user.full_name}."
-        redirect_to :back
-      else
-        flash[:danger] = "Invalid login."
-        render(:new)
-      end
+      twitter_login(user)
     end
   end
 
@@ -34,5 +20,29 @@ class SessionsController < ApplicationController
 
   def failure
     render text: "Authentication failed. Please try again."
+  end
+
+  private
+
+  def email_login(user)
+    if user && user.authenticate(params[:session][:password])
+      session[:user_id] = user.id
+      flash[:success] = "Welcome, #{user.full_name}."
+      redirect_to items_path
+    else
+      flash[:danger] = "Invalid login."
+      render(:new)
+    end
+  end
+
+  def twitter_login(user)
+    if user
+      session[:user_id] = user.id
+      flash[:success] = "Welcome, #{user.full_name}."
+      redirect_to items_path
+    else
+      flash[:danger] = "Invalid login."
+      render(:new)
+    end
   end
 end
