@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "graph/index"
   get "graph/data_units", defaults: { :format => "json" }
   get "graph/data_revenue", defaults: { :format => "json" }
+  get "/about", to: "about#index"
 
   namespace "admin" do
     resources :categories
