@@ -130,3 +130,17 @@ li { list-style: none; }
 .values {
   color: $site-white;
 }
+
+.bw {
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+       -o-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+          transition: all .5s ease;
+}
+ 
+.bw:hover {
+  -webkit-filter: grayscale(0%);
+
+}
