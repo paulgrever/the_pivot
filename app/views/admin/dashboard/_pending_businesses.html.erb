@@ -1,0 +1,21 @@
+<div class="well well-width">
+  <h3>Pending Businesses Approvals</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td class="values h2">Business</td>
+        <td class="values h2">Approve</td>
+        <td class="values h2">Deny</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @businesses.each do |business| %>
+      <tr>
+        <td><%= link_to business.name, show_business_path(business.slug), class: "btn btn-info" %></td>
+        <td><%= link_to "Approve", "#", class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to "Deny", "#", class: "btn btn-sm btn-danger" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

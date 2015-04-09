@@ -9,37 +9,30 @@ RSpec.describe "the user show page", type: :feature do
     it "cannot access the page unless loged in" do
       visit items_path
       visit user_path(@user)
-      expect(current_path).to eq(items_path)
+      expect(current_path).to eq(root_path)
       expect(page).to have_content("You are not
         authorized to access this page.")
     end
 
     it "is valid if user is authenticated" do
-      visit root_path
-      within("#signInModal") do
-        fill_in("session_email", with: "paullorijgu@gmail.com")
-        fill_in("session_password", with: "gu")
-        click_button "Sign in"
-      end
+      @user = FactoryGirl.create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(@user)
       visit user_path(@user)
-      expect(page).to have_content("Laul Guberson")
+      expect(page).to have_content("Default user")
     end
   end
 
   context "after logging in"do
     before :each do
       @user = FactoryGirl.create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(@user)
       item = FactoryGirl.create(:item)
       order = FactoryGirl.create(:order, user_id: @user.id)
       FactoryGirl.create(:order_item,
                          item_id: item.id,
                          order_id: order.id)
-      visit root_path
-      within("#signInModal") do
-        fill_in("session_email", with: "paullorijgu@gmail.com")
-        fill_in("session_password", with: "gu")
-        click_button "Sign in"
-      end
       visit user_path(@user)
     end
 
@@ -48,7 +41,7 @@ RSpec.describe "the user show page", type: :feature do
     end
 
     it "has a link to send an email" do
-      expect(page).to have_link("paullorijgu@gmail.com")
+      expect(page).to have_link("default.user@mail.com")
     end
 
     it "can edit their personal info" do
