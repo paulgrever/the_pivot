@@ -4,15 +4,17 @@ describe "the default users order view", type: :feature do
 
   before :each do
     @user = FactoryGirl.create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).
+      and_return(@user)
     @status = FactoryGirl.create(:status)
     @order = FactoryGirl.create(:order, user_id: @user.id, status: @status)
     @order2 = FactoryGirl.create(:order, status: @status)
     visit root_path
-    within("#signInModal") do
-      fill_in("session_email", with: "paullorijgu@gmail.com")
-      fill_in("session_password", with: "gu")
-      click_button "Sign in"
-    end
+    # within("#signInModal") do
+    #   fill_in("session_email", with: "default.user@mail.com")
+    #   fill_in("session_password", with: "")
+    #   click_button "Sign in"
+    # end
     visit orders_path
   end
 
