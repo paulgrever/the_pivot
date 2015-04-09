@@ -1,17 +1,19 @@
 require "rails_helper"
 
 describe "Business" do
-  it "can be created by an logged in user" do
-    user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).
-      and_return(user)
-    visit new_business_path
-    fill_in "Name", with: "new business name"
-    fill_in "Description", with: "business discription"
-    click_button "Create Business"
-    business = Business.first
-    expect(Business.count).to eq 1
-    expect(business.status).to eq("pending")
+  context "can be requested by a logged in user" do
+    before do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).
+        and_return(user)
+      visit new_business_path
+      fill_in "Name", with: "new business name"
+      fill_in "Description", with: "business discription"
+      click_button "Create Business"
+    end
+    it { expect(Business.count).to eq 1 }
+    let(:business) { Business.first }
+    it { expect(business.status).to eq("pending") }
   end
 
   context "owner" do

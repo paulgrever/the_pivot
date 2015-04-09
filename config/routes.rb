@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/auth/failure", to: "sessions#failure"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  get "/admin/dashboard", to: "admin/dashboard#index"
 
   resources :users
   resources :items, only: [:index, :show]
