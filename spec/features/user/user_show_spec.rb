@@ -9,7 +9,7 @@ RSpec.describe "the user show page", type: :feature do
     it "cannot access the page unless loged in" do
       visit items_path
       visit user_path(@user)
-      expect(current_path).to eq(items_path)
+      expect(current_path).to eq(root_path)
       expect(page).to have_content("You are not
         authorized to access this page.")
     end

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:danger] = exception.message
-    redirect_to items_path
+    redirect_to root_path
   end
 
   def current_user
