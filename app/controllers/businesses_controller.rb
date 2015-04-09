@@ -16,7 +16,8 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.create!(business_params)
     authorize! :create, @business
-    redirect_to show_business_path(@business.slug), notice: "Your shiny new business is pending approval"
+    redirect_to show_business_path(@business.slug),
+      notice: "Your shiny new business is pending approval"
   end
 
   def update
