@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validates :full_name, presence: true
   # validates :email,
-  #           format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+  #            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   has_secure_password
   has_many :orders
   has_many :businesses
@@ -25,6 +25,12 @@ class User < ActiveRecord::Base
   def previously_order_items
     order_items.map do |order_item|
       Item.find(order_item.item_id)
+    end
+  end
+
+  def sign_up_via_email?
+    if email
+      SignUpMailer.sign_up_email(self).deliver_now
     end
   end
 end
