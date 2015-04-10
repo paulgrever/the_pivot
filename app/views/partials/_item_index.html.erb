@@ -1,5 +1,13 @@
-<div class= "container">
-  <div class = 'row'>
+
+  <div class= "container disaster-background image-responsive">
+    <h1 class= "values" > Droply Supplies</h1>
+    
+  </div>
+
+
+<div class= "container fluid ">
+  <div class = 'row well'>
+    <h1 class="team text-center">Featured Supplies</h1>
     <% @items.first(3).each do |item| %>
       <div class="col-md-4 text-center">
         <% if current_user.nil? || !current_user.admin?%>
@@ -16,7 +24,7 @@
 <br>
 
   <div class="row">
-    <% @items.each do |item| %>
+    <% @items.last do |item| %>
       <div class="col-sm-4 text-center item">
         <% if current_user.nil? || !current_user.admin?%>
           <% @item_show = item_path(item)  %>
