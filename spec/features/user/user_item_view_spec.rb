@@ -28,7 +28,9 @@ describe "the user item view", type: :feature do
     within "#cart" do
       expect(page).to have_content("0")
     end
-    click_link_or_button "Add to cart"
+    within ".well" do 
+      click_link_or_button "Add to cart"
+    end
     within "#cart" do
       expect(page).to have_content("1")
     end
