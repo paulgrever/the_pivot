@@ -156,6 +156,16 @@ li { list-style: none; }
   background: url(items_banner.png);
   background-repeat: no-repeat;
   width: 100%;
-  padding: 150px;
+  padding: 165px;
+}
+
+.divider {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $site-black;
+}
+
+.spacer {
+  fill: hidden;
+  padding: 10px;
 }
 

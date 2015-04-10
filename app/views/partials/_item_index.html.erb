@@ -9,6 +9,7 @@
     <h1 class="team text-center">Featured Supplies</h1>
     <% @items.first(3).each do |item| %>
       <div class="col-md-4 text-center">
+        <h3 class="values"><%= item.title %></h3>
         <% if current_user.nil? || !current_user.admin?%>
           <% @item_show = item_path(item)  %>
         <% else %>
@@ -23,16 +24,21 @@
   <div class="row">
     <% @items.each do |item| %>
       <div class="col-sm-4 text-center item">
+        <div class = "divider">
         <% if current_user.nil? || !current_user.admin?%>
           <% @item_show = item_path(item)  %>
         <% else %>
           <% @item_show = admin_item_path(item) %>
-        <% end %>
+        <% end %><h4><%= link_to item.title, @item_show %></h4>
         <%= link_to image_tag(item.image, size: "200"), @item_show %>
-        <figcaption><%= link_to item.title, @item_show %></figcaption>
+        <div class="row">
+        <p class = "spacer col-md-12"><em><%=item.description %></em></p>
+        <h4 class="text center"> $<%= item.price_in_dollars %> </h4>
+        </div>
         <% if current_user.nil? || !current_user.admin?%>
           <div id=<%= "net-button-#{item.id}" %>>
-            <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-success" %>
+            <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
+          </div>
           </div>
         <% else %>
           <div>
