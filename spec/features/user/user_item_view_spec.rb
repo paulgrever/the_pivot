@@ -3,6 +3,8 @@ require "rails_helper"
 describe "the user item view", type: :feature do
   before :each do
     @item = FactoryGirl.create(:item)
+    @business = FactoryGirl.create(:business)
+    @category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
     visit root_path
     within("#signInModal") do
@@ -34,5 +36,15 @@ describe "the user item view", type: :feature do
     within "#cart" do
       expect(page).to have_content("1")
     end
+  end
+
+  it "can view access business page" do
+    click_link_or_button(@business.name)
+    expect(current_path).to eq("/"+ @business.slug)
+  end
+
+  it "can view category page" do
+    click_link_or_button(@category.name)
+    expect(current_path).to eq(category_path(@category))
   end
 end
