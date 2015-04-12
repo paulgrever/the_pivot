@@ -5,6 +5,7 @@ describe "Business" do
     it "can view see the description" do
       business = FactoryGirl.create(:business)
       visit show_business_path(business.slug)
+      expect(page).to have_content(business.description)
     end
 
     it "can not edit a business" do
