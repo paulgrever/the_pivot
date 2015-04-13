@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    @business = Business.create!(business_params)
+    @business = current_user.businesses.create(business_params)
     authorize! :create, @business
     redirect_to show_business_path(@business.slug),
     notice: "Your shiny new business is pending approval"
@@ -30,6 +30,6 @@ class BusinessesController < ApplicationController
   private
 
   def business_params
-    params.require(:business).permit(:name, :description, :status, :user)
+    params.require(:business).permit(:name, :description, :status, :user_id)
   end
 end
