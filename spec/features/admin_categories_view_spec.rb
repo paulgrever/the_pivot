@@ -3,21 +3,16 @@ require "rails_helper"
 describe "the category view", type: :feature do
   context "as an admin" do
     before :each do
-      @category = FactoryGirl.create(:category)
-      @category2 = FactoryGirl.create(:category2)
+      @category = Category.create(name: "Food")
+      @category2 = Category.create(name: "Water")
       @admin = FactoryGirl.create(:admin)
-      visit root_path
-      within("#signInModal") do
-        fill_in("session_email", with: @admin.email)
-        fill_in("session_password", with: @admin.password)
-        click_button "Sign in"
-      end
+      login(@admin)
       visit admin_categories_path
     end
 
     it "can view a list of all available categories " do
-      expect(page).to have_content("vegan")
-      expect(page).to have_content("appetizer")
+      expect(page).to have_content("Food")
+      expect(page).to have_content("Water")
     end
 
     it "can create a new cateogry" do
@@ -29,7 +24,7 @@ describe "the category view", type: :feature do
     end
 
     it "can edit a category" do
-      within("#category_vegan") do
+      within("#category_Food") do
         click_link_or_button("Edit")
       end
       fill_in("category[name]", with: "New Category")
@@ -38,10 +33,10 @@ describe "the category view", type: :feature do
     end
 
     it "can delete a category" do
-      within("#category_vegan") do
+      within("#category_Food") do
         click_link_or_button("Delete")
       end
-      expect(page).to_not have_content("vegan")
+      expect(page).to_not have_content("Food")
       expect(current_path).to eq(admin_categories_path)
     end
   end

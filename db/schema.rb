@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408204316) do
+ActiveRecord::Schema.define(version: 20150410041552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150408204316) do
   create_table "items", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.integer  "item_status_id"
+    t.integer  "item_status_id",     default: 1
     t.integer  "price"
     t.string   "image_file_name"
     t.string   "image_content_type"

@@ -7,6 +7,7 @@ describe "Business" do
     it "can see the description" do
       business = Business.create!(user: business_owner, name: "New Water Merchant")
       visit show_business_path(business.slug)
+      expect(page).to have_content(business.description)
     end
 
     it "can not edit a business" do

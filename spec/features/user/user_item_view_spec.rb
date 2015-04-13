@@ -2,16 +2,11 @@ require "rails_helper"
 
 describe "the user item view", type: :feature do
   before :each do
-    @item = FactoryGirl.create(:item)
-    @business = FactoryGirl.create(:business)
-    @category = FactoryGirl.create(:category)
-    user = FactoryGirl.create(:user)
-    visit root_path
-    within("#signInModal") do
-      fill_in("session_email", with: user.email)
-      fill_in("session_password", with: user.password)
-      click_button "Sign in"
-    end
+    @item = create(:item)
+    @business = create(:business)
+    @category = Category.create(name: "First Aid")
+    user = create(:user)
+    login(user)
     visit items_path
   end
 
@@ -40,7 +35,7 @@ describe "the user item view", type: :feature do
 
   it "can view access business page" do
     click_link_or_button(@business.name)
-    expect(current_path).to eq("/" + @business.slug)
+    expect(current_path).to eq(show_business_path(@business.slug))
   end
 
   it "can view category page" do
