@@ -2,16 +2,16 @@ require "rails_helper"
 
 describe "Business" do
   context "guest" do
-    it "can view see the description" do
-      business = FactoryGirl.create(:business)
+    let(:user) { create(:user) }
+    let(:business_owner) { create(:business_owner) }
+    it "can see the description" do
+      business = Business.create!(user: business_owner, name: "New Water Merchant")
       visit show_business_path(business.slug)
       expect(page).to have_content(business.description)
     end
 
     it "can not edit a business" do
-      user = create(:user)
-      business_owner = create(:business_owner)
-      business = create(:business, user: business_owner)
+      business = Business.create(user: business_owner, name: "New Water Merchant")
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(user)
       visit edit_business_path(business.id)
