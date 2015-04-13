@@ -33,7 +33,7 @@ RSpec.describe "Unauthenticated user", type: :feature do
       item = create(:item)
       visit item_path(item.id)
       expect(page).to have_content(item.title)
-      expect(page).to have_content(item.price)
+      expect(page).to have_content(2.00)
     end
   end
 end
