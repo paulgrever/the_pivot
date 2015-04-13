@@ -6,7 +6,8 @@ describe "Business" do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(user)
-      visit new_business_path
+      visit user_path(user)
+      click_link "Create a business"
       fill_in "Name", with: "new business name"
       fill_in "Description", with: "business discription"
       click_button "Create Business"
