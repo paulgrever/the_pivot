@@ -1,7 +1,6 @@
 require "rails_helper"
 
-describe "Business", :type => :model do
-
+describe "Business", type: :model do
   context "validations" do
     let(:user) { create :user }
     let(:business) { Business.new(user: user, name: "New Water Merchant") }
