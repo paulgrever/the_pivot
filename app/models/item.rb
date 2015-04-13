@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
-  validates :price, presence: true, numericality: { greater_than: 0}
+  validates :price, presence: true, numericality: { greater_than: 0 }
   validates :description, presence: true
 
   belongs_to :item_status

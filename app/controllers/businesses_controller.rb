@@ -2,7 +2,9 @@ class BusinessesController < ApplicationController
   def show
     @business = Business.find_by(slug: params[:slug])
     if @business.nil?
-      render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
+      render file: "#{Rails.root}/public/404",
+             layout: false,
+             status: :not_found
     else
       @items = ["250x300", "300x300", "200x200", "200x300"]
     end

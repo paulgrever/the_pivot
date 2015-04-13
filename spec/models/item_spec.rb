@@ -38,13 +38,19 @@ RSpec.describe Item, type: :model do
 
   it "is invalid with duplicate titles" do
     item
-    item2 = Item.new(title: "Water bottle", description: "Savory stew made with fresh possum", item_status_id: 1, price: 2.35)
+    item2 = Item.new(title: "Water bottle",
+                     description: "water",
+                     item_status_id: 1,
+                     price: 2.35)
     expect(item2).to_not be_valid
   end
 
   it "is invalid with duplicate titles in difference case" do
     item
-    item2 = Item.new(title: "wATER BOTTLE", description: "Savory stew made with fresh possum", item_status_id: 1, price: 2.35)
+    item2 = Item.new(title: "wATER BOTTLE",
+                     description: "water",
+                     item_status_id: 1,
+                     price: 2.35)
     expect(item2).to_not be_valid
   end
 
@@ -68,7 +74,4 @@ RSpec.describe Item, type: :model do
     create(:item_status, id: 1)
     expect(item.item_status.state).to eq("Completed")
   end
-
-
-
 end
