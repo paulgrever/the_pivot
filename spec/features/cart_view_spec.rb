@@ -13,7 +13,7 @@ describe "the cart view", type: :feature do
         click_button "Sign in"
       end
       visit items_path
-      within("#cart-button-#{@item.id}") do 
+      within("#cart-button-#{@item.id}") do
         click_link_or_button "Add to cart"
       end
       visit cart_items_path

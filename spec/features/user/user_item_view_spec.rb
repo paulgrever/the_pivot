@@ -30,7 +30,7 @@ describe "the user item view", type: :feature do
     within "#cart" do
       expect(page).to have_content("0")
     end
-    within ".well" do 
+    within ".well" do
       click_link_or_button "Add to cart"
     end
     within "#cart" do
@@ -40,7 +40,7 @@ describe "the user item view", type: :feature do
 
   it "can view access business page" do
     click_link_or_button(@business.name)
-    expect(current_path).to eq("/"+ @business.slug)
+    expect(current_path).to eq("/" + @business.slug)
   end
 
   it "can view category page" do
