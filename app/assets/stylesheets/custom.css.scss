@@ -146,5 +146,27 @@ li { list-style: none; }
 
 .bw:hover {
   -webkit-filter: grayscale(0%);
-
 }
+
+.row-align {
+  margin-top: 10px;
+}
+
+.disaster-background {
+  background: url("items_banner.png");
+  background-repeat: no-repeat;
+  padding: 165px;
+  width: 100%;
+}
+
+.divider {
+  border-bottom: 1px solid $site-black;
+  padding-bottom: 20px;
+}
+
+.spacer {
+  overflow: hidden;
+  padding: 10px;
+  white-space: nowrap;
+}
+
