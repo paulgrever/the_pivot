@@ -5,7 +5,7 @@ FactoryGirl.define do
     user
   end
 
- factory :other_business, class: Business do
+  factory :other_business, class: Business do
     name "Blanket merchants"
     description "Insert creative description here"
     user
