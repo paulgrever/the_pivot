@@ -20,7 +20,8 @@ describe "Business" do
   context "owner" do
     it "can update title and description of existing business" do
       business_owner = create(:business_owner)
-      business = create(:business, user: business_owner)
+      business = Business.create!(user: business_owner, name: "New Water Merchant")
+
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(business_owner)
       visit edit_business_path(business.id)
@@ -33,8 +34,7 @@ describe "Business" do
 
     it "can only update their own businesses" do
       business_owner = create(:business_owner)
-      create(:business, user: business_owner)
-
+      Business.create!(user: business_owner, name: "New Water Merchant")
       other_business_owner = create(:business_owner2)
       other_business = create(:other_business, user: other_business_owner)
 
