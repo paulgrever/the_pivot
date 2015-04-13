@@ -22,7 +22,9 @@ RSpec.describe "Unauthenticated user", type: :feature do
       within("#cart") do
         expect(page).to have_content("0")
       end
-      click_on "Add to cart"
+      within(".item") do
+        click_on "Add to cart"
+      end
       within("#cart") do
         expect(page).to have_content("1")
       end
