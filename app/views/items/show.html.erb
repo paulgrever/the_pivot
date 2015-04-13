@@ -1,13 +1,39 @@
-<div class="container">
+<div class="container divider">
   <div class="row">
-    <h3>Menu Item Details: <%= @item.title %></h3>
-    <p><%= @item.description %> $<%= @item.price_in_dollars %></p>
-    <%= image_tag @item.image, size: "300" %>
-    <%= button_to "Add to cart", cart_items_path(item_id: @item), class: "btn btn-tour" %>
+    <div class="col-md-7">
+      <%= image_tag @item.image,  class: "image-round center-block", size: "350" %>
+    </div>
+    <br>
+    <div class ="col-md-5 well">
+      <h3 class="text-center values"><%= @item.title %></h3>
+      <h4 class="featured" ><%= @item.description %></h4>
+      <div class = "row">
+
+        <div class="col-sm-offset-2 col-sm-5 row-align">
+          <%= button_to "Add to cart", cart_items_path(item_id: @item), class: "btn btn-supply center-block" %>
+        </div>
+        <div class="col-sm-5">
+          <h3 class="text-center">$<%= @item.price_in_dollars %><h3>
+        </div>
+      </div>
+    </div>
     <p> Item Categories:
     <% @item.categories.uniq.each do |category| %>
       <%= link_to category.name, category_path(category) %>,
     <% end %>
     </p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <h3>More items by this supplier</h3>
+    <% 6.times do  %>
+    <div class="col-sm-2">
+      <figcaption><%= link_to @item.title, @item_show %></figcaption>
+      <%= link_to image_tag(@item.image, size: "100"), @item_show %>
+      
+      <%= button_to "Add to cart", cart_items_path(item_id: @item), class: "btn btn-supply" %>
+    </div>
+    <% end %>
   </div>
 </div>

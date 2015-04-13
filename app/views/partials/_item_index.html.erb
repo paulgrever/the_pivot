@@ -1,7 +1,15 @@
-<div class= "container">
-  <div class = 'row'>
+
+<div class= "container disaster-background">
+  <h1 class= "values" > Droply Supplies</h1>
+</div>
+
+
+<div class= "container fluid ">
+  <div class = 'row well'>
+    <h1 class="team text-center">Featured Supplies</h1>
     <% @items.first(3).each do |item| %>
       <div class="col-md-4 text-center">
+        <h3 class="values"><%= item.title %></h3>
         <% if current_user.nil? || !current_user.admin?%>
           <% @item_show = item_path(item)  %>
         <% else %>
@@ -12,23 +20,29 @@
       </div>
     <% end %>
   </div>
-<br>
-<br>
 
   <div class="row">
     <% @items.each do |item| %>
-      <div class="col-sm-4 text-center item">
+      <div class="col-sm-3 text-center item">
+        <div class = "divider">
+        
         <% if current_user.nil? || !current_user.admin?%>
           <% @item_show = item_path(item)  %>
         <% else %>
           <% @item_show = admin_item_path(item) %>
         <% end %>
+
+        <h4><%= link_to item.title, @item_show %></h4>
         <%= link_to image_tag(item.image, size: "200"), @item_show %>
-        <figcaption><%= link_to item.title, @item_show %></figcaption>
+        <div class="row">
+          <p class = "spacer col-md-12"><em><%=item.description %></em></p>
+          <h4 class="text center"> $<%= item.price_in_dollars %> </h4>
+        </div>
         <% if current_user.nil? || !current_user.admin?%>
-          <div id=<%= "net-button-#{item.id}" %>>
-            <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-success" %>
+          <div id='<%= "cart-button-#{item.id}" %>'>
+            <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
           </div>
+        </div class = "divider">
         <% else %>
           <div>
             <%= link_to "Edit", edit_admin_item_path(item), class: "btn btn-success", id: "btn-edit" %>
@@ -38,7 +52,7 @@
       </div>
     <% end %>
     <% unless current_user.nil? || !current_user.admin?%>
-      <%= link_to "Create Item", new_admin_item_path, class: "btn btn-success", id: "create-button" %>
+      <%= link_to "Create Item", new_admin_item_path, class: "btn btn-primary", id: "create-button" %>
     <% end %>
   </div>
 </div>

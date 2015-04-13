@@ -13,14 +13,14 @@ describe "the cart view", type: :feature do
         click_button "Sign in"
       end
       visit items_path
-      click_link_or_button "Add to cart"
+      within("#cart-button-#{@item.id}") do
+        click_link_or_button "Add to cart"
+      end
       visit cart_items_path
     end
 
     it "can add to cart" do
-      within "#cart" do
-        expect(page).to have_content("1")
-      end
+      expect(page).to have_content("1")
     end
 
     it "displays subtotals of item in cart" do
@@ -63,7 +63,7 @@ describe "the cart view", type: :feature do
       it "displays the total value of the cart" do
         item_2 = FactoryGirl.create(:item, title: "Clam Stew", price: 350)
         visit items_path
-        within("#net-button-#{item_2.id}") do
+        within("#cart-button-#{item_2.id}") do
           click_link_or_button "Add to cart"
         end
         visit cart_items_path
