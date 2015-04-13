@@ -12,23 +12,23 @@
         <td><%= cart.find_item(item_id) %></td>
         <td>
           <div class="pull-left">
-            <%= button_to "-", cart_items_path(item_id: item_id, subtract: true), class: "btn btn-danger" %>
+            <%= button_to "-", cart_items_path(item_id: item_id, subtract: true), class: "btn btn-tour" %>
           </div>
           <div>
-            <%= button_to "+", cart_items_path(item_id: item_id), class: "btn btn-success" %>
+            <%= button_to "+", cart_items_path(item_id: item_id), class: "btn btn-supply" %>
           </div>
         </td>
-        <td class="text-center"><%= cart_quantity %></td>
-        <td class="text-center">$<%= cart.subtotal(item_id) %></td>
-        <td><%= link_to "Remove all", cart_item_path(item_id), method: :delete, class: "btn btn-danger", id: "release"%></td>
+        <td class="text-center" id="quantity"><%= cart_quantity %></td>
+        <td class="text-center" id="subtotal">$<%= cart.subtotal(item_id) %></td>
+        <td><%= link_to "Remove all", cart_item_path(item_id), method: :delete, class: "btn btn-info", id: "release"%></td>
       </tr>
     <% end %>
     <tr>
       <td></td>
       <td></td>
       <td class="text-center"><strong>Total</strong></td>
-      <td class="text-center">$<%= cart.total %></td>
-      <td><%= button_to "Checkout", orders_path, class: "btn btn-success" %></td>
+      <td class="text-center">$<%= cart.total %><tour/td>
+      <td><%= button_to "Checkout", orders_path, class: "btn btn-supply" %></td>
     </tr>
   </table>
 </div>
