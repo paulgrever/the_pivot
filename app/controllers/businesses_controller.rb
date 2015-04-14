@@ -33,9 +33,25 @@ class BusinessesController < ApplicationController
     redirect_to show_business_path(@business.slug)
   end
 
+  def destroy
+    business = Business.find(params[:id])
+    business.destroy
+    redirect_to :back
+  end
+
+  def approve
+    business = Business.find(params[:id])
+    business.update(approval_params)
+    redirect_to :back
+  end
+
   private
 
   def business_params
     params.require(:business).permit(:name, :description, :status, :user_id)
+  end
+
+  def approval_params
+    params.require(:business).permit(:status)
   end
 end
