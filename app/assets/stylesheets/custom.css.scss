@@ -64,6 +64,12 @@ li { list-style: none; }
   background-color: $site-brown;
 }
 
+.banner-red {
+  background-color: $site-red;
+  border: $site-black 1px solid;
+  color: $site-white;
+}
+
 .btn {
   margin: 4px;
   border-color: none;
@@ -170,3 +176,11 @@ li { list-style: none; }
   white-space: nowrap;
 }
 
+.heavy-text {
+  color: $site-black;
+}
+
+.banner-padding {
+  margin: 20px;
+  padding: 10px;
+}
