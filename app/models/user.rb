@@ -21,6 +21,14 @@ class User < ActiveRecord::Base
     user
   end
 
+  def make_admin
+    update_attributes(admin: true) unless business_owner?
+  end
+
+  def make_business_owner
+    update_attributes(business_owner: true) unless admin?
+  end
+
   def previously_order_items
     order_items.map do |order_item|
       Item.find(order_item.item_id)

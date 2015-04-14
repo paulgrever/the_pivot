@@ -45,5 +45,18 @@ describe "admin dashboard" do
       expect(page).to have_content("#{business.name} has been removed!")
       expect(Business.count).to eq(0)
     end
+
+    it "displays requests" do
+      admin = create(:admin)
+      admin.make_admin
+      login(admin)
+
+      business_owner = create(:business_owner)
+      business_owner.make_business_owner
+      Business.create(user: business_owner, name: "New Water Merchant")
+
+      visit admin_dashboard_path(admin)
+      expect(page).to have_content("New Water Merchant")
+    end
   end
 end
