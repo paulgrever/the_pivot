@@ -4,8 +4,8 @@ describe "admin dashboard" do
   let!(:admin) { create :admin }
 
   context "authorization" do
-    xit 'only admins can see the admin dashboard' do
-      user  = create :user
+    xit "only admins can see the admin dashboard" do
+      user = create :user
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(user)
       visit admin_dashboard_path(user)
@@ -27,7 +27,7 @@ describe "admin dashboard" do
       expect(page).to have_content("Water merchant")
     end
 
-    it 'approve request' do
+    it "approve request" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(admin)
       visit admin_dashboard_path(admin)
@@ -36,7 +36,7 @@ describe "admin dashboard" do
       expect(page).not_to have_content("Water merchant")
     end
 
-    it 'deny the new business request' do
+    it "deny the new business request" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(admin)
       visit admin_dashboard_path(admin)
