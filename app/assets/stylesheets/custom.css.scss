@@ -66,8 +66,8 @@ li { list-style: none; }
 
 .banner-red {
   background-color: $site-red;
-  color: $site-white;
   border: $site-black 1px solid;
+  color: $site-white;
 }
 
 .btn {
@@ -180,8 +180,7 @@ li { list-style: none; }
   color: $site-black;
 }
 
-.banner-padding{
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 20px
+.banner-padding {
+  margin: 20px;
+  padding: 10px;
 }
