@@ -3,15 +3,11 @@ require "rails_helper"
 RSpec.describe "the admins order view", type: :feature do
   before :each do
     @admin = FactoryGirl.create(:admin)
+    @admin.make_admin
     @user = FactoryGirl.create(:user)
     @status = FactoryGirl.create(:status)
     @order = FactoryGirl.create(:order, user_id: @user.id, status_id: @status.id)
-    visit root_path
-    within("#signInModal") do
-      fill_in("session_email", with: @admin.email)
-      fill_in("session_password", with: @admin.password)
-      click_button "Sign in"
-    end
+    login(@admin)
     click_link_or_button "List Orders"
   end
 

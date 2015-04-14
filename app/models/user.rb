@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_many :businesses
   has_many :order_items, through: :orders
   has_many :items, through: :order_items
-  enum role: %w(default admin business_admin)
 
   def self.find_or_create_from_auth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)
@@ -20,6 +19,14 @@ class User < ActiveRecord::Base
     user.image = auth.info.image
     user.save
     user
+  end
+
+  def make_admin
+    update_attributes(admin: true) unless business_owner?
+  end
+
+  def make_business_owner
+    update_attributes(business_owner: true) unless admin?
   end
 
   def previously_order_items

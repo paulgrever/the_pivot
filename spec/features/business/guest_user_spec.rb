@@ -10,7 +10,7 @@ describe "Business" do
       expect(page).to have_content(business.description)
     end
 
-    it "can not edit a business" do
+    xit "can not edit a business" do
       business = Business.create(user: business_owner, name: "New Water Merchant")
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(user)

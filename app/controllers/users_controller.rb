@@ -32,7 +32,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize! :view, @user
   end
 
   private
