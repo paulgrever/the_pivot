@@ -1,11 +1,12 @@
 <%= render "partials/category_nav_bar" %>
 
-<div class= "container disaster-background">
+<div class= "container-fluid disaster-background image-responsive">
   <h1 class= "values" > Droply Supplies</h1>
 </div>
 
 
-<div class= "container fluid ">
+
+<div class= "container-fluid">
   <div class = 'row well'>
     <h1 class="team text-center">Featured Supplies</h1>
     <% @items.first(3).each do |item| %>
@@ -43,13 +44,20 @@
           <div id='<%= "cart-button-#{item.id}" %>'>
             <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
           </div>
-        </div class = "divider">
+        
         <% else %>
-          <div>
-            <%= link_to "Edit", edit_admin_item_path(item), class: "btn btn-success", id: "btn-edit" %>
-            <%= link_to "Delete", admin_item_path(item), class:"btn btn-danger", id: "btn-delete", method: :delete %>
+          <div class = "divider">
+            <div class = "row">
+              <div class="col-sm-6">
+                <%= link_to "Edit", edit_admin_item_path(item), class: "btn btn-success", id: "btn-edit" %>
+              </div>
+              <div class="col-sm-6">
+                <%= link_to "Delete", admin_item_path(item), class:"btn btn-danger", id: "btn-delete", method: :delete %>
+              </div>
+            </div>
           </div>
         <% end %>
+        </div>
       </div>
     <% end %>
     <% unless current_user.nil? || !current_user.admin?%>

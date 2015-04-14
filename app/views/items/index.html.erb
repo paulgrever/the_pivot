@@ -1,11 +1,12 @@
 <%= render "partials/category_nav_bar" %>
 
-<div class= "container disaster-background">
+<div class= "container-fluid disaster-background image-responsive">
   <h1 class= "values" > Droply Supplies</h1>
 </div>
 
 
-<div class= "container fluid ">
+
+<div class= "container-fluid">
   <div class = 'row well'>
     <h1 class="team text-center">Featured Supplies</h1>
     <% @items.first(3).each do |item| %>
