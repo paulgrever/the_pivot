@@ -42,7 +42,7 @@ describe "admin dashboard" do
       visit admin_dashboard_path(admin)
       expect(page).to have_content("Water merchant")
       click_link_or_button("Deny")
-      expect(page).not_to have_content("Water merchant")
+      expect(page).to have_content("#{business.name} has been removed!")
       expect(Business.count).to eq(0)
     end
   end
