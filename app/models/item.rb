@@ -30,6 +30,6 @@ class Item < ActiveRecord::Base
   end
 
   def item_of_biz
-    Item.where(business_id: self.business_id)
+    Item.where(business_id: business_id)
   end
 end

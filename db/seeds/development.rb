@@ -42,7 +42,7 @@ class Seed
       item = Item.create(title: Faker::Commerce.product_name,
                          description: Faker::Hacker.say_something_smart,
                          price: Faker::Number.number(4),
-                         item_status_id: 1, 
+                         item_status_id: 1,
                          business_id: biz_id.id)
       puts "Created Active Item: #{item.title}"
     end
