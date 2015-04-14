@@ -184,3 +184,17 @@ li { list-style: none; }
   margin: 20px;
   padding: 10px;
 }
+.pagination li a {
+  background-color: $site-white;
+  color: $site-black;
+}
+
+.pagination li a:hover {
+  background-color: $site-red;
+  color: $site-black;
+}
+
+.active {
+  background-color: $site-red;
+  color: $site-black;
+}

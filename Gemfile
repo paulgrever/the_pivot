@@ -22,6 +22,8 @@ gem "faker"
 gem "omniauth"
 gem "omniauth-twitter"
 gem "simple_form"
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem "byebug"
