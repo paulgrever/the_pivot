@@ -13,6 +13,25 @@ RSpec.describe "Unauthenticated user", type: :feature do
         expect(page).to have_content("1")
       end
     end
+    it "can add items from multiple businesses" do
+      business = create(:business)
+      other_business = create(:other_business)
+      item1 = create(:item, business_id: business.id)
+      item2 = create(:item2, business_id: other_business.id)
+      visit items_path
+      within "#item_#{item1.id}" do 
+        click_on "Add to cart"
+      end
+      within("#cart") do
+        expect(page).to have_content("1")
+      end
+      within("#item_#{item2.id}") do 
+        click_on "Add to cart"
+      end
+      within("#cart") do
+        expect(page).to have_content("2")
+      end
+    end
   end
 
   context "when on an individual item page" do
