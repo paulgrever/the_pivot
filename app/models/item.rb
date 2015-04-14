@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :description, presence: true
-
+  belongs_to :business
   belongs_to :item_status
   has_many :item_categories
   has_many :categories, through: :item_categories
@@ -12,7 +12,6 @@ class Item < ActiveRecord::Base
   scope :active, -> { where(item_status_id: 1) }
   has_attached_file :image, styles: { large: "500x340>", medium: "250x170>", thumb: "100x100>" }, default_url: "supply_default.png"
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-  # http://www.espinaler.com/wp-content/uploads/almeja-blanca.png
 
   def price_in_dollars
     if price.nil?
@@ -28,5 +27,9 @@ class Item < ActiveRecord::Base
 
   def units_sold
     order_items.inject(0) { |sum, order_item| sum + order_item.quantity }
+  end
+
+  def item_of_biz
+    Item.where(business_id: self.business_id)
   end
 end

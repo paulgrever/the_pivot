@@ -6,7 +6,7 @@ class BusinessesController < ApplicationController
              layout: false,
              status: :not_found
     else
-      @items = ["250x300", "300x300", "200x200", "200x300"]
+      @items = @business.items
     end
   end
 
