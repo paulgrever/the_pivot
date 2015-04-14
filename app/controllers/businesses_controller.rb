@@ -23,7 +23,7 @@ class BusinessesController < ApplicationController
     @business = current_user.businesses.create(business_params)
     authorize! :create, @business
     redirect_to show_business_path(@business.slug),
-    notice: "Your shiny new business is pending approval"
+                notice: "Your shiny new business is pending approval"
   end
 
   def update
@@ -33,9 +33,26 @@ class BusinessesController < ApplicationController
     redirect_to show_business_path(@business.slug)
   end
 
+  def destroy
+    business = Business.find(params[:id])
+    business.destroy
+    redirect_to :back,
+                 notice: "#{business.name} has been removed!"
+  end
+
+  def approve
+    business = Business.find(params[:id])
+    business.update(approval_params)
+    redirect_to :back
+  end
+
   private
 
   def business_params
     params.require(:business).permit(:name, :description, :status, :user_id)
+  end
+
+  def approval_params
+    params.require(:business).permit(:status)
   end
 end
