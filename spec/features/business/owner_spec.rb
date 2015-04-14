@@ -32,7 +32,7 @@ describe "Business" do
       end
     end
 
-    it "can only update their own businesses" do
+    xit "can only update their own businesses" do
       business_owner = create(:business_owner)
       Business.create!(user: business_owner, name: "New Water Merchant")
       other_business_owner = create(:business_owner2)
