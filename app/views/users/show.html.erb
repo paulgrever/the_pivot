@@ -1,8 +1,6 @@
 <div class="container">
   <div class = "row">
      <div class=" col-md-offset-2 col-md-4"><%= image_tag(@user.image,  width: "100") %></div>
-     <%= link_to "Create a business", new_business_path %>
-
       <div class = "col-md-4"> <h1><%= current_user.full_name %>'s profile</h1> </div>
   </div>
 </div>
@@ -45,4 +43,11 @@
         <% end %>
     </div>
   </div>
+</div>
+
+<div class = "banner-red text-center banner-padding">
+  <h3 class="heavy-text"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Become a <span class="values">Droply</span> supplier <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h3>
+  <p><em>Interested in signing up to become one of Droply's premier suppliers?</em></p>
+  <p><em>Just fill out an application and your supplies will soon be saving lives all over the globe. </em></p>
+  <%= link_to "Create a business", new_business_path, class: "btn btn-supply" %>
 </div>
