@@ -1,6 +1,7 @@
 class Seed
   def call
     generate_users
+    generate_businesses
     generate_item_statuses
     generate_active_items
     generate_retired_items
@@ -8,7 +9,6 @@ class Seed
     add_categories_to_items
     generate_order_statuses
     generate_orders
-    generate_businesses
     create_orders_with_items
   end
 
@@ -26,23 +26,25 @@ class Seed
                 role: 1)
   end
 
-  def generate_active_items
-    10.times do
-      item = Item.create(title: Faker::Commerce.product_name,
-                         description: Faker::Hacker.say_something_smart,
-                         price: Faker::Number.number(4),
-                         item_status_id: 1)
-      puts "Created Active Item: #{item.title}"
-    end
-  end
-
   def generate_businesses
-    10.times do
+    25.times do
       random_user = User.all.sample
       business = Business.create(name: Faker::Company.name,
                                  description: Faker::Company.bs,
                                  user_id: random_user.id)
       puts "Created Business: #{business.name}"
+    end
+  end
+
+  def generate_active_items
+    300.times do
+      biz_id = Business.all.sample
+      item = Item.create(title: Faker::Commerce.product_name,
+                         description: Faker::Hacker.say_something_smart,
+                         price: Faker::Number.number(4),
+                         item_status_id: 1,
+                         business_id: biz_id.id)
+      puts "Created Active Item: #{item.title}"
     end
   end
 

@@ -2,7 +2,7 @@ class Business < ActiveRecord::Base
   belongs_to :user
   validates :name, :slug, uniqueness: true
   validates :user, presence: true
-
+  has_many :items
   before_validation :generate_slug
 
   def generate_slug

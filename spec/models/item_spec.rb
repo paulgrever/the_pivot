@@ -74,4 +74,11 @@ RSpec.describe Item, type: :model do
     create(:item_status, id: 1)
     expect(item.item_status.state).to eq("Completed")
   end
+
+  it "has an associated business" do
+    company = create(:business)
+    item.business = Business.find(company.id)
+    item.save
+    expect(item.business.name).to eq("Water merchant")
+  end
 end

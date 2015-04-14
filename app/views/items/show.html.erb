@@ -1,4 +1,8 @@
 <div class="container divider">
+<div class ="row">
+  <h1 class="col-md-offset-2 col-md-4 text-center"> <%= @item.business.name if @item.business %></h1>
+</div>
+
   <div class="row">
     <div class="col-md-7">
       <%= image_tag @item.image,  class: "image-round center-block", size: "350" %>
@@ -27,12 +31,13 @@
 <div class="container">
   <div class="row">
     <h3>More items by this supplier</h3>
-    <% 6.times do %>
+     <% #Item.where(business_id: @item.business.id).last(6).each do |item| %>
+     <% @item.item_of_biz.last(6).each do |item| %>
       <div class="col-sm-2 other-business-items">
-        <figcaption><%= link_to @item.title, @item_show %></figcaption>
-        <%= link_to image_tag(@item.image, size: "100"), @item_show %>
+        <figcaption><%= link_to item.title, @item_show %></figcaption>
+        <%= link_to image_tag(item.image, size: "100"), @item_show %>
 
-        <%= button_to "Add to cart", cart_items_path(item_id: @item), class: "btn btn-supply" %>
+        <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
       </div>
     <% end %>
   </div>
