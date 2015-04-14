@@ -19,13 +19,13 @@ RSpec.describe "Unauthenticated user", type: :feature do
       item1 = create(:item, business_id: business.id)
       item2 = create(:item2, business_id: other_business.id)
       visit items_path
-      within "#item_#{item1.id}" do 
+      within "#item_#{item1.id}" do
         click_on "Add to cart"
       end
       within("#cart") do
         expect(page).to have_content("1")
       end
-      within("#item_#{item2.id}") do 
+      within("#item_#{item2.id}") do
         click_on "Add to cart"
       end
       within("#cart") do
