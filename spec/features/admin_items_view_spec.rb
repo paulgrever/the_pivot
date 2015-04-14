@@ -5,6 +5,7 @@ describe "the admin item view", type: :feature do
     @item_status = FactoryGirl.create(:item_status)
     @item = FactoryGirl.create(:item, item_status_id: @item_status.id)
     admin = FactoryGirl.create(:admin)
+    admin.make_admin
     @category = Category.create(name: "Food")
     login(admin)
     visit admin_items_path
@@ -48,5 +49,4 @@ describe "the admin item view", type: :feature do
     click_link_or_button("Delete")
     expect(Item.count).to eq(0)
   end
-
 end

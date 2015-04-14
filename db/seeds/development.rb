@@ -16,14 +16,13 @@ class Seed
     User.create(email: 'test@gmail.com',
                 full_name: "test_user",
                 display_name: "test_user",
-                password: "test",
-                role: 0)
+                password: "test")
 
     User.create(email: 'admin@gmail.com',
                 full_name: "admin_user",
                 display_name: "admin_user",
                 password: "test",
-                role: 1)
+                admin: true)
   end
 
   def generate_businesses

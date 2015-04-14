@@ -16,19 +16,16 @@ class BusinessesController < ApplicationController
 
   def edit
     @business = Business.find(params[:id])
-    authorize! :edit, @business
   end
 
   def create
     @business = current_user.businesses.create(business_params)
-    authorize! :create, @business
     redirect_to show_business_path(@business.slug),
                 notice: "Your shiny new business is pending approval"
   end
 
   def update
     @business = Business.find(params[:id])
-    authorize! :update, @business
     @business.update(business_params)
     redirect_to show_business_path(@business.slug)
   end

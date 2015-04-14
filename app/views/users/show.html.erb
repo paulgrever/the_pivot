@@ -1,7 +1,7 @@
 <div class="container">
   <div class = "row">
-     <div class=" col-md-offset-2 col-md-4"><%= image_tag(@user.image,  width: "100") %></div>
-      <div class = "col-md-4"> <h1><%= current_user.full_name %>'s profile</h1> </div>
+    <div class=" col-md-offset-2 col-md-4"><%= image_tag(@user.image,  width: "100") %></div>
+    <div class = "col-md-4"> <h1><%= @user.full_name %>'s profile</h1> </div>
   </div>
 </div>
 <br>
@@ -22,9 +22,9 @@
           <tr>
             <td>Location:</td>
             <td><%= @user.location %></td>
-          <tr <%="class=danger" unless @user.email %>>
-            <td>Email</td>
-            <td><%=mail_to "#{@user.email}"  %></td>
+            <tr <%="class=danger" unless @user.email %>>
+              <td>Email</td>
+              <td><%=mail_to "#{@user.email}"  %></td>
         </tbody>
       </table>
       <%= link_to("Edit Info", edit_user_path(@user), class: "btn btn-primary center-block") %>
@@ -32,22 +32,22 @@
     <div class="col-md-6 col-lg-6" >
       <h3 class ="text-center" id = "supply-hist"> previously ordered supplies:</h3>
 
-        <% @user.previously_order_items.last(4).each do |item| %>
+      <% @user.previously_order_items.last(4).each do |item| %>
         <div class = "text-center col-md-6 col-lg-6">
-               <%= link_to image_tag(item.image, size: "100"), @item_show %>
-        <figcaption><%= link_to item.title, @item_show %></figcaption>
-                 <div id=<%= "net-button-#{item.id}" %>>
+          <%= link_to image_tag(item.image, size: "100"), @item_show %>
+          <figcaption><%= link_to item.title, @item_show %></figcaption>
+          <div id=<%= "net-button-#{item.id}" %>>
             <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-success" %>
-            </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 
 <div class = "banner-red text-center banner-padding">
   <h3 class="heavy-text"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Become a <span class="values">Droply</span> supplier <span class="glyphicon glyphicon-star" aria-hidden="true"></span></h3>
-  <h4><em>Interested in having your supplies featured on Droply?</em></h4> 
+  <h4><em>Interested in having your supplies featured on Droply?</em></h4>
   <h4><em>Want to be one of Droply's premier suppliers?</em></h4>
   <h4><em>Just fill out an application and your supplies will soon be saving lives all over the globe. </em></h4>
   <%= link_to "Create a business", new_business_path, class: "btn btn-supply" %>
