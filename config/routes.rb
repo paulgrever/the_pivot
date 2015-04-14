@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/admin/dashboard", to: "admin/dashboard#index"
+  post "/business/approval", to: "businesses#approve"
+
 
   resources :users
   resources :items, only: [:index, :show]
