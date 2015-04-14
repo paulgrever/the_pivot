@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414013425) do
+ActiveRecord::Schema.define(version: 20150414142942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,9 +72,7 @@ ActiveRecord::Schema.define(version: 20150414013425) do
     t.string  "email"
     t.string  "full_name"
     t.string  "display_name"
-    t.string  "username"
     t.string  "password_digest"
-    t.integer "role",             default: 0
     t.string  "provider"
     t.string  "uid"
     t.string  "image",            default: "default_user_image.png"
@@ -82,7 +80,8 @@ ActiveRecord::Schema.define(version: 20150414013425) do
     t.string  "shipping_address"
     t.string  "billing_address"
     t.string  "credit_card"
-    t.string  "slug"
+    t.boolean "admin",            default: false
+    t.boolean "business_owner",   default: false
   end
 
   add_foreign_key "businesses", "users"
