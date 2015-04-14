@@ -23,7 +23,7 @@ class BusinessesController < ApplicationController
     @business = current_user.businesses.create(business_params)
     authorize! :create, @business
     redirect_to show_business_path(@business.slug),
-    notice: "Your shiny new business is pending approval"
+      notice: "Your shiny new business is pending approval"
   end
 
   def update
@@ -37,7 +37,7 @@ class BusinessesController < ApplicationController
     business = Business.find(params[:id])
     business.destroy
     redirect_to :back,
-    notice: "#{business.name} has been removed!"
+      notice: "#{business.name} has been removed!"
   end
 
   def approve
