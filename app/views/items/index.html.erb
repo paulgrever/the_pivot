@@ -1,2 +1,43 @@
-<%= render 'partials/category_nav_bar' %>
-<%= render 'partials/item_index' %>
+<%= render "partials/category_nav_bar" %>
+
+<div class= "container">
+  <div class = "row" id="showcase-items">
+    <% @items.first(3).each do |item| %>
+      <div class="col-md-4 text-center">
+        <% if current_user.nil? || current_user.default? %>
+          <% @item_show = item_path(item)  %>
+        <% else %>
+          <% @item_show = admin_item_path(item) %>
+        <% end %>
+        <%= link_to image_tag("big_supply.png"), @item_show, class: "img-responsive"%>
+        <p><%= item.description %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row items">
+    <% @items.each do |item| %>
+      <div class="col-sm-4 text-center item-<%= item.id %>">
+        <% if current_user.nil? || current_user.default? %>
+          <% @item_show = item_path(item) %>
+        <% else %>
+          <% @item_show = admin_item_path(item) %>
+        <% end %>
+        <%= link_to image_tag(item.image, size: "200"), @item_show %>
+        <figcaption><%= link_to item.title, @item_show %></figcaption>
+        <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-success" %>
+
+        <!-- Uncomment and refactor when we roll our auth -->
+        <%# <% if current_user.admin? %>
+          <%#   <%= link_to "Edit", edit_admin_item_path(item), class: "btn btn-success", id: "btn-edit" %>
+          <%#   <%= link_to "Delete", admin_item_path(item), class:"btn btn-danger", id: "btn-delete", method: :delete %>
+          <%# <% end %>
+    </div>
+  <% end %>
+
+  <!-- Uncomment and refactor when we roll our auth -->
+  <%# <% if current_user.admin? %>
+    <%#   <%= link_to "Create Item", new_admin_item_path, class: "btn btn-success", id: "create-button" %>
+    <%# <% end %>
+</div>
+</div>
