@@ -54,13 +54,15 @@ class Admin::ItemsController < AdminController
                                  :image,
                                  :price_in_dollars,
                                  :item_status_id,
-                                 :category_ids)
+                                 :category_ids, 
+                                 :business_id)
   end
 
   def item_params_to_dollars
     { title: item_params[:title],
       description: item_params[:description],
       image: item_params[:image],
+      business_id: item_params[:business_id],
       item_status_id: item_params[:item_status_id],
       price: item_params[:price_in_dollars].to_f * 100 }
   end
