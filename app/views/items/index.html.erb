@@ -5,6 +5,7 @@
 </div>
 
 <div class= "container-fluid">
+
   <div class = 'row well'>
     <h1 class="team text-center">Featured Supplies</h1>
     <% @items.first(3).each do |item| %>
@@ -24,8 +25,8 @@
   <div class="row">
     <% @items.each do |item| %>
       <div class="col-sm-3 text-center item">
-        <%= div_for(item, class: "divider") do %>
 
+        <%= div_for(item, class: "divider") do %>
           <% if current_user.nil? || !current_user.admin?%>
             <% @item_show = item_path(item)  %>
           <% else %>
@@ -49,7 +50,8 @@
             </div>
           <% end %>
         <% end %>
-      </div>
+
+      </div> <!-- col-sm-3 text-center item -->
     <% end %>
     <% unless current_user.nil? || !current_user.admin?%>
       <%= link_to "Create Item", new_admin_item_path, class: "btn btn-primary", id: "create-button" %>

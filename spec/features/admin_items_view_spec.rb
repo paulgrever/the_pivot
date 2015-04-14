@@ -49,5 +49,4 @@ describe "the admin item view", type: :feature do
     click_link_or_button("Delete")
     expect(Item.count).to eq(0)
   end
-
 end
