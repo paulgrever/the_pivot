@@ -28,13 +28,14 @@ RSpec.describe User, type: :model do
     create(:order_item,
            item_id: item.id,
            order_id: order.id)
-    order = create(:order, user_id: @user.id)
     expect(@user.previously_order_items.first.title).to eq(item.title)
   end
 
   describe "User roles" do
     context "A new user" do
-      let(:new_user) { User.create!(full_name: "New user", password: "password") }
+      let(:new_user) do
+        User.create(full_name: "New user", password: "password")
+      end
 
       it "is not an admin" do
         expect(new_user.admin?).to eq(false)
