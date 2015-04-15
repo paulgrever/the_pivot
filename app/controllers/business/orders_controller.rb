@@ -1,4 +1,4 @@
-class Admin::OrdersController < AdminController
+class Business::OrdersController < BusinessController
   def index
     @statuses = Status.all
     @orders = params[:status_id] ? Status.find(params[:status_id]).

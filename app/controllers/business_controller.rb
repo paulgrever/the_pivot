@@ -1,4 +1,4 @@
-class BusinessesController < ApplicationController
+class BusinessController < ApplicationController
   def show
     @business = Business.find_by(slug: params[:slug])
     if @business.nil?
