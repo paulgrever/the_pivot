@@ -1,5 +1,5 @@
 <div id="form">
-  <%= form_for([:business, @item], url: business_items_path, html: { multipart: true, class: "form-group" }) do |f| %>
+  <%= form_for([:business, @item], html: { multipart: true, class: "form-group" }) do |f| %>
 
     <% if @item.errors.any? %>
       <div id="error_explanation">

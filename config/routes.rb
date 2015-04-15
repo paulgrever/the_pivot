@@ -17,9 +17,12 @@ Rails.application.routes.draw do
   get "graph/data_units",   defaults: { format: "json" }
   get "graph/data_revenue", defaults: { format: "json" }
 
+  patch "/:id/items", to: "business/items#update"
+
   scope "/:slug", module: "business" do
     get  "/items", as: "business_items", to: "items#index"
     post "/items", to: "items#create"
+    get  "/items", as: "business_item", to: "items#edit"
     resources :items, except: [:index, :create, :show]
     get  "/orders", as: "business_orders", to: "orders#index"
     get  "/order/:id", as: "business_order", to: "orders#show"

@@ -30,16 +30,9 @@
               <p class = "spacer col-md-12"><em><%=item.description %></em></p>
               <h4 class="text center"> $<%= item.price_in_dollars %> </h4>
             </div>
-            <% if current_user.nil? || !current_user.admin?%>
-              <div id='<%= "cart-button-#{item.id}" %>'>
-                <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
-              </div>
-            <% else %>
-              <div>
-                <%= link_to "Edit", edit_item_path(item), class: "btn btn-success", id: "btn-edit" %>
-                <%= link_to "Delete", item_path(item), class:"btn btn-danger", id: "btn-delete", method: :delete %>
-              </div>
-            <% end %>
+            <div id='<%= "cart-button-#{item.id}" %>'>
+              <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
+            </div>
           <% end %>
 
         </div> <!-- col-sm-3 text-center item -->

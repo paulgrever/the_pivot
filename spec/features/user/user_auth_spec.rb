@@ -64,10 +64,5 @@ RSpec.describe "the user authorization feature", type: :feature do
       business = create(:business)
       login(admin)
     end
-
-    it "allows admins to view the orders dashboard" do
-      visit business_orders_path(business.slug)
-      expect(page).to have_content("Orders")
-    end
   end
 end

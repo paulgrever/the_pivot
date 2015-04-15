@@ -17,12 +17,9 @@
 
       <% if current_user %>
         <% if current_user.admin? %>
-          <li><%= link_to "Edit Items", admin_items_path %></li>
           <li><%= link_to "Edit Categories", admin_categories_path %></li>
-          <li><%= link_to "List Orders", admin_orders_path %></li>
           <li><%= link_to "Graph", graph_index_path %></li>
         <% end %>
-
         <li><%= link_to "My Orders", orders_path(current_user) %></li>
         <li><%= link_to current_user.full_name, current_user %></li>
         <li><%= link_to "Sign out", logout_path, method: :delete, id: "sign-out" %></li>
