@@ -61,6 +61,7 @@ RSpec.describe "the user authorization feature", type: :feature do
   context "when an admin signs in" do
     before :each do
       admin = create(:admin)
+      business = create(:business)
       login(admin)
     end
   end

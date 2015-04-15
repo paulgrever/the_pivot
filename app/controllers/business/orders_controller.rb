@@ -6,6 +6,7 @@ class Business::OrdersController < BusinessController
   end
 
   def show
+    @business = Business.find(slug: params[:slug])
     @order = Order.find(params[:id])
   end
 

@@ -24,6 +24,7 @@ class Business::ItemsController < BusinessController
   end
 
   def edit
+    @business = Business.find_by(slug: params[:slug])
   end
 
   def show
