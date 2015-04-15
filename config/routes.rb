@@ -26,8 +26,6 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-
-
   resources :businesses, except: [:show, :index]
   get "/:slug", as: "show_business", to: "businesses#show"
 end
