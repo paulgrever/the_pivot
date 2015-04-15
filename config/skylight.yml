@@ -1,0 +1,6 @@
+---
+# The authentication token for the application.
+authentication: scyCudwX7IZGI9wj2QQ7JFhrqeek8UmjxAjGZRukiPE
+
+# Path to the Skylight log file
+log_file: log/skylight.log
