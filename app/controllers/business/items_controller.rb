@@ -6,8 +6,8 @@ class Business::ItemsController < BusinessController
   end
 
   def create
-    @business = Business.find_by(slug: params[:slug])
-    @item = Item.new(item_params_to_dollars)
+    business = Business.find_by(slug: params[:slug])
+    @item = business.items.new(item_params_to_dollars)
     if @item.save
       params[:category_ids].each do |category|
         category_id = category.to_i
@@ -38,7 +38,7 @@ class Business::ItemsController < BusinessController
         ItemCategory.create(item_id: @item.id, category_id: category_id)
       end
 
-      redirect_to admin_item_path(@item)
+      redirect_to item_path(@item)
     else
       render :edit
     end
