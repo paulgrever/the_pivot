@@ -1,18 +1,24 @@
-<h3>My Orders</h3>
-
-<table border ="1">
-  <tr>
-    <th>Order ID</th>
-    <th>Status</th>
-    <th class="money">Cost</th>
-    <th>Order Details</th>
-  </tr>
-  <% current_user.orders.each do |order| %>
+<div class="container">
+  <div>
+    <h3><%= current_user.full_name %>'s Orders</h3>
+  </div>
+  
+  <table class="table text-center" border ="">
     <tr>
-      <td><%= order.id %></td>
-      <td><%= order.order_status %></td>
-      <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
-      <td><%=link_to "Details", order_path(order), class: "btn btn-details float-left" %></td>
+      <th>Order ID</th>
+      <th>Order Date</th>
+      <th>Status</th>
+      <th class="money">Cost</th>
+      <th>Order Details</th>
     </tr>
+    <% current_user.orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.date %></td>
+        <td><%= order.order_status %></td>
+        <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
+        <td><%=link_to "Details", order_path(order), class: "btn btn-details float-left" %></td>
+      </tr>
     <% end %>
   </table>
+</div>

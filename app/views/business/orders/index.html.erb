@@ -1,4 +1,5 @@
-<h1> Admin Orders Dashboard</h1>
+<div class="container">
+  <h1> Admin Orders Dashboard</h1>
 
   <% @statuses.each do |status| %>
     <div class="status">
@@ -8,7 +9,7 @@
    <% end %>
 <%= link_to "All Orders", admin_orders_path %>
 
-<table class="" border ="1">
+<table class="table" border ="1">
   <tr>
     <th class="medium-column">Order ID</th>
     <th>User name</th>
@@ -55,3 +56,4 @@
   <% end %>
   <div style="clear:both;"></div>
   </table>
+</div>
