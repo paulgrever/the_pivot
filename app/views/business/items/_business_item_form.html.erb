@@ -1,54 +1,57 @@
-<div id="form">
-  <%= form_for([:business, @item], html: { multipart: true, class: "form-group" }) do |f| %>
+<div class="container">
+  <div id="form">
+    <%= form_for([:business, @item], html: { multipart: true, class: "form-group" }) do |f| %>
 
-    <% if @item.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@item.errors.count, "error") %></h2>
-        <ul>
-          <% @item.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :Item %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :Details %><br>
-      <%= f.text_field :description %>
-    </div>
-    <div class="field">
-      <%= f.label :Cost %><br>
-      <%= f.number_field :price_in_dollars, in: 1.00..10000.00, step: 0.01 %>
-    </div>
-    <div class="field">
-      <p>
-      <%= f.label :image, "Attach an Image" %><br />
-      <%= f.file_field :image %>
-      </p>
-    </div>
-    <div>
-      <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
-    </div>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group">
-          <span class="input-group-addon">
-            <% category_all.each do |category| %>
-              <%= check_box_tag 'category_ids[]', category.id, @item.categories.include?(category)%>
-              <%= category.name %>
+      <% if @item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@item.errors.count, "error") %></h2>
+          <ul>
+            <% @item.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
             <% end %>
-          </span>
-          <input type="text" class="form-control" aria-label="...">
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field form-group">
+        <%= f.label :Item %><br>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :Details %><br>
+        <%= f.text_field :description, class: "form-control"  %>
+      </div>
+      <div class="field form-group">
+        <%= f.label :Cost %><br>
+        <%= f.number_field :price_in_dollars, in: 1.00..10000.00, step: 0.01, class: "form-control"  %>
+      </div>
+      <div class="field form-group">
+        <p>
+          <%= f.label :image, "Attach an Image" %><br/>
+          <%= f.file_field :image %>
+        </p>
+      </div>
+      <div class="form-group">
+        <%= f.label "Item Status" %><br/>
+        <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
+      </div>
+      <div class="row form-group">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <% category_all.each do |category| %>
+                <%= check_box_tag 'category_ids[]', category.id, @item.categories.include?(category)%>
+                <%= category.name %>
+              <% end %>
+            </span>
+            <input type="text" class="form-control" aria-label="...">
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="actions">
-      <%= f.submit class: "btn btn-success" %>
-    </div>
-  <% end %>
+      <div class="actions">
+        <%= f.submit class: "btn btn-supply" %>
+      </div>
+    <% end %>
+  </div>
 </div>
