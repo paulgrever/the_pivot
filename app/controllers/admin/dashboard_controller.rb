@@ -1,5 +1,5 @@
 class Admin::DashboardController < ApplicationController
-  def index
+  def show
     @businesses = Business.where(status: "pending")
     @categories = Category.all
   end

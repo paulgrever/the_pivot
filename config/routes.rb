@@ -1,31 +1,41 @@
 Rails.application.routes.draw do
   root "home#index"
+  get "/about", to: "home#about"
 
-  get "/auth/:provider/callback", to: "sessions#create"
-  get "/auth/failure", to: "sessions#failure"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
-  get "/admin/dashboard", to: "admin/dashboard#index"
-  post "/business/approval", to: "businesses#approve"
-
+  get    "/auth/:provider/callback", to: "sessions#create"
+  post   "/login",                   to: "sessions#create"
+  get    "/auth/failure",            to: "sessions#failure"
+  delete "/logout",                  to: "sessions#destroy"
 
   resources :users
-  resources :items, only: [:index, :show]
-  resources :orders
-  resources :categories
-  resources :cart_items
+  resources :items,      only:   [:index, :show]
+  resources :orders,     only:   [:index, :show, :create]
+  resources :categories, only:   [:show]
+  resources :cart_items, except: [:edit, :show]
 
   get "graph/index"
-  get "graph/data_units", defaults: { :format => "json" }
-  get "graph/data_revenue", defaults: { :format => "json" }
-  get "/about", to: "about#index"
+  get "graph/data_units",   defaults: { format: "json" }
+  get "graph/data_revenue", defaults: { format: "json" }
 
-  namespace "admin" do
-    resources :categories
-    resources :items
-    resources :orders
+  patch "/:id/items", to: "business/items#update"
+
+  scope "/:slug", module: "business" do
+    get  "/items", as: "business_items", to: "items#index"
+    post "/items", to: "items#create"
+    get  "/items", as: "business_item", to: "items#edit"
+    resources :items, except: [:index, :create, :show]
+    get  "/orders", as: "business_orders", to: "orders#index"
+    get  "/order/:id", as: "business_order", to: "orders#show"
+    resources :orders, only: [:update]
   end
 
-  resources :businesses, except: [:show, :index]
-  get "/:slug", as: "show_business", to: "businesses#show"
+  namespace "admin" do
+    resources :categories, except: [:show]
+    get "/dashboard", to: "dashboard#show"
+  end
+
+  resources :business, except: [:show, :index, :edit, :create]
+  post "/business/new", as: "create_business", to: "business#create"
+  get  "/:slug", as: "show_business", to: "business#show"
+  get  "/:slug/edit", as: "edit_business", to: "business#edit"
 end

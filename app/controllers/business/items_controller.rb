@@ -1,34 +1,36 @@
-class Admin::ItemsController < AdminController
+class Business::ItemsController < BusinessController
   before_action :set_item, only: [:show, :edit, :destroy, :update]
 
   def index
     @items = Item.all
   end
 
-  def show
+  def create
+    business = Business.find_by(slug: params[:slug])
+    @item = business.items.new(item_params_to_dollars)
+    if @item.save
+      params[:category_ids].each do |category|
+        category_id = category.to_i
+        ItemCategory.create(item_id: @item.id, category_id: category_id)
+      end
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
   end
 
   def new
     @item = Item.new
   end
 
-  def create
-    @item = Item.new(item_params_to_dollars)
-    if @item.save
-      params[:category_ids].each do |category|
-        category_id = category.to_i
-        ItemCategory.create(item_id: @item.id, category_id: category_id)
-      end
-      redirect_to admin_items_path
-    else
-      render :new
-    end
-  end
-
   def edit
   end
 
+  def show
+  end
+
   def update
+    @business = Business.find_by(slug: params[:slug])
     if @item.update(item_params_to_dollars)
       ItemCategory.destroy_all(item_id: @item.id)
       params[:category_ids].each do |category|
@@ -36,7 +38,7 @@ class Admin::ItemsController < AdminController
         ItemCategory.create(item_id: @item.id, category_id: category_id)
       end
 
-      redirect_to admin_item_path(@item)
+      redirect_to item_path(@item)
     else
       render :edit
     end
@@ -58,7 +60,7 @@ class Admin::ItemsController < AdminController
                                  :image,
                                  :price_in_dollars,
                                  :item_status_id,
-                                 :category_ids, 
+                                 :category_ids,
                                  :business_id)
   end
 
