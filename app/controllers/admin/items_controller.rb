@@ -15,6 +15,10 @@ class Admin::ItemsController < AdminController
   def create
     @item = Item.new(item_params_to_dollars)
     if @item.save
+      params[:category_ids].each do |category|
+        category_id = category.to_i
+        ItemCategory.create(item_id: @item.id, category_id: category_id)
+      end
       redirect_to admin_items_path
     else
       render :new
@@ -64,6 +68,7 @@ class Admin::ItemsController < AdminController
       image: item_params[:image],
       business_id: item_params[:business_id],
       item_status_id: item_params[:item_status_id],
+      category_ids: item_params[:category_ids],
       price: item_params[:price_in_dollars].to_f * 100 }
   end
 end

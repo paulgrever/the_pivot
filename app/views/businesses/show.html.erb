@@ -13,7 +13,6 @@
     <% @items.each do |item| %>
       <div class="col-sm-3 text-center item">
         <%= div_for(item, class: "divider") do %>
-          
           <% if current_user.nil? || !current_user.admin?%>
             <% @item_show = item_path(item)  %>
           <% else %>
