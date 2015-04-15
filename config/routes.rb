@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :business, except: [:show, :index, :edit, :create]
-  post "/business/new", as: "create_business", to: "business#create"
+  post "/business/new", as: "businesses", to: "business#create"
   get  "/:slug", as: "show_business", to: "business#show"
   get  "/:slug/edit", as: "edit_business", to: "business#edit"
 end

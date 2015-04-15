@@ -15,7 +15,7 @@ class BusinessController < ApplicationController
   end
 
   def edit
-    @business = Business.find(params[:slug])
+    @business = Business.find_by(slug: params[:slug])
   end
 
   def create
@@ -25,9 +25,12 @@ class BusinessController < ApplicationController
   end
 
   def update
-    @business = Business.find(params[:slug])
-    @business.update(business_params)
-    redirect_to show_business_path(@business.slug)
+    @business = Business.find_by(id: params[:id])
+    if @business.update(business_params)
+      redirect_to show_business_path(@business.slug)
+    else
+      render(:update)
+    end
   end
 
   def destroy
