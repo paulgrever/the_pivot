@@ -1,5 +1,6 @@
 class Admin::CategoriesController < AdminController
   before_filter :set_category, only: [:edit, :update, :destroy]
+
   def index
     @categories = Category.all
   end

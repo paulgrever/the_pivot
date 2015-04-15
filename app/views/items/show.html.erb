@@ -3,7 +3,6 @@
     <h1 class="col-md-offset-2 col-md-4 text-center"> <%= @item.business.name if @item.business %></h1>
   </div>
 
-
   <div class="row">
     <div class="col-md-7">
       <%= image_tag @item.image,  class: "image-round center-block", size: "350" %>
@@ -42,3 +41,18 @@
     <% end %>
   </div>
 </div>
+
+<h1>Menu Item Details: <%= @item.title %> </h1>
+
+  <p><%= @item.description %> $<%= @item.price_in_dollars %></p>
+  <p><%= image_tag @item.image, size: "100" %></p>
+
+  <p>Menu Status: <strong><%= @item.item_status.state %></strong></p>
+  <p> Item Categories:
+  <% @item.categories.each do |category| %>
+    <%= category.name %>
+    <% end %>
+  </p>
+
+<%# <%= link_to "Edit", edit_item_path(@item), class: "btn btn-success", id: "btn-edit" %>
+<%# <%= link_to "Delete", item_path(@item), class:"btn btn-danger", id: "btn-delete", method: :delete %>
