@@ -42,18 +42,3 @@
     <% end %>
   </div>
 </div>
-
-<h1>Menu Item Details: <%= @item.title %> </h1>
-
-  <p><%= @item.description %> $<%= @item.price_in_dollars %></p>
-  <p><%= image_tag @item.image, size: "100" %></p>
-
-  <p>Menu Status: <strong><%= @item.item_status.state %></strong></p>
-  <p> Item Categories:
-  <% @item.categories.each do |category| %>
-    <%= category.name %>
-    <% end %>
-  </p>
-
-<%# <%= link_to "Edit", edit_item_path(@item), class: "btn btn-success", id: "btn-edit" %>
-<%# <%= link_to "Delete", item_path(@item), class:"btn btn-danger", id: "btn-delete", method: :delete %>

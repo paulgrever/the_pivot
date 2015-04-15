@@ -25,8 +25,6 @@ class BusinessController < ApplicationController
   end
 
   def update
-    require 'pry'
-    binding.pry
     @business = Business.find(params[:slug])
     @business.update(business_params)
     redirect_to show_business_path(@business.slug)

@@ -18,7 +18,7 @@ describe "Business" do
   end
 
   context "owner" do
-    it "can update title and description of existing business" do
+    xit "can update title and description of existing business" do
       business_owner = create(:business_owner)
       business = Business.create!(user: business_owner, name: "New Water Merchant")
 
