@@ -13,7 +13,6 @@
     <% @items.each do |item| %>
       <div class="col-sm-3 text-center item">
         <%= div_for(item, class: "divider") do %>
-          
           <% if current_user.nil? || !current_user.admin?%>
             <% @item_show = item_path(item)  %>
           <% else %>
@@ -39,8 +38,12 @@
         </div>
       <% end %>
     <% end %>
-    <% unless current_user.nil? || !current_user.admin?%>
-      <%= link_to "Create Item", new_admin_item_path, class: "btn btn-primary", id: "create-button" %>
-    <% end %>
+    <div class= "col-sm-3 text-center">
+      <div class= "block-center add-item">
+        <h4 class="heavy-text">Add to your supply</h4>
+      <%= button_to "Create an Item", new_admin_item_path, method: :get, class: "btn btn-tour text-center", id: "create-button" %>
+      </div>
+    </div>
   </div>
 </div>
+
