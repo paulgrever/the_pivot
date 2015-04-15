@@ -10,11 +10,7 @@
       <% @items.first(3).each do |item| %>
         <div class="col-md-4 text-center">
           <h3 class="values"><%= item.title %></h3>
-          <% if current_user.nil? || current_user %>
-            <% @item_show = item_path(item)  %>
-          <% else %>
-            <% @item_show = admin_item_path(item) %>
-          <% end %>
+          <% @item_show = item_path(item)  %>
           <%= link_to image_tag('big_supply.png'), @item_show, class: "img-responsive"%>
           <p><%= item.description %></p>
         </div>
@@ -26,11 +22,7 @@
         <div class="col-sm-3 text-center item">
 
           <%= div_for(item, class: "divider") do %>
-            <% if current_user.nil? || !current_user.admin?%>
-              <% @item_show = item_path(item)  %>
-            <% else %>
-              <% @item_show = admin_item_path(item) %>
-            <% end %>
+            <% @item_show = item_path(item) %>
 
             <h4><%= link_to item.title, @item_show %></h4>
             <%= link_to image_tag(item.image, size: "200"), @item_show %>
