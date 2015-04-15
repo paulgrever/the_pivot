@@ -6,9 +6,13 @@ class Business::ItemsController < BusinessController
   end
 
   def create
-    @business = Business.find_by(slug: params[:slug])
-    @item = Item.new(item_params_to_dollars)
+    business = Business.find_by(slug: params[:slug])
+    @item = business.items.new(item_params_to_dollars)
     if @item.save
+      params[:category_ids].each do |category|
+        category_id = category.to_i
+        ItemCategory.create(item_id: @item.id, category_id: category_id)
+      end
       redirect_to item_path(@item)
     else
       render :new
@@ -34,7 +38,7 @@ class Business::ItemsController < BusinessController
         ItemCategory.create(item_id: @item.id, category_id: category_id)
       end
 
-      redirect_to admin_item_path(@item)
+      redirect_to item_path(@item)
     else
       render :edit
     end
@@ -66,6 +70,7 @@ class Business::ItemsController < BusinessController
       image: item_params[:image],
       business_id: item_params[:business_id],
       item_status_id: item_params[:item_status_id],
+      category_ids: item_params[:category_ids],
       price: item_params[:price_in_dollars].to_f * 100 }
   end
 end

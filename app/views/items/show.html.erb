@@ -28,10 +28,11 @@
     </p>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <h3>More items by this supplier</h3>
-     <% @item.item_of_biz.last(4).each do |item| %>
+    <% @item.item_of_biz.last(4).each do |item| %>
       <div class="col-sm-3 other-business-items">
         <figcaption><%= link_to item.title, @item_show %></figcaption>
         <%= link_to image_tag(item.image, size: "100"), @item_show %>
