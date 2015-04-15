@@ -15,7 +15,7 @@ class BusinessController < ApplicationController
   end
 
   def edit
-    @business = Business.find(params[:id])
+    @business = Business.find(params[:slug])
   end
 
   def create
@@ -25,7 +25,9 @@ class BusinessController < ApplicationController
   end
 
   def update
-    @business = Business.find(params[:id])
+    require 'pry'
+    binding.pry
+    @business = Business.find(params[:slug])
     @business.update(business_params)
     redirect_to show_business_path(@business.slug)
   end
