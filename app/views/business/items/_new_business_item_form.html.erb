@@ -1,9 +1,11 @@
 <div class="container">
+
   <div id="form">
-    <%= form_for([:admin, @item], html: { multipart: true, class: "form-group" }) do |f| %>
+    <%= form_for([:business, @item], url: business_items_path, html: { multipart: true, class: "form-group" }) do |f| %>
+
       <% if @item.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@item.errors.count, "error") %> prohibited this phone_number from being saved:</h2>
+          <h2><%= pluralize(@item.errors.count, "error") %></h2>
           <ul>
             <% @item.errors.full_messages.each do |message| %>
               <li><%= message %></li>
@@ -11,6 +13,7 @@
           </ul>
         </div>
       <% end %>
+
       <div class="form-group">
         <%= f.label "Supply Name" %><br>
         <%= f.text_field :title, class: "form-control" %>
@@ -25,8 +28,8 @@
       </div>
       <div class="form-group">
         <p>
-          <%= f.label :image, "Attach an Image" %><br />
-          <%= f.file_field :image %>
+        <%= f.label :image, "Attach an Image" %><br />
+        <%= f.file_field :image %>
         </p>
       </div>
       <div class="form-group">
@@ -38,9 +41,9 @@
             <span class="input-group-addon">
               <h4>Available Categories</h4>
               <% category_all.each do |category| %>
-              <div class="row form-control">
-                <%= check_box_tag 'category_ids[]', category.id, @item.categories.include?(category)%>
-                <%= category.name %>
+                <div class="row form-control">
+                  <%= check_box_tag 'category_ids[]', category.id, @item.categories.include?(category)%>
+                  <%= category.name %>
                 </div>
               <% end %>
             </span>
