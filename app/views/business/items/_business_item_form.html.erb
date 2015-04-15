@@ -35,21 +35,22 @@
         <%= f.label "Item Status" %><br/>
         <%= f.collection_select(:item_status_id, ItemStatus.all, :id, :state) %>
       </div>
-      <div class="row form-group">
-        <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-12">
           <div class="input-group">
-            <span class="input-group-addon">
+            <%= f.label "Item Categories" %><br/>
               <% category_all.each do |category| %>
+              <div class="form-group">
                 <%= check_box_tag 'category_ids[]', category.id, @item.categories.include?(category)%>
                 <%= category.name %>
+                </div>
               <% end %>
-            </span>
-            <input type="text" class="form-control" aria-label="...">
           </div>
         </div>
       </div>
 
       <div class="actions">
+        <%= link_to "Cancel", show_business_path(@business.slug), class: "btn btn-danger", id: "btn-delete" %>
         <%= f.submit class: "btn btn-supply" %>
       </div>
     <% end %>
