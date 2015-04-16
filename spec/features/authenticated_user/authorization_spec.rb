@@ -6,7 +6,11 @@ RSpec.describe "Authenticated user", type: :feature do
     login(user)
   end
 
-  it "cannot view another user's profile page"
+  it "cannot view another user's profile page" do
+    other_user = create(:business_owner)
+    visit user_path(other_user)
+    expect(current_path).to eq(root_path)
+  end
 
   it "should not be able to view a business edit page" do
     business_owner = create(:business_owner)
