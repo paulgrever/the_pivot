@@ -18,7 +18,7 @@
 
 <div class="container">
   <div class="col-sm-6 visible-md visible-lg">
-    <%= image_tag "droply-iphone.png", width: "562", height: "1100", title: "Droply Icon" %>
+    <%= image_tag "droply-new-iphone.png", width: "562", height: "1100", title: "Droply Icon" %>
   </div>
 
   <div class="row text-center features">
@@ -61,27 +61,27 @@
         <li>Quick delivery or pickup</li>
         <li>Bulk shipments</li>
       </ul>
-      <p> <%= button_to "Purchase", root_path, class: "btn btn-supply" %></p>
+      <p> <%= button_to "Purchase", root_path, class: "btn btn-supply", method: :get %></p>
     </div>
 
-    <div class="water col-md-3 col-md-offset-1 well pull-right">
+    <div class="water col-md-3 col-md-offset-1 col-xs-12 well pull-right">
       <h3><i class="glyphicon glyphicon-tint"></i> Water Packages </h3>
       <ul class="list-unstyled">
         <li>Bottled and bundled</li>
         <li>Purified</li>
         <li>Bulk shipments</li>
       </ul>
-      <p> <%= button_to "Purchase", root_path, class: "btn btn-supply" %></p>
+      <p> <%= button_to "Purchase", root_path, class: "btn btn-supply", method: :get %></p>
     </div>
 
-    <div class="airlift col-md-4 col-md-offset-1 well pull-right">
+    <div class="airlift col-md-4 col-md-offset-1 col-xs-12 well pull-right">
       <h3><i class="glyphicon glyphicon-plane"></i> Airlift Deliveries</h3>
       <ul class="list-unstyled">
         <li>Hundred of available dropzones</li>
         <li>Available overseas</li>
         <li>Supplier discounts</li>
       </ul>
-      <p> <%= button_to "Purchase", root_path, class: "btn btn-supply" %></p>
+      <p> <%= button_to "Purchase", root_path, class: "btn btn-supply", method: :get %></p>
     </div>
 
   </div> <!-- row text-center -->
