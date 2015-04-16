@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe "the authenticated user checkout", type: :feature do
-  context "a user with account information" do
+RSpec.describe "an authenticated user", type: :feature do
+  context "with valid account information" do
     it "can checkout" do
       business = create(:business)
       create(:item, business_id: business.id)
@@ -21,7 +21,7 @@ RSpec.describe "the authenticated user checkout", type: :feature do
     end
   end
 
-  context "a user without account information" do
+  context "without valid account information" do
     it "cannot checkout" do
       business = create(:business)
       create(:item, business_id: business.id)
