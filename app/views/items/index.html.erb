@@ -18,27 +18,30 @@
       <% end %>
     </div>
 
-    <div class="row">
-      <% @items.each do |item| %>
-        <div class="col-sm-3 text-center item">
+    <div class="container">
 
-          <%= div_for(item, class: "divider") do %>
-            <% @item_show = item_path(item) %>
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col-sm-3 text-center item">
 
-            <h4><%= link_to item.title, @item_show %></h4>
-            <%= link_to image_tag(item.image, size: "200"), @item_show %>
-            <div class="row">
-              <p class = "spacer col-md-12"><em><%=item.description %></em></p>
-              <h4 class="text center"> $<%= item.price_in_dollars %> </h4>
-            </div>
-            <div id='<%= "cart-button-#{item.id}" %>'>
-              <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
-            </div>
-          <% end %>
+            <%= div_for(item, class: "divider") do %>
+              <% @item_show = item_path(item) %>
 
-        </div> <!-- col-sm-3 text-center item -->
-      <% end %>
+              <h4><%= link_to item.title, @item_show %></h4>
+              <%= link_to image_tag(item.image, size: "200"), @item_show %>
+              <div class="row">
+                <p class = "spacer col-md-12"><em><%=item.description %></em></p>
+                <h4 class="text center"> $<%= item.price_in_dollars %> </h4>
+              </div>
+              <div id='<%= "cart-button-#{item.id}" %>'>
+                <%= button_to "Add to cart", cart_items_path(item_id: item), class: "btn btn-supply" %>
+              </div>
+            <% end %>
+
+          </div> <!-- col-sm-3 text-center item -->
+        <% end %>
+      </div>
     </div>
+    <%= will_paginate class: "text-center" %>
   </div>
-  <%= will_paginate class: "text-center" %>
 </div>
