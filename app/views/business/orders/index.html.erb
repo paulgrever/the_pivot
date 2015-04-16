@@ -1,13 +1,14 @@
+<div class="container">
 <h1>Admin Dashboard</h1>
 <% if @orders.count == 0 %>
   <h1>Cheer up! Business will come.</h1>
 <% else%>
 
 <div class="col-sm-3" id="admin-buttons">
-  <p><%= link_to "Create New Item", new_item_path(:slug), class: "btn btn-success" %></p>
+  <p><%= link_to "Create New Item", new_item_path(@business.slug), class: "btn btn-success" %></p>
 </div>
 <div class="col-sm-3" id="admin-buttons">
-  <p><%= link_to "Your Business Page", show_business_path(:slug), class: "btn btn-success" %></p>
+  <p><%= link_to "Your Business Page", show_business_path(@business.slug), class: "btn btn-success" %></p>
 </div>
 <br>
 <br>
@@ -42,7 +43,7 @@
           <td><%= link_to "#{order.user.full_name}", user_path(order.user) %></td>
           <td><%= link_to "#{order.user.email}", user_path(order.user) %></td>
 
-          <!-- <td><%= format_time(order.created_at) %></td> -->
+          <!-- <td><%#= format_time(order.created_at) %></td> -->
           <td><%= order.status.state %></td>
         </tr>
       <% end %>

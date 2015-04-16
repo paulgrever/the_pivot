@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
   validates :full_name, presence: true
-  # validates :email,
-  #            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   has_secure_password
   has_many :orders
   has_many :businesses
@@ -39,5 +37,9 @@ class User < ActiveRecord::Base
     if email
       SignUpMailer.sign_up_email(self).deliver_now
     end
+  end
+
+  def checkout_ready?
+    credit_card.present? && shipping_address.present? && billing_address.present? && email.present?
   end
 end

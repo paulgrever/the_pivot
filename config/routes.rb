@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get    "/auth/failure",            to: "sessions#failure"
   delete "/logout",                  to: "sessions#destroy"
 
-  resources :users
+  resources :users,      except: [:index, :new]
   resources :items,      only:   [:index, :show]
   resources :orders,     only:   [:index, :show, :create]
   resources :categories, only:   [:show]
@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :business, except: [:show, :index, :edit, :create]
-  post "/business/new", as: "create_business", to: "business#create"
+  post "/business/new", as: "businesses", to: "business#create"
   get  "/:slug", as: "show_business", to: "business#show"
   get  "/:slug/edit", as: "edit_business", to: "business#edit"
 end

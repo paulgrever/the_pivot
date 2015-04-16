@@ -1,6 +1,6 @@
 module OrdersHelper
   def ordered
-    self.where(status_id: 1)
+    current_user.businesses.first.orders.where(status_id: 1)
   end
 
   def paid

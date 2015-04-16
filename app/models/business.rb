@@ -6,6 +6,7 @@ class Business < ActiveRecord::Base
   validates :user, presence: true
   has_many :items
   before_validation :generate_slug
+  scope :pending, -> { where(status: "pending") }
 
   def generate_slug
     self.slug = name.parameterize

@@ -2,7 +2,8 @@ class Business::OrdersController < BusinessController
   helper OrdersHelper
 
   def index
-    @orders = current_user.businesses.first.orders
+    @business = current_user.businesses.first
+    @orders = @business.orders
     if @orders.count <= 0
       @ordered_orders   = @order.where(status_id: 1)
       @paid_orders      = @order.where(status_id: 2)

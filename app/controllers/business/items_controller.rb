@@ -21,9 +21,11 @@ class Business::ItemsController < BusinessController
 
   def new
     @item = Item.new
+    @business = current_user.businesses.first
   end
 
   def edit
+    @business = Business.find_by(slug: params[:slug])
   end
 
   def show

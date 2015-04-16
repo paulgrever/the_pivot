@@ -1,3 +1,4 @@
-<h3>Edit <%= @item.title %> </h3>
-<%= render 'business_item_form' %>
-<%= link_to "Cancel", items_path, class: "btn btn-danger", id: "btn-delete" %>
+<div class="container">
+  <h3>Edit <span class="team"><%= @item.title %></span> </h3>
+  <%= render 'business_item_form' %>
+</div>

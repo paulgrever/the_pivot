@@ -1,15 +1,15 @@
 <div id="edit-account-info">
   <%= form_for(@user) do |f| %>
-    <div class="form-group">
-      <%=f.label  "shipping address" %>
+    <div class="form-group"> 
+      <%=f.label "shipping address" %> <em class ="team">(*required for checkout)</em>
       <%= f.text_field :shipping_address, placeholder: "address, city, state, zipcode ", class: "form-control" %>
     </div>
     <div class="form-group">
-      <%=f.label  "billing address" %>
+      <%=f.label "billing address" %> <em class ="team">(*required for checkout)</em>
       <%= f.text_field :billing_address, placeholder: "address, city, state, zipcode ", class: "form-control" %>
     </div>
     <div class="form-group">
-      <%=f.label  "credit card" %>
+      <%=f.label "credit card" %> <em class ="team">(*required for checkout)</em>
       <%= f.text_field :credit_card, placeholder: "credit card number", class: "form-control" %>
     </div>
     <div class = "text-center">

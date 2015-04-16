@@ -1,5 +1,5 @@
 <div class="well well-width">
-  <h3>Pending Businesses Approvals</h3>
+  <h3>Pending Approvals</h3>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -11,8 +11,8 @@
     <tbody>
       <% @businesses.each do |business| %>
       <tr>
-        <td><%= link_to business.name, show_business_path(business.slug), class: "btn btn-info" %></td>
-        <td><%= button_to "Approve", business_path(id: business.id, business: {status: "approved"}), class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to business.name, show_business_path(business.slug), class: "btn btn-supply" %></td>
+        <td><%= button_to "Approve", business_path(id: business.id, business: {status: "approved"}), method: :patch, class: "btn btn-sm btn-success" %></td>
         <td><%= button_to "Deny", business_path(id: business.id), method: :delete, class: "btn btn-sm btn-danger" %></td>
       </tr>
       <% end %>
