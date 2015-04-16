@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-
-  def new
-    @user = User.new
-  end
+  before_action :authorize_user, except: :create
 
   def create
     @user = User.new(user_params)
@@ -35,6 +32,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def authorize_user
+    if current_user.nil?
+      redirect_to root_path
+    end
+  end
 
   def set_user
     @user = User.find(params[:id])

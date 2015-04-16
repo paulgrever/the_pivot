@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get    "/auth/failure",            to: "sessions#failure"
   delete "/logout",                  to: "sessions#destroy"
 
-  resources :users
+  resources :users,      except: [:index, :new]
   resources :items,      only:   [:index, :show]
   resources :orders,     only:   [:index, :show, :create]
   resources :categories, only:   [:show]
