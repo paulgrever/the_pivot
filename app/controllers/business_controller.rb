@@ -60,7 +60,7 @@ class BusinessController < ApplicationController
   end
 
   def authorize_user
-    if current_user.nil?
+    if current_user.nil? || !current_user.business_owner?
       redirect_to root_path
     end
   end
