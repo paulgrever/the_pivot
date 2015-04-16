@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
         flash[:success] = "Your order has been created."
         redirect_to order
       else
-        flash[:danger] = "Your account information is incomplete."
+        flash[:danger] = "You are missing information required for checkout."
         redirect_to edit_user_path(current_user)
       end
     else
