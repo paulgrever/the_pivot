@@ -1,0 +1,57 @@
+<h1> business Orders Dashboard</h1>
+
+  <% @statuses.each do |status| %>
+    <div class="status">
+      <%= link_to status.state, business_orders_path(:slug) %>
+      <%= status.orders.count %>
+    </div>
+   <% end %>
+<%= link_to "All Orders", business_orders_path(:slug) %>
+
+<table class="" border ="1">
+  <tr>
+    <th class="medium-column">Order ID</th>
+    <th>User name</th>
+    <th>Status </th>
+    <th class="money">Cost</th>
+    <th class="large-column">Details | business Order Update </th>
+
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td class="medium-column"><%= order.id %>
+      <td><%= order.user_full_name %>
+      <td><%= order.order_status %></td>
+      <td class="money"><%= number_to_currency(order.order_total_cost) %> </td>
+      <td class="large-column"><%=link_to "Details", order, class: "btn btn-details float-left" %>
+
+      <% if order.order_status == "Paid" %>
+        <%= form_for(order, url: business_order_path(:slug)) do |f| %>
+          <%= f.hidden_field :status_id, value: 4 %>
+          <%= f.submit "Completed", class: "btn btn-success float-left" %>
+        <% end %>
+
+        <%= form_for(order, url: business_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 3 %>
+          <%= f.submit "Cancel", class: "btn btn-danger float-left" %>
+        <% end %>
+
+
+      <% elsif order.order_status == "Ordered" %>
+        <%= form_for(order, url: business_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 2 %>
+          <%= f.submit "Paid", class: "btn btn-success float-left" %>
+        <% end %>
+
+        <%= form_for(order, url: business_order_path(order)) do |f| %>
+          <%= f.hidden_field :status_id, value: 3 %>
+          <%= f.submit "Cancel", class: "btn btn-danger float-left" %>
+        <% end %>
+
+      <% else %>
+        <p></p>
+      <% end %></td>
+
+  <% end %>
+  <div style="clear:both;"></div>
+  </table>
