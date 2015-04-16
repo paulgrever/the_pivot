@@ -12,7 +12,7 @@ RSpec.describe "an authenticated user", type: :feature do
                      credit_card: "1234567890")
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(@user)
-      login(@user)
+
       visit items_path
       click_on "Add to cart"
       visit cart_items_path
@@ -26,15 +26,11 @@ RSpec.describe "an authenticated user", type: :feature do
       business = create(:business)
       create(:item, business_id: business.id)
       create(:status)
+
       @user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(@user)
-      login(@user)
-      visit items_path
-      click_on "Add to cart"
-      allow_any_instance_of(ApplicationController).to receive(:current_user).
-        and_return(@user)
-      login(@user)
+
       visit items_path
       click_on "Add to cart"
       visit cart_items_path
