@@ -3,9 +3,10 @@ require "rails_helper"
 describe "the category view", type: :feature do
   context "as an admin" do
     before :each do
-      @category = Category.create(name: "Food")
+      @category  = Category.create(name: "Food")
       @category2 = Category.create(name: "Water")
-      @admin = FactoryGirl.create(:admin)
+      @admin     = create(:admin)
+      @admin.make_admin
       login(@admin)
       visit admin_categories_path
     end

@@ -1,26 +1,6 @@
 require "rails_helper"
 
 RSpec.describe "the user show page", type: :feature do
-  context "before logging in" do
-    before :each do
-      @user = create(:user)
-    end
-
-    xit "cannot access the page unless loged in" do
-      visit items_path
-      visit user_path(@user)
-      expect(current_path).to eq(root_path)
-      expect(page).to have_content("You are not
-        authorized to access this page.")
-    end
-
-    it "is valid if user is authenticated" do
-      login(@user)
-      visit user_path(@user)
-      expect(page).to have_content("Default user")
-    end
-  end
-
   context "after logging in"do
     before :each do
       @user = create(:user)
@@ -31,6 +11,7 @@ RSpec.describe "the user show page", type: :feature do
              item_id: item.id,
              order_id: order.id)
       visit user_path(@user)
+      expect(current_path).to eq(user_path(@user))
     end
 
     it "displays a user's recent order" do
