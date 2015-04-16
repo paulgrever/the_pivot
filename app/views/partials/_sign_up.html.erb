@@ -2,6 +2,7 @@
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
   <h4 class="modal-title" id="myModalLabel">Sign up</h4>
 </div>
+
 <div class="modal-body">
   <%= form_for(User.new) do |f| %>
     <div class="form-group">
@@ -28,13 +29,14 @@
       <%= f.label "Profile Image Url" %> *
       <%= f.text_field :image, placeholder: "image url", class: "form-control" %>
     </div>
-    <em>(*optional)</em>
-    <div class="text-center">
-      <%= f.submit "Sign up", class: "btn btn-tour navbar-btn", id: "sign-in"%>
+</div>
+
+<div class="modal-footer">
+    <div class="form-group">
+      <%= f.submit "Sign up", class: "btn btn-default" %>
     </div>
   <% end %>
-</div>
-<div class="modal-footer">
-  Sign up with:
-  <%= button_to "Sign up with Twitter", "/auth/twitter", class: "btn btn-primary" %>
+  <div class="pull-right">
+    <%= button_to "Sign up with Twitter", "/auth/twitter", class: "btn btn-primary" %>
+  </div>
 </div>

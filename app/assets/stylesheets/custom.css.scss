@@ -91,6 +91,10 @@ li { list-style: none; }
   color: $site-light-grey;
 }
 
+.btn.btn-default {
+  color: $site-red;
+}
+
 .btn:hover {
   color: $site-grey;
 }
