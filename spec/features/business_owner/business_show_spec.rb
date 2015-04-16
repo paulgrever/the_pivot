@@ -4,7 +4,8 @@ RSpec.describe "Business owner", type: :feature do
   it "has access to an 'Edit business profile' link for their business" do
     business_owner = create(:business_owner)
     business_owner.make_business_owner
-    business = Business.create!(user: business_owner, name: "New Water Merchant")
+    business = Business.create!(user: business_owner,
+                                name: "New Water Merchant")
 
     visit show_business_path(business.slug)
     expect(page).to have_content("Update Business Information")
@@ -16,7 +17,7 @@ RSpec.describe "Business owner", type: :feature do
     other_business_owner = create(:business_owner2)
     other_business_owner.make_business_owner
     Business.create!(name: "New Water Merchant",
-                                user: business_owner)
+                     user: business_owner)
     other_business = Business.create!(name: "Other Business",
                                       user: other_business_owner)
     login(business_owner)
@@ -28,7 +29,8 @@ RSpec.describe "Business owner", type: :feature do
   it "can update their business info" do
     business_owner = create(:business_owner)
     business_owner.make_business_owner
-    business = Business.create!(user: business_owner, name: "New Water Merchant")
+    business = Business.create!(user: business_owner,
+                                name: "New Water Merchant")
     login(business_owner)
 
     visit show_business_path(business.slug)
@@ -41,8 +43,10 @@ RSpec.describe "Business owner", type: :feature do
   it "can't update their name to an existing business name" do
     business_owner = create(:business_owner)
     business_owner.make_business_owner
-    business = Business.create!(user: business_owner, name: "New Water Merchant")
-    other_business = Business.create!(name: "Other Business", user: business_owner)
+    business = Business.create!(user: business_owner,
+                                name: "New Water Merchant")
+    other_business = Business.create!(name: "Other Business",
+                                      user: business_owner)
     login(business_owner)
 
     visit show_business_path(business.slug)
