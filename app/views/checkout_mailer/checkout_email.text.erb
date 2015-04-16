@@ -1,1 +1,15 @@
-hi
+Hi <%= @user.full_name %>, 
+
+Thank you for placing an order at Droply on <%= @order.date %>. Your life saving supplies <%= @order.items.pluck(:title).to_sentence %> will be delivered to <%= @order.user.shipping_address %>.
+
+The total cost of your order was $<%= @order.order_total_cost.round(2) %>
+
+Thanks for your support,
+
+The Droply Team
+
+
+Contact Us:
+<%= mail_to "droply.supplies@gmail.com", "contact@drop.ly",  style: "color: #E3655B" %>
+1-555-droply
+1510 Blake St, Denver, CO

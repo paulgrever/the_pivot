@@ -6,12 +6,9 @@
   <body style = "background: #A4F2EA; color: #E3655B; ">
     <h3>Hi <%= @user.full_name %>, </h3>
 
-    <p>Thank you for placing an order at Droply on <%=  @order.date %>. Your life saving supplies <%= @order.items.pluck(:title).to_sentence %> will be delivered to <%= @order.user.shipping_address %>.</p>
+    <p>Thank you for placing an order at Droply on <%= @order.date %>. Your life saving supplies <%= @order.items.pluck(:title).to_sentence %> will be delivered to <%= @order.user.shipping_address %>.</p>
 
     <p>The total cost of your order was $<%= @order.order_total_cost.round(2) %> </p>
-
-    <p>You can review this order at anytime <%= link_to("Your Order", order_path(@order)) %></p>
-
 
     <p>Thanks for your support,</p>
     <h4><strong>The Droply Team</strong></h4>

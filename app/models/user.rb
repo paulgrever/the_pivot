@@ -40,8 +40,6 @@ class User < ActiveRecord::Base
   end
 
   def checkout_ready?
-    if credit_card.present? && shipping_address.present? && billing_address.present?
-      true
-    end
+    credit_card.present? && shipping_address.present? && billing_address.present?
   end
 end
