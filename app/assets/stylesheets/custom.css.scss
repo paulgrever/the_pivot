@@ -29,7 +29,7 @@ body {
   border-color: $site-grey;
 }
 
-.col-md-4 > h3 {
+h3.values {
   color: $site-grey;
 }
 
@@ -51,10 +51,18 @@ body {
 }
 
 .jumbotron {
-  background-color: $site-mint;
+  background-color: $site-red;
 }
 
 a { color: $site-red; }
+
+a.dropdown-toggle {
+  color: $site-red;
+}
+
+a.btn-details {
+  color: $site-red;
+}
 
 li { list-style: none; }
 
