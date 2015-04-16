@@ -15,7 +15,7 @@
           <% if current_user.nil? || !current_user.admin?%>
             <% @item_show = item_path(item)  %>
           <% else %>
-            <% @item_show = admin_item_path(item) %>
+            <% @item_show = item_path(item) %>
           <% end %>
 
           <h4><%= link_to item.title, @item_show %></h4>
