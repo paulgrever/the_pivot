@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
         redirect_to order
       else
         flash[:danger] = "Your account information is incomplete."
-        redirect_to  edit_user_path(current_user)
+        redirect_to edit_user_path(current_user)
       end
     else
       flash[:danger] = "Please login to checkout."
