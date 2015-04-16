@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
   validates :full_name, presence: true
-  # validates :email,
-  #            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   has_secure_password
   has_many :orders
   has_many :businesses

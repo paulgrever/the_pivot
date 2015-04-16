@@ -1,4 +1,6 @@
 class BusinessController < ApplicationController
+  before_action :authorize_user, except: :show
+
   def show
     @business = Business.find_by(slug: params[:slug])
     if @business.nil?
@@ -55,5 +57,11 @@ class BusinessController < ApplicationController
 
   def approval_params
     params.require(:business).permit(:status)
+  end
+
+  def authorize_user
+    if current_user.nil?
+      redirect_to root_path
+    end
   end
 end
