@@ -33,7 +33,7 @@ describe "admin dashboard" do
       expect(page).to have_content(@business.name)
     end
 
-    xit "approve request" do
+    it "approve request" do
       visit admin_dashboard_path
       expect(page).to have_content(@business.name)
       click_link_or_button("Approve")
