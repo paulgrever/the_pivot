@@ -1,6 +1,7 @@
 class CheckoutMailer < ApplicationMailer
-  def check_out_email(user)
+  def checkout_email(user, order)
     @user = user
+    @order = order
     mail(to: @user.email, subject: "Your Droply Order ")
   end
 end

@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
         order = Order.create(user_id: current_user.id)
         cart.create_order_items(order)
         session.delete(:cart)
+        CheckoutMailer.checkout_email(current_user, order).deliver_now
         TwilioNotifier.new(order).notify
         flash[:success] = "Your order has been created."
         redirect_to order
