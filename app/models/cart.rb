@@ -41,6 +41,7 @@ class Cart
   def create_order_items(order)
     data.each do |item_id, qty|
       order.order_items.create(item_id: item_id, quantity: qty)
+      order.businesses << Item.find(item_id).business
     end
   end
 end

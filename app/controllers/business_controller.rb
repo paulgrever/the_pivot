@@ -1,5 +1,5 @@
 class BusinessController < ApplicationController
-  before_action :authorize_user, except: :show
+  before_action :authorize_user, except: [:show, :new, :create, :update]
 
   def show
     @business = Business.find_by(slug: params[:slug])
@@ -29,6 +29,7 @@ class BusinessController < ApplicationController
   def update
     @business = Business.find_by(id: params[:id])
     if @business.update_attributes(business_params)
+      @business.user.make_business_owner
       redirect_to show_business_path(@business.slug)
     else
       flash[:danger] = "Your business was not updated."
