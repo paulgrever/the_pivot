@@ -40,4 +40,10 @@ class User < ActiveRecord::Base
       SignUpMailer.sign_up_email(self).deliver_now
     end
   end
+
+  def checkout_ready?
+    if credit_card && shipping_address && billing_address
+      "hit"
+    end
+  end
 end

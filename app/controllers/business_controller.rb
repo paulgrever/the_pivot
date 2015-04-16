@@ -15,7 +15,7 @@ class BusinessController < ApplicationController
   end
 
   def edit
-    @business = Business.find(params[:slug])
+    @business = Business.find_by(slug: params[:slug])
   end
 
   def create
@@ -25,9 +25,13 @@ class BusinessController < ApplicationController
   end
 
   def update
-    @business = Business.find(params[:slug])
-    @business.update(business_params)
-    redirect_to show_business_path(@business.slug)
+    @business = Business.find_by(id: params[:id])
+    if @business.update_attributes(business_params)
+      redirect_to show_business_path(@business.slug)
+    else
+      flash[:danger] = "Your business was not updated."
+      redirect_to :back
+    end
   end
 
   def destroy
