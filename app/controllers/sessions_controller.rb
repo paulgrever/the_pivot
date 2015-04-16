@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.full_name}."
-      redirect_to :back
+      redirect_to items_path
     else
       flash[:danger] = "Invalid login."
       render(:new)
