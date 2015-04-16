@@ -3,6 +3,9 @@ FactoryGirl.define do
     email "default.user@mail.com"
     full_name "Default user"
     password "password"
+    shipping_address "1510 Blake St"
+    billing_address "1510 Blake St"
+    credit_card "4242424242424242"
   end
 
   factory :admin, class: User do
