@@ -26,10 +26,11 @@ class BusinessController < ApplicationController
 
   def update
     @business = Business.find_by(id: params[:id])
-    if @business.update(business_params)
+    if @business.update_attributes(business_params)
       redirect_to show_business_path(@business.slug)
     else
-      render(:update)
+      flash[:danger] = "Your business was not updated."
+      redirect_to :back
     end
   end
 
