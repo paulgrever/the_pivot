@@ -4,11 +4,11 @@ RSpec.describe "the authenticated user checkout", type: :feature do
   context "a user with account information" do
     it "can checkout" do
       business = create(:business)
-      create(:item, business_id: business.id )
+      create(:item, business_id: business.id)
       create(:status)
       @user = create(:user,
                      shipping_address: "1510 Blake St",
-                     billing_address: "2810 Center Ave", 
+                     billing_address: "2810 Center Ave",
                      credit_card: "1234567890")
       allow_any_instance_of(ApplicationController).to receive(:current_user).
         and_return(@user)
@@ -22,9 +22,9 @@ RSpec.describe "the authenticated user checkout", type: :feature do
   end
 
   context "a user without account information" do
-    it "cannot checkout" do 
+    it "cannot checkout" do
       business = create(:business)
-      create(:item, business_id: business.id )
+      create(:item, business_id: business.id)
       create(:status)
       @user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).
